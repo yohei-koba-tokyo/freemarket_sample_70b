@@ -92,7 +92,9 @@ Things you may want to cover:
 - has_one :solditems, dependent: :destroy
 - has_many :item-images, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many : likes, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :item_categories, dependent: :destroy
+- has_many :categories, through: :item_categories
 
 ## item-imagesテーブル
 |Column|Type|Options|
@@ -111,26 +113,24 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :user
 
-## categories1テーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category1|string|null: false,|
+|name|string|null: false|
+|ancestory|string|-------|
 ### Association
-- has_many :items
+- has_many :item_categories ,dependent: :destroy
+- has_many :items, through: :item_categories
+- has_ancestry
 
-## categories2テーブル
+## item_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category2|string|null: false|
+|category_id|string|null: false|
+|item_id|string|null: false|
 ### Association
-- has_many :items
-
-## categories3テーブル
-|Column|Type|Options|
-|------|----|-------|
-|category3|string|null: false|
-### Association
-- has_many :items
+- belongs_to :items
+- belongs_to :categories
 
 ## commentsテーブル
 |Column|Type|Options|
