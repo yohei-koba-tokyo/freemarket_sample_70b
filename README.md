@@ -35,6 +35,8 @@ Things you may want to cover:
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
+|birthday|integer|-------|
+|profile|text|-------|
 ### Association
 - has_one :profile, dependent: :destroy
 - has_many :creditcards, dependent: :destroy
@@ -43,11 +45,9 @@ Things you may want to cover:
 - has_many :likes, dependent: :destroy
 - has_many :solditems, dependent: :destroy
 
-## profilesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|birthday|integer|-------|
-|profile|text|-------|
 |postcode|string|-------|
 |prefecture|string|-------|
 |municipality|string|-------|
@@ -126,8 +126,8 @@ Things you may want to cover:
 ## item_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_id|string|null: false|
-|item_id|string|null: false|
+|category_id|string|null: false, foreign_key: true|
+|item_id|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :items
 - belongs_to :categories
