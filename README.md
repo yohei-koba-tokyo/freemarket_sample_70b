@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 
 以下DB設計を書く
+テスト
