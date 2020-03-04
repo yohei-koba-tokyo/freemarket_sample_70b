@@ -73,9 +73,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|category1|integer|null: false, foreign_key: true|
-|category2|integer|null: false, foreign_key: true|
-|category3|integer|null: false, foreign_key: true|
 |brand|string|-------|
 |condition|string|null: false|
 |postage|integer|null: false|
@@ -86,10 +83,7 @@ Things you may want to cover:
 |status|integer|null: false|
 ### Association
 - belongs_to :user
-- belongs_to :category1
-- belongs_to :category2
-- belongs_to :category3
-- has_one :solditems, dependent: :destroy
+- has_one :solditem, dependent: :destroy
 - has_many :item-images, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
@@ -129,8 +123,8 @@ Things you may want to cover:
 |category_id|string|null: false, foreign_key: true|
 |item_id|string|null: false, foreign_key: true|
 ### Association
-- belongs_to :items
-- belongs_to :categories
+- belongs_to :item
+- belongs_to :category
 
 ## commentsテーブル
 |Column|Type|Options|
