@@ -129,19 +129,18 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|items_id|integer|null: false, foreign_key: true|
-|users_id|integer|null: false, foreign_key: true|
-|comment_id|text|null: false|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|comment|text|null: false|
 ### Association
-- belongs_to :group
+- belongs_to :item
 - belongs_to :user
 
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|items_id|integer|null: false, foreign_key: true|
-|users_id|integer|null: false, foreign_key: true|
-|like|boolean|null: false|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
+- belongs_to :item
 - belongs_to :user
