@@ -35,12 +35,12 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 ### Association
-- has_one :profile
-- has_many :creditcards
-- has_many :items
-- has_many :comments
-- has_many :likes
-- has_many :solditems
+- has_one :profile, dependent: :destroy
+- has_many :creditcards, dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :solditems, dependent: :destroy
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -88,10 +88,10 @@ Things you may want to cover:
 - belongs_to :category1
 - belongs_to :category2
 - belongs_to :category3
-- has_one :solditems
-- has_many :item-images
-- has_many :comments
-- has_many : likes
+- has_one :solditems, dependent: :destroy
+- has_many :item-images, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many : likes, dependent: :destroy
 
 ## item-imagesテーブル
 |Column|Type|Options|
