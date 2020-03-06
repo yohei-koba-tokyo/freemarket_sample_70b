@@ -7,12 +7,14 @@
 
 
 .body{
-  // background-color: rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
 
   h2{
-    // margin: 0auto;
-    // background-color: white;
-    // text-align: center;
+    margin: 0auto;
+    text-align: center;
+    background-color: white;
+    height: 90px;
+    width: 700px;
     .confirmation-sentence{
       .--title{
 
@@ -29,7 +31,7 @@
 
     }
     .birthday{
-      // display: flex;
+      display: flex;
       .__year{
 
       }
