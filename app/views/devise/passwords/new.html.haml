@@ -19,19 +19,19 @@
       .title
         パスワードをお忘れの方
       .send-main
-        .send-panel
-          .address-group
-            %label(for="email") メールアドレス
+        .address-group
+          .address-form
+            .label(for="email") メールアドレス
             =email_field :email, class: "address-form", placeholder: "メールアドレス"
             %p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
-          -# .forms__pass-form
-          -#   =password_field :password, autocomplete: "current-password", class: "pass-form"
-          -# .wrapper__login-main__login-panel__forms__login-btn
-          -#   =submit "ログイン", class: "login-btn"
-          -# - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+            -# .forms__pass-form
+            -#   =password_field :password, autocomplete: "current-password", class: "pass-form"
+            -# .wrapper__login-main__login-panel__forms__login-btn
+            -#   =submit "ログイン", class: "login-btn"
+            -# - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
           .actions
             = submit_tag "送信する", class: "send-btn"
-      -# = render "devise/shared/links"
+        -# = render "devise/shared/links"
 
   .logo-footer
     .logo-footer__link

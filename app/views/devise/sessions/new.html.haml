@@ -41,10 +41,7 @@
         .forms__address-form
           =email_field :email, class: "address-form", placeholder: "メールアドレス"
         .forms__pass-form
-          =password_field :password, autocomplete: "current-password", class: "pass-form"
-        -# .wrapper__login-main__login-panel__forms__login-btn
-        -#   =submit "ログイン", class: "login-btn"
-        -# - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+          =password_field :password, autocomplete: "current-password", class: "pass-form", placeholder: "パスワード"
         .actions
           = submit_tag "ログイン", class: "login-btn"
         - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'

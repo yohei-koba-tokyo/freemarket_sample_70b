@@ -76,10 +76,10 @@
         &__address-form input{
           width: 320px;
           height: 48px;
-          color: black;
           // border: 1px solid #ccc;
           // border-radius: 4px;
           font-size: 16px;
+          color: black;
         }
         &__pass-form input{
           width: 320px;
@@ -88,6 +88,7 @@
           margin-top: 24px;
           // border-radius: 4px;
           font-size: 16px;
+          color: black;
         }
 
         .login-btn {
@@ -99,6 +100,7 @@
           margin-top: 24px;
           background-color: red;
           line-height: 48px;
+          font-size: 14px;
         }
         
         .forget-link {
@@ -146,7 +148,8 @@
 
 
 .forget-main {
-
+  width: 978px;
+  height: 548px;
   .forget-panel {
     width: 700px;
     height: 548px;
@@ -162,33 +165,40 @@
     }
     .send-main {
       border-top: solid 1px #eee;
-      height: 451px;
+      // height: 451px;
       padding: 64px;
-      .send-panel {
+      .address-group {
+        // display: block;
+        // display: flex;
         margin: 0 126px;
-        .address-group {
-          // display: block;
-          // display: flex;
-          .address-form {
-            width: 100%;
-            height: 200px;
-          }
-          .label {
-            font-size: 12px;
-          }
+        .label{
+          font-size: 13px;
+          font-weight: 600;
         }
-        .send-btn {
-          color: white;
-          text-decoration: none;
-          width: 100%;
+        &__address-form {
+          width: 320px;
           height: 48px;
-          // border: 1px solid red;
-          margin-top: 24px;
-          background-color: red;
-          line-height: 48px;
+          // border: 1px solid #ccc;
+          // margin-top: 24px;
+          // border-radius: 4px;
+          // font-size: 16px;
+          // padding: 300px;
         }
+        &__label {
+          font-size: 12px;
+        }
+      }
+      .send-btn {
+        color: white;
+        text-decoration: none;
+        width: 100%;
+        height: 48px;
+        // border: 1px solid red;
+        margin-top: 24px;
+        background-color: red;
+        line-height: 48px;
+        font-size: 14px;
       }
     }
   }
-
 }
