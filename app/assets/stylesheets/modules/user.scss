@@ -74,21 +74,38 @@
         margin: auto;
         padding: 24px 64px 32px;
         &__address-form input{
-          width: 320px;
-          height: 48px;
-          // border: 1px solid #ccc;
-          // border-radius: 4px;
           font-size: 16px;
-          color: black;
+          width: 286px;
+          height: 28px;
+          // margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          // padding: 10px 16px 8px;
+          font-size: 16px;
+          // width: 320px;
+          // height: 48px;
+          // border: 1px solid #ccc;
+          // margin-top: 24px;
+          border-radius: 4px;
+          border: 1px solid #ccc
+          // color: black;
+          // padding: 10px 16px 8px;
         }
-        &__pass-form input{
-          width: 320px;
-          height: 48px;
+        &__pass-form input {
+          font-size: 16px;
+          width: 286px;
+          height: 28px;
+          // margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          // padding: 10px 16px 8px;
+          font-size: 16px;
+          // width: 320px;
+          // height: 48px;
           // border: 1px solid #ccc;
           margin-top: 24px;
-          // border-radius: 4px;
-          font-size: 16px;
-          color: black;
+          border-radius: 4px;
+          border: 1px solid #ccc
+          // color: black;
+          // padding: 10px 16px 8px;
         }
 
         .login-btn {
@@ -146,58 +163,74 @@
 
 }
 
-
-.forget-main {
-  width: 978px;
-  height: 548px;
-  .forget-panel {
-    width: 700px;
-    height: 548px;
-    background-color: white;
-    margin: 0 auto;
-    .title {
-      font-weight: bold;
-      height: 97px;
-      // padding: 32px 16px;
-      font-size: 22px;
-      line-height: 97px;
-      margin: 0 228px;
-    }
-    .send-main {
-      border-top: solid 1px #eee;
-      // height: 451px;
-      padding: 64px;
-      .address-group {
-        // display: block;
-        // display: flex;
-        margin: 0 126px;
-        .label{
-          font-size: 13px;
-          font-weight: 600;
-        }
-        &__address-form {
-          width: 320px;
-          height: 48px;
-          // border: 1px solid #ccc;
-          // margin-top: 24px;
-          // border-radius: 4px;
-          // font-size: 16px;
-          // padding: 300px;
-        }
-        &__label {
-          font-size: 12px;
-        }
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  .forget-main {
+    width: 978px;
+    height: 448px;
+    margin: auto;
+    .forget-panel {
+      width: 700px;
+      height: 448px;
+      background-color: white;
+      margin: 0 auto;
+      .title {
+        font-weight: bold;
+        height: 97px;
+        // padding: 32px 16px;
+        font-size: 22px;
+        line-height: 97px;
+        margin: 0 228px;
+        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
       }
-      .send-btn {
-        color: white;
-        text-decoration: none;
-        width: 100%;
-        height: 48px;
-        // border: 1px solid red;
-        margin-top: 24px;
-        background-color: red;
-        line-height: 48px;
-        font-size: 14px;
+      .send-main {
+        border-top: solid 1px #eee;
+        height: 451px;
+        padding: 64px;
+        .address-group {
+          // display: block;
+          // display: flex;
+          margin: 0 126px;
+          height: 100%;
+          .address-form {
+            .label{
+              font-size: 13px;
+              font-weight: 600;
+            }
+            .form-address input{
+              font-size: 16px;
+              width: 286px;
+              height: 28px;
+              margin: 8px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc
+              // border: 1px solid #ccc;
+              // margin-top: 24px;
+              // border-radius: 4px;
+              // font-size: 16px;
+              // padding: 300px;
+            }
+            .p {
+              font-size: 12px;
+              margin: 8px 0 0;
+              color: #888888;
+            }
+          }
+        }
+        .send-btn {
+          color: white;
+          text-decoration: none;
+          width: 100%;
+          height: 48px;
+          // border: 1px solid red;
+          margin-top: 24px;
+          background-color: red;
+          line-height: 48px;
+          font-size: 14px;
+        }
       }
     }
   }

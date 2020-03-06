@@ -22,8 +22,9 @@
         .address-group
           .address-form
             .label(for="email") メールアドレス
-            =email_field :email, class: "address-form", placeholder: "メールアドレス"
-            %p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
+            .form-address
+              =email_field :email, class: "form-address", placeholder: "メールアドレス"
+            .p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
             -# .forms__pass-form
             -#   =password_field :password, autocomplete: "current-password", class: "pass-form"
             -# .wrapper__login-main__login-panel__forms__login-btn
