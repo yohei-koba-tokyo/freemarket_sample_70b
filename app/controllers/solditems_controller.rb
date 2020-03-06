@@ -1,0 +1,2 @@
+class SolditemsController < ApplicationController
+end
