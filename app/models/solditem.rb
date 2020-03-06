@@ -1,0 +1,2 @@
+class Solditem < ApplicationRecord
+end
