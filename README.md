@@ -90,7 +90,7 @@ Things you may want to cover:
 - has_many :item_categories, dependent: :destroy
 - has_many :categories, through: :item_categories
 
-## item-imagesテーブル
+## itemimagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
