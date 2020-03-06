@@ -1,25 +1,25 @@
 %header.pcHeader
   = render "shared/header"
           
-%div.main
+.main
   %section.mainVisual
-    %div.content
+    .content
       %h2.content__subtitle
         %br 人生を変えるフリマアプリ
       %p.content__text
         FURIMAはだれでもかんたんに出品・購入できる 
         %br/
         フリマアプリです
-      %div.content__btn
+      .content__btn
         = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
         = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
-    %div.picture
+    .picture
 
   %section.topIntroduction
     %h2.subtitle FURIMAが選ばれる３つの理由
     %ul.lists
       %li.list
-        %div.list__pict
+        .list__pict
           %span.number 1
           = image_tag "pict-reason-01.jpg"
         %h3.list__text
@@ -27,7 +27,7 @@
           ですぐに出品
         %p.list__description  スマホで入力するだけで簡単に出品できる！
       %li.list
-        %div.list__pict
+        .list__pict
           %span.number 2
           = image_tag "pict-reason-02.jpg"
         %h3.list__text
@@ -35,7 +35,7 @@
           で使いやすい
         %p.list__description  めんどくさい入力は必要なく、検索も購入もスムーズ！
       %li.list.list--last
-        %div.list__pict
+        .list__pict
           %span.number 3
           = image_tag "pict-reason-03.jpg"
         %h3.list__text
@@ -44,20 +44,20 @@
         %p.list__description  最大３％でお得に出品＆購入！
 
   %section.topMiddleDI
-    %div.topMiddleDI__inner
+    .topMiddleDI__inner
       %h2.subtitle  会員数日本一位
       %p.text FURIMAは、フリマアプリで最も人気。
       %br/
       出品・購入回数も業界最多です！
       %br/
       ほしかったあの商品に出会えるかもしれません。
-      %div.btn
+      .btn
         = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
         = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
 
   %section.topKeyFeatures
     %h2.head  FURIMAの特徴
-    %div.items
+    .items
       %section.item
         %figure.item__image
           = image_tag "icon-01.png"
@@ -78,44 +78,44 @@
 
   %section.pickupContainer
     %h2.head ピックアップカテゴリー
-    %div.productBox
-      %div.productHead
+    .productBox
+      .productHead
         = link_to "#" do
           %h3.title 新規投稿商品
-      %div.productLists
-        %div.productList
+      .productLists
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a007.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product3
-              %div.details
+              .details
                 %ul
                   %li 3000円
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
 
-        %div.productList
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a004.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product2
-              %div.details
+              .details
                 %ul
                   %li 2000円
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
         
-        %div.productList
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a001.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product1
-              %div.details
+              .details
                 %ul
                   %li 1000円
                   %li
@@ -124,44 +124,44 @@
 
   %section.pickupContainer
     %h2.head ピックアップブランド
-    %div.productBox
-      %div.productHead
+    .productBox
+      .productHead
         = link_to "#" do
           %h3.title アーカイバ
-      %div.productLists
-        %div.productList
+      .productLists
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a007.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product3
-              %div.details
+              .details
                 %ul
                   %li 3000円
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
 
-        %div.productList
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a004.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product2
-              %div.details
+              .details
                 %ul
                   %li 2000円
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
         
-        %div.productList
+        .productList
           = link_to "#" do
             %figure.productList--img
               = image_tag "a001.png"
-            %div.productList--body
+            .productList--body
               %h3.name  product1
-              %div.details
+              .details
                 %ul
                   %li 1000円
                   %li
@@ -169,17 +169,17 @@
                 %p  (税込)
 
 %aside.appBanner
-  %div.inner
+  .inner
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
-    %div.inner__icon
+    .inner__icon
       = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
       = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
 
-%div.footer
+.footer
   = render "shared/footer"
 
 = link_to "#" do
-  %div.purchaseBtn
+  .purchaseBtn
     %span.purchaseBtn__text 出品する
     = image_tag "icon_camera.png"
