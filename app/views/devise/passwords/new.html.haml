@@ -1,15 +1,3 @@
--# %h2 Forgot your password?
--# = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .actions
--#     = f.submit "Send me reset password instructions"
--# = render "devise/shared/links"
-
-
 .wrapper
   .logo-header
     .logo
@@ -23,22 +11,14 @@
           .address-form
             .label(for="email") メールアドレス
             .form-address
-              =form_with url:email, class: "form-address"
-              =f.email_field, placeholder: "メールアドレス"
+              %input#address-input-field.address-form__input{:placeholder => "ご登録されたメールアドレス", :type => "text"}/
             .p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
-            -# .forms__pass-form
-            -#   =password_field :password, autocomplete: "current-password", class: "pass-form"
-            -# .wrapper__login-main__login-panel__forms__login-btn
-            -#   =submit "ログイン", class: "login-btn"
-            -# - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
           .actions
             = submit_tag "送信する", class: "send-btn"
-        -# = render "devise/shared/links"
-
   .logo-footer
     .logo-footer__link
       = link_to "プライバシーポリシー"
       = link_to "FURIMA 利用規約"
       = link_to "特定商取引に関する表記"
-    .logo-footer__logo-white
+    .logo-footer__logo
       = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
