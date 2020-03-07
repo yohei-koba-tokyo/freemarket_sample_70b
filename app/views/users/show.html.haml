@@ -1,0 +1,95 @@
+.header
+  = render "shared/header"
+
+.mypage
+  .side
+    .side-top
+      %ul
+        %li マイページ
+        %li お知らせ        
+        %li やることリスト
+        %li いいね！一覧
+        %li 出品する
+        %li 出品した商品 - 出品中
+        %li 出品した商品 - 売却済み
+        %li 過去の取引
+        %li ニュース一覧
+        %li 評価一覧
+        %li ガイド
+        %li お問い合わせ
+    .side-pay
+      .side-pay__title
+        メルペイ
+      .side-pay__contents
+        %ul
+          %li 売上・振込申請
+          %li ポイント
+    .side-cog
+      .side-cog__title
+        設定
+      .side-cog__contents
+        %ul
+          %li プロフィール
+          %li 発送元・お届け先住所変更
+          %li 支払い方法
+          %li メール/パスワード
+          %li 本人情報
+          %li 電話番号
+          %li ログアウト
+  .main
+    .main-left
+      .block
+        .profile
+          .users-info
+            .users-info__icon
+            .users-info__name
+              山田
+          .sub-info
+            .assessment
+              .assessment__title
+                評価
+              .assessment__num
+                0
+            .exhibit
+              .exhibit__title
+                出品数
+              .exhibit__num
+                0
+      .contents
+        %h1
+          お知らせ
+        %h1
+          やることリスト
+      .main-left__list
+        %ul
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+    .main-right
+      .main-right__title
+        購入した商品
+      .main-right__contents
+        %h1
+          取引中
+        %h1
+          過去の取引
+      .main-right__dealings
+        %ul
+          %li
+          %li
+          %li
+          %li
+
+%aside.appBanner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
+      = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
+
+.footer
+  = render "shared/footer"

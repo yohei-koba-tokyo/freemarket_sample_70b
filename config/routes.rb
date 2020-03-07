@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :item_categories
   resources :comments
   resources :likes
+  resources :users
 end
 
