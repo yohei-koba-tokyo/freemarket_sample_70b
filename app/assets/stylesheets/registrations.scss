@@ -1,5 +1,3 @@
-
-
 .header{
   
 }
@@ -8,14 +6,36 @@
 
 .body{
   background-color: rgb(245, 245, 245);
+  width: 100%;
+  justify-content: center;
+
 
   h2{
-    margin: 0auto;
-    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     height: 90px;
     width: 700px;
+    margin-bottom: 1px;
+
+  .input-nickname{
+    margin: 0 auto;
+
+    background-color: white;
+    height: 90px;
+    width: 700px;
+  }
+    .input-mailadress{}
+    .input-password{}
+    .input-confirmation{}
+
+
+
     .confirmation-sentence{
+      background-color: white;
+      width: 700px;
       .--title{
 
       }
@@ -23,9 +43,9 @@
 
       }
 
-    }
+      }
     .name{
-    
+
     }
     .kananame{
 
@@ -42,9 +62,17 @@
 
       }
     }
-
+  
+    .button{
+      &--registration{
+        height: 30px;
+        width: 100px;
+        background-color: red;
+      }
+    }
   }
 }
+
 
 .footer{
 
