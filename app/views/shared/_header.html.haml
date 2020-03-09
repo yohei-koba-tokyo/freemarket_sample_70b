@@ -17,8 +17,11 @@
         = link_to "カテゴリー", "#"
       %li.listsLeft__item
         = link_to "ブランド", "#"
-    %ul.listsRight
-      %li.listsRight__item.listsRight__item--login
-        = link_to "ログイン", "#"
-      %li.listsRight__item.listsRight__item--new
-        = link_to "新規会員登録"
+    - if user_signed_in?
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          = link_to "ログイン", new_user_session_path
+        %li.listsRight__item.listsRight__item--new
+          = link_to "新規登録", new_user_registration_path

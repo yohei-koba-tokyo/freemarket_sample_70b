@@ -115,7 +115,7 @@ body {
     width: 30%;
     float: left;
     .side-top {
-      height: 600px;
+      height: 300px;
       li {
         height: 50px;
         background-color: white;
@@ -125,33 +125,37 @@ body {
         font-size: 13px;
         padding-left: 15px;
       }
-    }
-    .side-pay {
-      height: 130px;
-      margin-top: 30px;
-      &__title {
-        height: 30px;
-        background-color:#f5f5f5;
-        line-height: 30px;
-        font-weight: bold;
-        font-size: 15px;
-      }
-      li {
-        font-size: 13px;
-        height: 50px;
-        background-color: white;
-        border: 1px solid #f5f5f5;
-        padding-left: 15px;
-        line-height: 50px;
-
+      li:hover{
+        background-color: #f1f1f1;
       }
     }
+    // .side-pay {
+    //   height: 130px;
+    //   margin-top: 30px;
+    //   &__title {
+    //     height: 30px;
+    //     background-color:#fffdfd;
+    //     line-height: 30px;
+    //     font-weight: bold;
+    //     font-size: 15px;
+    //   }
+    //   li {
+    //     font-size: 13px;
+    //     height: 50px;
+    //     background-color: white;
+    //     border: 1px solid #f5f5f5;
+    //     padding-left: 15px;
+    //     line-height: 50px;
+    //   }
+    //   li:hover{
+    //     background-color: #f1f1f1;
+    //   }
+    // }
     .side-cog {
       height: 420px;
       margin-top: 30px;
       &__title {
         height: 30px;
-        background-color:#f5f5f5;
         font-weight: bold;
         font-size: 15px;
         line-height: 30px;
@@ -164,6 +168,9 @@ body {
         padding-left: 15px;
         line-height: 50px;
       }
+    li:hover{
+      background-color: #f1f1f1;
+    }
     }
   }
   .main {
@@ -174,7 +181,7 @@ body {
       height: 680px;
       .block{
         height: 200px;
-        background-image: url("mypage.img.jpg");
+        background-image: image-url("mypage.img.jpg");
         padding: 40px 100px 20px 100px ;
         .profile {
           height: 120px;
@@ -231,6 +238,9 @@ body {
           background-color: white;
           border: 1px solid #f5f5f5;
         }
+        li:hover{
+          background-color: #f1f1f1;
+        }
       }
     }
     .main-right {
@@ -266,10 +276,15 @@ body {
           background-color: white;
           border: 1px solid #f5f5f5;
         }
+        li:hover{
+          background-color: #f1f1f1;
+        }
       }
     }
   }
 }
+
+
 
 .appBanner {
   background-image: url(bg-appBanner-pict.jpg);

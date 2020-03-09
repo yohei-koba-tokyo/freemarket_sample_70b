@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   resources :addresses
-  resources :creditcards
   resources :items
   resources :itemimages
   resources :solditems
@@ -11,5 +10,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :likes
   resources :users
+  resources :users do
+    resources :creditcards
+  end
 end
 
