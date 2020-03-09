@@ -1,17 +1,34 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.wrapper
+  .logo-header
+    .logo
+      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
+  .login-main
+    .login-panel
+      .register
+        アカウントをお持ちでない方はこちら
+        .register__register-btn
+          - if devise_mapping.registerable? && controller_name != 'registrations'
+            = link_to "新規会員登録", new_registration_path(resource_name)
+      -# .sns-api
+      -#   .sns-api__facebook-btn
+      -#     = link_to "https://www.facebook.com/", class: "contents__btn" do
+      -#       = icon('fab', 'facebook-square', "Facebookでログイン")
+      -#   .sns-api__google-btn
+      -#     = link_to "https://www.facebook.com/", class: "contents__btn" do
+      -#       = icon('fab', 'fab fa-google', "Googleでログイン")
+      .forms
+        .forms__address-form
+          %input#address-input-field.address-form__input{:placeholder => "メールアドレス", :type => "text"}/
+        .forms__pass-form
+          %input#pass-input-field.pass-form__input{:placeholder => "パスワード", :type => "text"}/
+        .actions
+          = submit_tag "ログイン", class: "login-btn"
+        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+          = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "forget-link"
+  .logo-footer
+    .logo-footer__link
+      = link_to "プライバシーポリシー"
+      = link_to "FURIMA 利用規約"
+      = link_to "特定商取引に関する表記"
+    .logo-footer__logo
+      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
