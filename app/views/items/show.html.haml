@@ -1,0 +1,63 @@
+.wrapper
+  .header
+    = render "shared/header"
+
+  .show
+    .show-main
+      .main-title
+        .main-title__title
+          ストライプブラウス
+      .main-details
+        .photo
+        .contents
+          %ul
+            %li 出品者
+            %li カテゴリー
+            %li ブランド
+            %li 商品の状態
+            %li 配送料の負担
+            %li 配送の方法
+            %li 配送元地域
+            %li 配送日の目安
+      .main-price
+        .main-price__yen
+          ¥
+        .main-price__price
+          800
+        .others
+          .others__tax
+            (税込)
+          .others__postage
+            (送料込み)
+      .buy-btn
+        購入画面に進む
+      .comment
+        %b 
+        = simple_format(h("アイウエオ"))
+      .nice
+        いいね
+      .show-chat
+        .chat-attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .chat-main
+          dhdgjghkhjkgjv
+        .chat-form
+          %b 
+            = simple_format(h("アイウエオ"))
+
+        .chat-btn
+          コメントする
+
+        
+        .chat-box
+    
+  %aside.appBanner
+    .inner
+      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      .inner__icon
+        = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
+        = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
+
+  .footer
+    = render "shared/footer"
