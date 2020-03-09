@@ -1,0 +1,81 @@
+.header{
+  
+}
+
+
+
+.body{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  justify-content: center;
+
+
+  h2{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 90px;
+    width: 700px;
+    margin-bottom: 1px;
+
+    .input-nickname{
+      margin: 0 auto;
+
+      background-color: white;
+      height: 90px;
+      width: 700px;
+    }
+      .input-mailadress{}
+      .input-password{}
+      .input-confirmation{}
+
+
+
+      .confirmation-sentence{
+        background-color: white;
+        width: 700px;
+        .--title{
+
+        }
+        .--message{
+
+        }
+
+        }
+      .name{
+
+      }
+      .kananame{
+
+      }
+      .birthday{
+        display: flex;
+        .__year{
+
+        }
+        .__mouth{
+
+        }
+        .__day{
+
+        }
+      }
+    
+      .button{
+        .--registration{
+          &--registration{
+            height: 30px;
+            width: 100px;
+            background-color: rgb(47, 255, 175);
+          }
+        }
+      }
+  }
+}
+
+
+.footer{
+
+}
