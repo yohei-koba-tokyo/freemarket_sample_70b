@@ -79,7 +79,8 @@ Things you may want to cover:
 |Column---------|Type-----------|Options--------|
 |---------------|---------------|---------------|
 |user_id--------|integer--------|null: false, foreign_key: true|    /  references
-|customer_id----|---------------|---------------|  ※pay.jpの永続利用
+|customer_id----|string---------|null: false----|  ※pay.jpの永続利用
+|card_id--------|string---------|---------------|
 ### Association
 - belongs_to :user
 
