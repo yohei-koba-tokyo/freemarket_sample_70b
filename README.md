@@ -28,16 +28,16 @@ Things you may want to cover:
 
 
 ## usersテーブル
-|Column----|Type------|Options---|
-|----------|----------|----------|
+|Column|Type|Options|
+|------|----|-------|
 |nickname--|string----|null: false|
 |email|string|null: false, unique: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthday|integer|-------|
-|profile|text|-------|
+|birthday|integer||
+|profile|text||
 ### Association
 - has_one :profile, dependent: :destroy
 - has_one :credit
@@ -50,15 +50,15 @@ Things you may want to cover:
 
 
 ## addressesテーブル
-|Column---------|Type-----------|Options--------|
-|---------------|---------------|---------------|
-|postcode-------|string---------|null: false----|
-|prefecture-----|string---------|null: false----|
-|municipality---|string---------|null: false----|
-|address--------|string---------|null: false----|
-|room_number----|string---------|---------------|
-|phone----------|integer--------|null: false----|
-|user_id--------|integer--------|null: false, foreign_key: true|    /  references
+|Column|Type|Options|
+|------|----|-------|
+|postcode|string|null: false|
+|prefecture|string|null: false|
+|municipality|string|null: false|
+|address|string|null: false|
+|room_number|string||
+|phone|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|    /  references
 ### Association
 - belongs_to :user
 
@@ -76,29 +76,29 @@ Things you may want to cover:
 ※セキュリティの観点から、クレジットカードの番号やCVCをDBに保存してはいけない。
  そのため、payjpにて生成される、customer_id(永続利用)を保存する
 ## creditテーブル
-|Column---------|Type-----------|Options--------|
-|---------------|---------------|---------------|
-|user_id--------|integer--------|null: false, foreign_key: true|    /  references
-|customer_id----|string---------|null: false----|  ※pay.jpの永続利用
-|card_id--------|string---------|---------------|
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|    /  references
+|customer_id|string|null: false|  ※pay.jpの永続利用
+|card_id|string||
 ### Association
 - belongs_to :user
 
 
 ## itemsテーブル
-|Column---------|Type-----------|Options--------|
-|---------------|---------------|---------------|
-|name-----------|string---------|null: false----|
-|explanation----|text-----------|null: false----|
-|brand----------|string---------|---------------|
-|condition------|string---------|null: false----|
-|postage--------|integer--------|null: false----|
-|area-----------|string---------|null: false----|
-|days-----------|integer--------|null: false----|
-|price----------|integer--------|null: false----|
-|user_id--------|integer--------|null: false, foreign_key: true|    /  references
-|category_id----|integer--------|null: false, foreign_key: true|    /  references
-|status---------|integer--------|null: false----|
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|explanation|text|null: false|
+|brand|string||
+|condition|string|null: false|
+|postage|integer|null: false|
+|area|string|null: false|
+|days|integer|null: false|
+|price|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|    /  references
+|category_id|integer|null: false, foreign_key: true|    /  references
+|status|integer|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -128,10 +128,10 @@ Things you may want to cover:
 
 
 ## categoriesテーブル
-|Column---------|Type------------|Options--------|
-|---------------|----------------|---------------|
-|name-----------|string----------|null: false, index: true|
-|ancestory------|string----------|親子関係---------|
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|ancestory|string|※親子関係|
 ### Association
 - has_many :items ,dependent: :destroy
 - has_ancestry
