@@ -1,7 +1,6 @@
 .wrapper
-  .logo-header
-    .logo
-      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
+  = render "shared/user-header"
+
   .forget-main
     .forget-panel
       .title
@@ -15,10 +14,5 @@
             .p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
           .actions
             = submit_tag "送信する", class: "send-btn"
-  .logo-footer
-    .logo-footer__link
-      = link_to "プライバシーポリシー"
-      = link_to "FURIMA 利用規約"
-      = link_to "特定商取引に関する表記"
-    .logo-footer__logo
-      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
+            
+  = render "shared/user-footer"
