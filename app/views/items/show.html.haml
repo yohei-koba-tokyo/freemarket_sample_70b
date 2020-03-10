@@ -10,7 +10,8 @@
       .main-details
         .photo
           .photo__big
-            -# = @itemimages.image
+            - @itemimages.each do |i|
+              = image_tag i.image
           .photo__small
         .contents
           %ul

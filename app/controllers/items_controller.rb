@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    # @itemimages = @item.itemimages.all
+    @itemimages = @item.itemimages.all
   end
   
 end
