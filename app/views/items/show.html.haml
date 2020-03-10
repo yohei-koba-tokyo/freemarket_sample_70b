@@ -1,0 +1,97 @@
+.wrapper
+  .header
+    = render "shared/header"
+
+  .show
+    .show-main
+      .main-title
+        .main-title__title
+          ストライプブラウス
+      .main-details
+        .photo
+          .photo__big
+          .photo__small
+        .contents
+          %ul
+            %li 
+              .item
+                出品者
+              .result
+                ふぁな
+            %li
+              .item
+                カテゴリー
+              .result
+                = simple_format(h("レディース"))
+            %li
+              .item
+                ブランド
+              .result
+                サマンサタバサ
+            %li
+              .item
+                商品の状態
+              .result
+                新品
+            %li
+              .item
+                配送料の負担
+              .result
+                送料込み(出品者負担)
+            %li
+              .item
+                配送の方法
+              .result
+                らくらくメルカリ便
+            %li
+              .item
+                配送元地域
+              .result
+                東京
+            %li
+              .item
+                配送日の目安
+              .result
+                4〜7日で発送
+      .main-price
+        .main-price__yen
+          ¥
+        .main-price__price
+          800
+        .others
+          .others__tax
+            (税込)
+          .others__postage
+            (送料込み)
+      .buy-btn
+        購入画面に進む
+      .comment
+        %b 
+        = simple_format(h("アイウエオ"))
+      .nice
+        いいね
+      .show-chat
+        .chat-attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .chat-main
+          
+        .chat-form
+          %b 
+            = simple_format(h(""))
+
+        .chat-btn
+          コメントする
+
+        
+        .chat-box
+    
+  %aside.appBanner
+    .inner
+      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      .inner__icon
+        = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
+        = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
+
+  .footer
+    = render "shared/footer"
