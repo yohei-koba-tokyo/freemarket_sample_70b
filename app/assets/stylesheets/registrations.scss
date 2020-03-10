@@ -13,23 +13,71 @@
   h2{
     margin: 0 auto;
     display: flex;
+
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 90px;
     width: 700px;
     margin-bottom: 1px;
+  }
 
-    .input-nickname{
+  .input{
+    margin: 0 auto;
+    background-color: white;
+    // height: 100px;
+    width: 700px;
+    .nickname{
       margin: 0 auto;
-
-      background-color: white;
-      height: 90px;
-      width: 700px;
+      display: flex;
+      justify-content: center;
+      &__a{
+        background-color: red;
+        color: white;
+      }
     }
-      .input-mailadress{}
-      .input-password{}
-      .input-confirmation{}
+    .mailadress{
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      &__a{
+        background-color: red;
+        color: white;
+      }
+    }
+    .password{
+      margin: 0 auto;
+      // display: flex;
+      justify-content: center;
+      &__a{
+        background-color: red;
+        color: white;
+      }
+    }
+    .confirmation{
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      &__a{
+        background-color: red;
+        color: white;
+      }
+    }
+
+  }
+
+  .confirmation-sentence{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
+    .message{
+      width: 400px;
+
+      b{
+        font-size: 15px;
+      }
 
       &__contents{
         font-size: 15px;
@@ -37,28 +85,60 @@
     }
   }
 
+  .input-name{
+    margin: 0 auto;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
 
-      .confirmation-sentence{
-        background-color: white;
-        width: 700px;
-        .--title{
-
-        }
-        .--message{
-
-        }
-
-        }
-      .name{
-
-      }
-      .kananame{
-
-      }
-      .birthday{
+    .name1{
+      justify-content: center;
+      display: flex;
+      .character-name{
         display: flex;
-        .__year{
+      }
+    }
+    .name2{
+      justify-content: center;
+      display: flex;
+      .kana-name{
+        display: flex;
+      }
+    }
+  }
+      
+  
 
+  .birthday{
+    margin: 0 auto;
+    // display: flex;
+    // text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 700px;
+    height: 120px;
+
+    .birthday-title{
+      // padding-left: 40px;
+      // display: flex;
+      // justify-content: center;
+      margin: 0 auto;
+      width: 400px;
+    }
+    .selects{
+      display: flex;
+      margin: 0 auto;
+      width: 400px;
+      .year{
+      
+      }
+      .mouth{
+
+      }
+      .day{
+
+      }
     }
     .message{
       color: rgb(139, 139, 139);
@@ -81,24 +161,17 @@
     height: 170px;
     width: 700px;
 
-        }
-        .__mouth{
+    .contents{
+      padding-top: 20px;
 
-        }
-        .__day{
+      .contents__message{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 400px;
 
-        }
-      
-
-    
-      .button{
-        .--registration{
-          &--registration{
-            height: 30px;
-            width: 100px;
-            background-color: rgb(47, 255, 175);
-          }
-        }
+        padding-bottom: 30px;
+      }
       .contents__registration{
         // height: 50px;
         width: 400px;
@@ -121,10 +194,12 @@
 
       }
       }
+    }
   }
+}
 
 
-
-.footer{
+.footrer{
 
 }
+
