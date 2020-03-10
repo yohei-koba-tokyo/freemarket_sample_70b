@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price
       t.text    :profile
       t.integer :user_id,     null: false, foreign_key: true
+      t.integer :category_id, null: false, foreign_key: true
       t.integer :status
       t.timestamps
     end
