@@ -87,7 +87,7 @@ gem 'bcrypt', '~> 3.1.11'
 
 
 # 以下小林実装
-gem 'pay.jp'
+gem 'payjp'
 gem 'gon'
-gem 'jquary-rails'
+gem 'jquery-rails'
 # 22行目のgem turbolinksは、jquaryと協合しちゃうのでコメントアウトしてます。
