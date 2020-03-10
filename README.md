@@ -63,16 +63,6 @@ Things you may want to cover:
 - belongs_to :user
 
 
-<!-- ## creditcardsテーブル   ※DBではなくpay.jpにて管理
-|Column|Type|Options|
-|------|----|-------|
-|cardnumber|integer|null: false, unique: true|
-|expirationdata|integer|null: false|
-|securitycode|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user -->
-
 ※セキュリティの観点から、クレジットカードの番号やCVCをDBに保存してはいけない。
  そのため、payjpにて生成される、customer_id(永続利用)を保存する
 ## creditテーブル
@@ -133,19 +123,9 @@ Things you may want to cover:
 |name|string|null: false, index: true|
 |ancestory|string|※親子関係|
 ### Association
-- has_many :items ,dependent: :destroy
+- has_many :items
 - has_ancestry
 <!-- ancestryはジェムの追加をあわせて行う（エラーが出る為） -->
-
-
-<!-- ## item_categoriesテーブル    ※ gem'ancestory'を使用する場合は中間テーブル不要
-|Column|Type|Options|
-|------|----|-------|
-|category_id|string|null: false, foreign_key: true|
-|item_id|string|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :category -->
 
 
 ## commentsテーブル
