@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find(params[:id])
+    # @itemimages = @item.itemimages.all
   end
   
 end
+
+

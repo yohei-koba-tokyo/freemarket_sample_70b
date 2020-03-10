@@ -6,10 +6,11 @@
     .show-main
       .main-title
         .main-title__title
-          ストライプブラウス
+          = @item.name
       .main-details
         .photo
           .photo__big
+            -# = @itemimages.image
           .photo__small
         .contents
           %ul
@@ -17,7 +18,7 @@
               .item
                 出品者
               .result
-                ふぁな
+                = @item.user.nickname
             %li
               .item
                 カテゴリー
@@ -27,37 +28,32 @@
               .item
                 ブランド
               .result
-                サマンサタバサ
+                = @item.brand
             %li
               .item
                 商品の状態
               .result
-                新品
+                = @item.condition
             %li
               .item
                 配送料の負担
               .result
-                送料込み(出品者負担)
-            %li
-              .item
-                配送の方法
-              .result
-                らくらくメルカリ便
+                = @item.postage
             %li
               .item
                 配送元地域
               .result
-                東京
+                = @item.area
             %li
               .item
                 配送日の目安
               .result
-                4〜7日で発送
+                = @item.day
       .main-price
         .main-price__yen
           ¥
         .main-price__price
-          800
+          = @item.price
         .others
           .others__tax
             (税込)
@@ -67,7 +63,7 @@
         購入画面に進む
       .comment
         %b 
-        = simple_format(h("アイウエオ"))
+        = @item.explanation
       .nice
         いいね
       .show-chat
