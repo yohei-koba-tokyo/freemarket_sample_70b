@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :addresses
   resources :creditcards
-  resources :items
-  resources :itemimages
+  resources :items do
+    resources :itemimages
+  end
   resources :solditems
   resources :categories
   resources :item_categories

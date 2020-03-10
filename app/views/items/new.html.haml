@@ -3,13 +3,17 @@
 -#   = link_to image_tag("logo.png", width: '140px', height: '40.55px', alt: "サンプル画像"), root_path
 .item-new
   .sellingitem
-    = form_with(model: @items, local: true) do |f|
-      .images
-        %h3
-        出品画像
-        %span 必須
-        %p
-        最大10枚までアップロードできます
+    -# = form_with(model: @item, local: true) do |f|
+    = form_for @item do |f|
+      = f.fields_for :itemimages do |itemimage|
+        .images
+          %h3
+          出品画像
+          %span 必須
+          %p
+          最大10枚までアップロードできます
+          = itemimage.file_field :image, class: 'hidden'
+
       .name
         %h3
         商品名
@@ -65,4 +69,4 @@
       
       .submit-btn
         = f.submit "出品する"
-        
+

@@ -83,3 +83,6 @@ gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
+
+gem 'carrierwave'
+gem 'mini_magick'
