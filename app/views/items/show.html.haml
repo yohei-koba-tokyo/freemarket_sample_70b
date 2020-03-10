@@ -9,16 +9,50 @@
           ストライプブラウス
       .main-details
         .photo
+          .photo__big
+          .photo__small
         .contents
           %ul
-            %li 出品者
-            %li カテゴリー
-            %li ブランド
-            %li 商品の状態
-            %li 配送料の負担
-            %li 配送の方法
-            %li 配送元地域
-            %li 配送日の目安
+            %li 
+              .item
+                出品者
+              .result
+                ふぁな
+            %li
+              .item
+                カテゴリー
+              .result
+                = simple_format(h("レディース"))
+            %li
+              .item
+                ブランド
+              .result
+                サマンサタバサ
+            %li
+              .item
+                商品の状態
+              .result
+                新品
+            %li
+              .item
+                配送料の負担
+              .result
+                送料込み(出品者負担)
+            %li
+              .item
+                配送の方法
+              .result
+                らくらくメルカリ便
+            %li
+              .item
+                配送元地域
+              .result
+                東京
+            %li
+              .item
+                配送日の目安
+              .result
+                4〜7日で発送
       .main-price
         .main-price__yen
           ¥
@@ -40,10 +74,10 @@
         .chat-attention
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .chat-main
-          dhdgjghkhjkgjv
+          
         .chat-form
           %b 
-            = simple_format(h("アイウエオ"))
+            = simple_format(h(""))
 
         .chat-btn
           コメントする
