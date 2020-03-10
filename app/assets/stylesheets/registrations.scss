@@ -31,6 +31,11 @@
       .input-password{}
       .input-confirmation{}
 
+      &__contents{
+        font-size: 15px;
+      }
+    }
+  }
 
 
       .confirmation-sentence{
@@ -54,6 +59,28 @@
         display: flex;
         .__year{
 
+    }
+    .message{
+      color: rgb(139, 139, 139);
+      font-size: 13px;
+
+      width: 400px;
+      margin: 0 auto;
+      padding-top: 5px;
+
+
+    }
+  }
+
+  .button{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    background-color: white;
+    height: 170px;
+    width: 700px;
+
         }
         .__mouth{
 
@@ -61,7 +88,8 @@
         .__day{
 
         }
-      }
+      
+
     
       .button{
         .--registration{
@@ -71,9 +99,30 @@
             background-color: rgb(47, 255, 175);
           }
         }
+      .contents__registration{
+        // height: 50px;
+        width: 400px;
+        background-color: rgb(47, 255, 186);
+
+        // font-size: 5px;
+        color: black;
+        text-align: center;
+        // padding-top: 10px;
+        // vertical-align: middle;
+
+        // Provisional
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        &registration{
+        // text-align: center;
+        // vertical-align: middle;
+        // align-items: center;  
+
+      }
       }
   }
-}
+
 
 
 .footer{
