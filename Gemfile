@@ -83,4 +83,10 @@ gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
+
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.11'

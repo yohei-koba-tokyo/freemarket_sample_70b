@@ -6,10 +6,12 @@
     .show-main
       .main-title
         .main-title__title
-          ストライプブラウス
+          = @item.name
       .main-details
         .photo
           .photo__big
+            - @itemimages.each do |i|
+              = image_tag i.image
           .photo__small
         .contents
           %ul
@@ -17,57 +19,75 @@
               .item
                 出品者
               .result
-                ふぁな
+                = @item.user.nickname
             %li
               .item
                 カテゴリー
-              .result
-                = simple_format(h("レディース"))
+              .result-c
+                =link_to @category.parent.parent.name,"#"
+                %br
+                ＞
+                =link_to @category.parent.name,"#"
+                %br
+                ＞
+                =link_to @category.name,"#"
+
             %li
               .item
                 ブランド
               .result
-                サマンサタバサ
+                = @item.brand
             %li
               .item
                 商品の状態
               .result
-                新品
+                = @item.condition
             %li
               .item
                 配送料の負担
               .result
-                送料込み(出品者負担)
-            %li
-              .item
-                配送の方法
-              .result
-                らくらくメルカリ便
+                = @item.postage
             %li
               .item
                 配送元地域
               .result
-                東京
+                = @item.area
             %li
               .item
                 配送日の目安
               .result
-                4〜7日で発送
+                = @item.day
       .main-price
         .main-price__yen
           ¥
         .main-price__price
-          800
+          = @item.price
         .others
           .others__tax
             (税込)
           .others__postage
             (送料込み)
-      .buy-btn
-        購入画面に進む
+      -if user_signed_in?
+        -if @item.user_id == current_user.id
+          = link_to edit_item_path(@item) do
+            .item-edit-btn 商品の編集
+          = link_to ""do
+            .item-stop-btn この商品を削除する   
+        -else 
+          -if @item.status == 1
+            = link_to item_path(@item),method: :delete do
+              .item-buy-btn 購入画面に進む
+          -else
+            .item-buy-btn-sold 売り切れました
+      -else
+        -if @item.status == 1
+          = link_to new_user_session_path(@user) do
+            .item-buy-btn 購入画面に進む
+        -else
+          .item-buy-btn-sold 売り切れました
       .comment
         %b 
-        = simple_format(h("アイウエオ"))
+        = @item.explanation
       .nice
         いいね
       .show-chat
@@ -82,7 +102,6 @@
         .chat-btn
           コメントする
 
-        
         .chat-box
     
   %aside.appBanner
