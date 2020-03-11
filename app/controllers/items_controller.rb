@@ -33,10 +33,6 @@ class ItemsController < ApplicationController
     ['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']]
   end
 
-end
-
-
-  
   def show
     @item = Item.find(params[:id])
     @itemimages = @item.itemimages.all
