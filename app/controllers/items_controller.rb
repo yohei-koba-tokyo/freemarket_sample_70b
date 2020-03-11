@@ -13,6 +13,15 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @itemimages = @item.itemimages.all
+    @category = Category.find(@item.category_id)
+  end
+
+  def destroy
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:explanation,:category,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)
@@ -32,16 +41,5 @@ class ItemsController < ApplicationController
     ['福岡県','福岡県'],['佐賀県','佐賀県'],['長崎県','長崎県'],['熊本県','熊本県'],
     ['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']]
   end
-
-  def show
-    @item = Item.find(params[:id])
-    @itemimages = @item.itemimages.all
-    @category = Category.find(@item.category_id)
-  end
-
-  def destroy
-  end
-
-
 end
 
