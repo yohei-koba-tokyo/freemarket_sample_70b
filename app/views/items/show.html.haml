@@ -60,8 +60,23 @@
             (税込)
           .others__postage
             (送料込み)
-      .buy-btn
-        購入画面に進む
+      -if user_signed_in?
+        -if @item.user_id == current_user.id
+          = link_to edit_item_path(@item), data: {turbolinks: false}  do
+            .item-edit-btn 商品の編集
+          = link_to ""do
+            .item-stop-btn この商品を削除する   
+        -else 
+          -if @item.status == 0
+            = link_to item_path(@item),method: :delete, data: {turbolinks: false}  do
+              .item-buy-btn 購入画面に進む
+          -else
+      -else
+        -if @item.status == 0
+          = link_to "/users/sign_in" do
+            .item-buy-btn 購入画面に進む
+        -else
+          .item-buy-btn-sold 売り切れました
       .comment
         %b 
         = @item.explanation

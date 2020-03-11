@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
     @itemimages = @item.itemimages.all
   end
   
+  def destroy
+  end
 end
 
 

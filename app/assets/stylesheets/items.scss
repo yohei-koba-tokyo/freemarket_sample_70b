@@ -219,7 +219,18 @@ body {
           }
         }
       }
-      .buy-btn{
+      .item-buy-btn{
+        height: 60px;
+        width: 500px;
+        margin: 0 auto;
+        color: white;
+        font-size: 25px;
+        text-align: center;
+        line-height: 60px;
+        background-color: #ea352d;
+        font-weight: bold;
+      }
+      .item-buy-btn-sold{
         height: 60px;
         width: 500px;
         margin: 0 auto;
