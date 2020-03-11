@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  validates :name, :explanation, :condition, :postage, :area, :day,:price,presence: true
+
   belongs_to :user
   has_one :solditem, dependent: :destroy
   has_many :itemimages, inverse_of: :item, dependent: :destroy

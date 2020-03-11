@@ -1,72 +1,96 @@
--# .header
--#   %h1.icon-selling
--#   = link_to image_tag("logo.png", width: '140px', height: '40.55px', alt: "サンプル画像"), root_path
+.item-header
+  .item-logo
+    = link_to image_tag("logo.png", size: "50x50", alt: "サンプル画像"), root_path
+
 .item-new
-  .sellingitem
-    -# = form_with(model: @item, local: true) do |f|
-    = form_for @item do |f|
-      = f.fields_for :itemimages do |itemimage|
+  .item-wrapper
+    .sellingitem
+      = form_with(model: @item, local: true) do |f|
         .images
-          %h3
-          出品画像
-          %span 必須
-          %p
-          最大10枚までアップロードできます
-          = itemimage.file_field :image, class: 'hidden'
+          %label.item-label
+            出品画像
+          %span.item-span 必須
+          %p.item-span
+            最大4枚までアップロードできます
+          .pictures
+            = f.fields_for :itemimages do |itemimage|
+              = itemimage.file_field :image, class: 'hidden'
 
-      .name
-        %h3
-        商品名
-        %span 必須
-        = f.text_field :name, placeholder: "40文字まで"
-      .explanation
-        %h3
-        商品の説明
-        %span 必須
-        = f.text_field :explanation, placeholder: "商品の説明（必須1,000文字以内）"
+        .name
+          %label.item-label
+            商品名
+          %span.item-span 必須
+          .name__inputbox
+            = f.text_field :name, placeholder: "40文字まで"
+        .explanation
+          %label.item-label
+            商品の説明
+          %span.item-span 必須
+          .explanation__inputbox
+            = f.text_field :explanation, placeholder: "商品の説明（必須1,000文字以内）"
 
-      -# .category
-      -#   %h3
-      -#   カテゴリー
-      -#   %span 必須
-      -#   = f.text_field :category, placeholder: "選択してください"
+        -# .category
+        -#   %h3
+        -#   カテゴリー
+        -#   %span 必須
+        -#   = f.text_field :category, placeholder: "選択してください"
 
-      .brand
-        %h3
-        ブランド
-        %span 任意
-        = f.text_field :brand, placeholder: "例）シャネル"
+        .brand
+          %label.item-label
+            ブランド
+          %span.item-span.any 任意
+          .brand__inputbox
+            = f.text_field :brand, placeholder: "例）シャネル"
 
-      .condition
-        %h3
-        商品の状態
-        %span 必須
-        = f.text_field :condition, placeholder: "選択してください"
-      
-      .postage
-        %h3
-        配送料の負担
-        %span 必須
-        = f.text_field :postage, placeholder: "選択してください"
-      
-      .area
-        %h3
-        配送元の地域
-        %span 必須
-        = f.text_field :area, placeholder: "選択してください"
-      
-      .day
-        %h3
-        配送元の地域
-        %span 必須
-        = f.text_field :day, placeholder: "選択してください"
+        .condition
+          %label.item-label
+            商品の状態
+          %span.item-span 必須
+          .condition__inputbox
+            = f.select :condition, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], include_blank: "選択してください"
+        
+        .postage
+          %label.item-label
+            配送料の負担
+          %span.item-span 必須
+          .postage__inputbox
+            = f.select :postage, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: "選択してください"
+        
+        .area
+          %label.item-label
+            配送元の地域
+          %span.item-span 必須
+          .area__inputbox
+            = f.text_field :area, placeholder: "選択してください"
+        
+        .day
+          %label.item-label
+            配送までの日数
+          %span.item-span 必須
+          .day__inputbox
+            = f.select :day, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: "選択してください"
 
-      .price
-        %h3
-        販売価格
-        %span 必須
-        = f.text_field :price, placeholder: '0'
-      
-      .submit-btn
-        = f.submit "出品する"
+        .price
+          %label.item-label
+            販売価格
+          %span.item-span 必須
+          .price__inputbox
+            = f.text_field :price, placeholder: '0'
+        
+        .submit-btn
+          = f.submit "出品する"
+        .back-btn
+          = link_to "もどる", root_path
+          
+      .item-remark
+        %p
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
+
+.item-footer
+  .item-footer__link
+    = link_to "プライバシーポリシー"
+    = link_to "FURIMA 利用規約"
+    = link_to "特定商取引に関する表記"
+  .item-footer__logo
+    = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path

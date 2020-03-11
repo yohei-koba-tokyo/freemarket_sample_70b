@@ -4,11 +4,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.itemimages.build
+    4.times { @item.itemimages.build }
   end
 
   def create
-    binding.pry
     Item.create(item_params)
   end
 
