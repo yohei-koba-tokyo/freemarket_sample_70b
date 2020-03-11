@@ -24,13 +24,13 @@
               .item
                 カテゴリー
               .result-c
-                =link_to @categories.parent.parent.name,"#"
+                =link_to @category.parent.parent.name,"#"
                 %br
                 ＞
-                =link_to @categories.parent.name,"#"
+                =link_to @category.parent.name,"#"
                 %br
                 ＞
-                =link_to @categories.name,"#"
+                =link_to @category.name,"#"
 
             %li
               .item
@@ -74,14 +74,14 @@
           = link_to ""do
             .item-stop-btn この商品を削除する   
         -else 
-          -if @item.status == 0
+          -if @item.status == 1
             = link_to item_path(@item),method: :delete do
               .item-buy-btn 購入画面に進む
           -else
             .item-buy-btn-sold 売り切れました
       -else
-        -if @item.status == 0
-          = link_to "/users/sign_in" do
+        -if @item.status == 1
+          = link_to new_user_session_path(@user) do
             .item-buy-btn 購入画面に進む
         -else
           .item-buy-btn-sold 売り切れました
