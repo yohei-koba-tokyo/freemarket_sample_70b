@@ -36,7 +36,7 @@ span.item-span.any {
   background-color: rgb(206, 202, 202);
 }
 
-p.item-span {
+p.item-p {
   margin-top: 16px;
   font-size: 14px;
   line-height: 1.4em;
@@ -84,6 +84,20 @@ p.item-span {
               width: 100%;
               border-radius: 4px;
               height: 150px;
+              padding: 20px;
+            }
+          }
+        }
+        .category {
+          margin-top: 50px;
+          margin-bottom: 50px;
+          &__inputbox {
+            margin-top: 20px;
+            width: 100%;
+            input {
+              width: 100%;
+              border-radius: 4px;
+              height: 50px;
               padding: 20px;
             }
           }
@@ -136,7 +150,7 @@ p.item-span {
           &__inputbox {
             margin-top: 20px;
             width: 100%;
-            input {
+            select {
               width: 100%;
               border-radius: 4px;
               height: 50px;
@@ -161,14 +175,54 @@ p.item-span {
         .price {
           margin-top: 50px;
           margin-bottom: 50px;
-          &__inputbox {
-            margin-top: 20px;
+          .price-input {
             width: 100%;
-            input {
-              width: 100%;
-              border-radius: 4px;
-              height: 50px;
-              padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            line-height: 1.4em;
+            color: gray;
+            &__inputbox {
+              width: 40%;
+              float: right;
+              input {
+                width: 100%;
+                border-radius: 4px;
+                height: 50px;
+                padding: 20px;
+              }
+            }
+          }
+          .price-fee {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            line-height: 1.4em;
+            color: gray;
+            &__calc {
+              width: 40%;
+              float: right;
+              text-align: right;
+            }
+          }
+          .price-profit {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            line-height: 1.4em;
+            color: gray;
+            &__calc {
+              width: 40%;
+              float: right;
+              text-align: right;
             }
           }
         }

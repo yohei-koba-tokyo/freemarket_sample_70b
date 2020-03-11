@@ -10,7 +10,7 @@
           %label.item-label
             出品画像
           %span.item-span 必須
-          %p.item-span
+          %p.item-p
             最大4枚までアップロードできます
           .pictures
             = f.fields_for :itemimages do |itemimage|
@@ -29,11 +29,12 @@
           .explanation__inputbox
             = f.text_field :explanation, placeholder: "商品の説明（必須1,000文字以内）"
 
-        -# .category
-        -#   %h3
-        -#   カテゴリー
-        -#   %span 必須
-        -#   = f.text_field :category, placeholder: "選択してください"
+        .category
+          %label.item-label
+            カテゴリー
+          %span.item-span 必須
+          .category__inputbox
+            = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
 
         .brand
           %label.item-label
@@ -61,21 +62,33 @@
             配送元の地域
           %span.item-span 必須
           .area__inputbox
-            = f.text_field :area, placeholder: "選択してください"
-        
+            = f.select :area, @prefectures, include_blank: "選択してください"
         .day
           %label.item-label
             配送までの日数
           %span.item-span 必須
           .day__inputbox
-            = f.select :day, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: "選択してください"
+            = f.select :day, [["１〜２日で発送", "１〜２日で発送"], ["２〜３日で発送", "２〜３日で発送"], ["４〜７日で発送", "４〜７日で発送"]], include_blank: "選択してください"
 
         .price
           %label.item-label
             販売価格
           %span.item-span 必須
-          .price__inputbox
-            = f.text_field :price, placeholder: '0'
+          .price-input
+            %p
+              価格（￥300〜9,999,999）
+            .price-input__inputbox
+              = f.number_field :price, style: "text-align: right;", placeholder: '0'
+          .price-fee
+            %p
+              販売手数料（10%）
+            .price-fee__calc
+              1000000円
+          .price-profit
+            %p
+              販売利益
+            .price-profit__calc
+              100000円
         
         .submit-btn
           = f.submit "出品する"
