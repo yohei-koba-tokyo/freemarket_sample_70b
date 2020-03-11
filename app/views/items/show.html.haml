@@ -62,13 +62,13 @@
             (送料込み)
       -if user_signed_in?
         -if @item.user_id == current_user.id
-          = link_to edit_item_path(@item), data: {turbolinks: false}  do
+          = link_to edit_item_path(@item) do
             .item-edit-btn 商品の編集
           = link_to ""do
             .item-stop-btn この商品を削除する   
         -else 
           -if @item.status == 0
-            = link_to item_path(@item),method: :delete, data: {turbolinks: false}  do
+            = link_to item_path(@item),method: :delete do
               .item-buy-btn 購入画面に進む
           -else
       -else
@@ -94,7 +94,6 @@
         .chat-btn
           コメントする
 
-        
         .chat-box
     
   %aside.appBanner
