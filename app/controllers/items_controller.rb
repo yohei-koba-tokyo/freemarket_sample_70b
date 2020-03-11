@@ -11,12 +11,15 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @itemimages = @item.itemimages.all
+    # @ccategories = Category.where('ancestry = ?', "#{params[:parent]}")
+
+    @categories = Category.find(@item.category_id)
   end
-  
+
   def destroy
   end
 
-  
+
 end
 
 

@@ -23,8 +23,15 @@
             %li
               .item
                 カテゴリー
-              .result
-                = simple_format(h("レディース"))
+              .result-c
+                =link_to @categories.parent.parent.name,"#"
+                %br
+                ＞
+                =link_to @categories.parent.name,"#"
+                %br
+                ＞
+                =link_to @categories.name,"#"
+
             %li
               .item
                 ブランド
