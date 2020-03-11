@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :likes
   resources :users
   resources :users do
-    resources :credit
     resources :addresses
   end
+  resources :credits
 end
 
