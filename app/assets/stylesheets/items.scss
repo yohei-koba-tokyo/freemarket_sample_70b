@@ -140,7 +140,7 @@ body {
         display: flex;
         justify-content: space-between;
         .photo{
-          height: 410px;
+          min-height: auto;
           width: 300px;
           background-color: #f5f5f5;
           margin-left: 40px;
