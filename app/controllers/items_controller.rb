@@ -13,6 +13,16 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:parent_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:explanation,:category,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)

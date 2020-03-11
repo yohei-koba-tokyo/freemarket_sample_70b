@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     resources :credit
     resources :addresses
   end
+
+  get 'items/search', to: "items#search"
+
 end
 
