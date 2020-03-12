@@ -58,46 +58,17 @@ describe User do
     end
 
     # 9. passwordが7文字以上であれば登録できること
-    it "is valid with a password that has more than 6 characters " do
+    it "is valid with a password that has more than 7 characters " do
       user = build(:user, password: "0000000", password_confirmation: "0000000")
       user.valid?
       expect(user).to be_valid
     end
 
     # 10. passwordが6文字以下であれば登録できないこと
-    it "is invalid with a password that has less than 6 characters " do
-      user = build(:user, password: "000000", password_confirmation: "000000")
+    it "is invalid with a password that has less than 5 characters " do
+      user = build(:user, password: "00000", password_confirmation: "00000")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
     end
-
-    # 11. last_nameが空では登録できないこと
-    it "is invalid without a last_name" do
-      user = build(:user, last_name: nil)
-      user.valid?
-      expect(user.errors[:last_name]).to include("can't be blank")
-    end
-    
-    # 12. first_nameが空では登録できないこと
-    it "is invalid without a first_name" do
-      user = build(:user, first_name: nil)
-      user.valid?
-      expect(user.errors[:first_name]).to include("can't be blank")
-    end
-
-    # 13. last_name_kanaが空では登録できないこと
-    it "is invalid without a last_name_kana" do
-      user = build(:user, last_name_kana: nil)
-      user.valid?
-      expect(user.errors[:last_name_kana]).to include("can't be blank")
-    end
-
-    # 14. first_name_kanaが空では登録できないこと
-    it "is invalid without a farst_name_kana" do
-      user = build(:user, first_name_kana: nil)
-      user.valid?
-      expect(user.errors[:first_name_kana]).to include("can't be blank")
-    end
-
   end
 end
