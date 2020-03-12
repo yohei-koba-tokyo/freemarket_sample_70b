@@ -85,7 +85,7 @@
       .productLists
         - @items.each do |value|
           .productList
-            = link_to item_path(@items) do
+            = link_to item_path(value) do
               .productList--image
                 - value.itemimages.each_with_index do |v|
                   =image_tag v.image
@@ -112,7 +112,7 @@
       .productLists
         - @brand_items.each do |value|
           .productList
-            = link_to item_path(@brand_items) do
+            = link_to item_path(value) do
               .productList--image
                 - value.itemimages.each_with_index do |v|
                   =image_tag v.image
