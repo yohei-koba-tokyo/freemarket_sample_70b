@@ -8,21 +8,14 @@
         .register__register-btn
           - if devise_mapping.registerable? && controller_name != 'registrations'
             = link_to "新規会員登録", new_registration_path(resource_name)
-      -# .sns-api
-      -#   .sns-api__facebook-btn
-      -#     = link_to "https://www.facebook.com/", class: "contents__btn" do
-      -#       = icon('fab', 'facebook-square', "Facebookでログイン")
-      -#   .sns-api__google-btn
-      -#     = link_to "https://www.facebook.com/", class: "contents__btn" do
-      -#       = icon('fab', 'fab fa-google', "Googleでログイン")
-      .forms
-        .forms__address-form
-          %input#address-input-field.address-form__input{:placeholder => "メールアドレス", :type => "text"}/
-        .forms__pass-form
-          %input#pass-input-field.pass-form__input{:placeholder => "パスワード", :type => "text"}/
-        .actions
-          = submit_tag "ログイン", class: "login-btn"
-        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-          = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "forget-link"
-          
+      .new-user
+        = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+          .new-user__address-form
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+          .new-user__pass-form
+            = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード"
+          .actions
+            = f.submit 'ログイン', class: "login-btn"
+            = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "forget-link"
+
   = render "shared/user-footer"
