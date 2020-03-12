@@ -31,24 +31,8 @@ class ItemsController < ApplicationController
     @itemimages = @item.itemimages.all
     @category = Category.find(@item.category_id)
   end
-  
-  def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to item_path(@item), notice: '商品情報を更新しました'
-    else
-      render :edit
-    end
-  end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to user_path(current_user)
   end
 
   private
