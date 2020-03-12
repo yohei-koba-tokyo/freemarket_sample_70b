@@ -37,18 +37,27 @@ class ItemsController < ApplicationController
   private
   def item_params
     item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
-    
-    category1 = params.require(:item).permit(:category1)
-    category2 = params.require(:category2)
-    category3 = params.require(:category3)
-    category1_id = Category.where(name: category1["category1"]).where(ancestry: nil).ids
-    category2_id = Category.where("id>?",category1_id).where(name: category2).where.not("ancestry LIKE ?","%/%").ids
-    category2_2_id = category2_id[0]
-    category3_id = Category.where("id>?",category2_2_id).find_by(name: category3).id
 
-    item_array["category_id"] = category3_id
-    item_array["status"] = 1
-    item_params = item_array
+    category1 = params.require(:item).permit(:category1)
+    if params.require(:category2) == nil
+      redirect_to root_path
+    else
+      category2 = params.require(:category2)
+    end
+    category3 = params.require(:category3)
+
+    if category1 == "選択してください" or category2 == "選択してください" or category3 == "選択してください"
+      redirect_to root_path
+    else
+      category1_id = Category.where(name: category1["category1"]).where(ancestry: nil).ids
+      category2_id = Category.where("id>?",category1_id).where(name: category2).where.not("ancestry LIKE ?","%/%").ids
+      category2_2_id = category2_id[0]
+      category3_id = Category.where("id>?",category2_2_id).find_by(name: category3).id
+
+      item_array["category_id"] = category3_id
+      item_array["status"] = 1
+      item_params = item_array
+    end
   end
 
   def prefectures

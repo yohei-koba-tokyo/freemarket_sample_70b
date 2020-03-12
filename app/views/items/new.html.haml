@@ -80,16 +80,6 @@
               価格（￥300〜9,999,999）
             .price-input__inputbox
               = f.number_field :price, style: "text-align: right;", placeholder: '0'
-          .price-fee
-            %p
-              販売手数料（10%）
-            .price-fee__calc
-              1000000円
-          .price-profit
-            %p
-              販売利益
-            .price-profit__calc
-              100000円
         
         .submit-btn
           = f.submit "出品する"
