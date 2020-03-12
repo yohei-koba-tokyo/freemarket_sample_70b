@@ -11,4 +11,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :solditems, dependent: :destroy
+
+  validates :nickname, presence: true, length: { maximum: 6 }
+
 end
