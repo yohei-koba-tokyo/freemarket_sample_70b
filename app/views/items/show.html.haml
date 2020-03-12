@@ -23,8 +23,15 @@
             %li
               .item
                 カテゴリー
-              .result
-                = simple_format(h("レディース"))
+              .result-c
+                =link_to @category.parent.parent.name,"#"
+                %br
+                ＞
+                =link_to @category.parent.name,"#"
+                %br
+                ＞
+                =link_to @category.name,"#"
+
             %li
               .item
                 ブランド
@@ -60,8 +67,24 @@
             (税込)
           .others__postage
             (送料込み)
-      .buy-btn
-        購入画面に進む
+      -if user_signed_in?
+        -if @item.user_id == current_user.id
+          = link_to edit_item_path(@item) do
+            .item-edit-btn 商品の編集
+          = link_to ""do
+            .item-stop-btn この商品を削除する   
+        -else 
+          -if @item.status == 1
+            = link_to item_path(@item),method: :delete do
+              .item-buy-btn 購入画面に進む
+          -else
+            .item-buy-btn-sold 売り切れました
+      -else
+        -if @item.status == 1
+          = link_to new_user_session_path(@user) do
+            .item-buy-btn 購入画面に進む
+        -else
+          .item-buy-btn-sold 売り切れました
       .comment
         %b 
         = @item.explanation
@@ -79,7 +102,6 @@
         .chat-btn
           コメントする
 
-        
         .chat-box
     
   %aside.appBanner

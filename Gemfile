@@ -90,4 +90,4 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'payjp'
 gem 'gon'
 gem 'jquery-rails'
-# 22行目のgem turbolinksは、jquaryと協合しちゃうのでコメントアウトしてます。
+
