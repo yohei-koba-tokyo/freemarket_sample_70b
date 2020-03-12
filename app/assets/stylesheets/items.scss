@@ -529,38 +529,6 @@ body {
           }
         }
       }
-      .buyer{
-        height: 50px;
-        margin-left: 500px;
-        display: flex;
-        .item-edit-btn{
-          height: 30px;
-          width: 80px;
-          margin: 0 auto;
-          color: white;
-          font-size: 15px;
-          text-align: center;
-          line-height: 30px;
-          background-color: rgb(0, 140, 255);
-          font-weight: bold;
-          border-radius: 10px;
-        }
-        .space{
-          width: 5px;
-        }
-        .item-stop-btn{
-          height: 30px;
-          width: 80px;
-          margin: 0 auto;
-          color: white;
-          font-size: 15px;
-          text-align: center;
-          line-height: 30px;
-          background-color: #ea352d;
-          font-weight: bold;
-          border-radius: 10px;
-        }
-      }
       .item-buy-btn{
         height: 60px;
         width: 500px;
@@ -594,8 +562,14 @@ body {
         margin: 20px 40px;
         box-sizing: border-box;
       }
-      .space{
-        height: 20px;
+      .nice{
+        height: 30px;
+        width: 80px;
+        background-color: pink;
+        margin: 20px 40px;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 30px;
       }
       .show-chat{
         border-top: 10px solid #f5f5f5;
@@ -679,7 +653,7 @@ body {
     }
   }
 
-  .footer1 {
+  .footer {
     padding: 60px 0;
     color: #fff;
     background-color: #272727;
