@@ -67,15 +67,20 @@
             (税込)
           .others__postage
             (送料込み)
+      .comment
+        %b 
+        = @item.explanation
       -if user_signed_in?
         -if @item.user_id == current_user.id
-          = link_to edit_item_path(@item) do
-            .item-edit-btn 商品の編集
-          = link_to ""do
-            .item-stop-btn この商品を削除する   
+          .buyer
+            = link_to edit_item_path(@item) do
+              .item-edit-btn 編集
+            .space
+            = link_to item_path(@item),method: :delete do
+              .item-stop-btn 削除
         -else 
           -if @item.status == 1
-            = link_to item_path(@item),method: :delete do
+            = link_to item_path(@item) do
               .item-buy-btn 購入画面に進む
           -else
             .item-buy-btn-sold 売り切れました
@@ -85,11 +90,7 @@
             .item-buy-btn 購入画面に進む
         -else
           .item-buy-btn-sold 売り切れました
-      .comment
-        %b 
-        = @item.explanation
-      .nice
-        いいね
+      .space
       .show-chat
         .chat-attention
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
