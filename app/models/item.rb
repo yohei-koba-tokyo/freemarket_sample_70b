@@ -9,4 +9,6 @@ class Item < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
 end

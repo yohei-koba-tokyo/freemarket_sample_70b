@@ -11,7 +11,7 @@
         .photo
           .photo__big
             - @itemimages.each do |i|
-              = image_tag i.image
+              = image_tag i.image.url
           .photo__small
         .contents
           %ul
