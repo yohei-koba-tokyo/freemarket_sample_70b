@@ -1,81 +1,283 @@
-.header{
-  
-}
-
-
-
-.body{
+.wrapper {
+  width: 100vw;
+  height: auto;
+  // background-color: #f5f5f5;
   background-color: rgb(245, 245, 245);
-  width: 100%;
-  justify-content: center;
+  min-height: 100vh;
+  .user-header {
+    height: 128px;
+    // margin: 0 auto;
+    // justify-content: center;
+    
+    &__logo {
+      line-height: center;
+      text-align: center;
+      padding-top: 40px;
+      width: 180px;
+      margin: auto;
+    }
+  }
 
 
-  h2{
-    margin: 0 auto;
-    display: flex;
+  .body{
+    background-color: rgb(245, 245, 245);
+    width: 100%;
     justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 90px;
-    width: 700px;
-    margin-bottom: 1px;
 
-    .input-nickname{
+
+    h1{
       margin: 0 auto;
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: white;
       height: 90px;
       width: 700px;
+      margin-bottom: 1px;
     }
-      .input-mailadress{}
-      .input-password{}
-      .input-confirmation{}
 
+    .input-person{
+      margin: 0 auto;
+      background-color: white;
+      width: 700px;
+      .nickname{
+        // margin: 0 auto;
+        // display: flex;
+        // text-align: center;
+        // align-items: center;
+        // justify-content: center;
 
+        // Provisional↓
+        padding-left: 248px;
 
-      .confirmation-sentence{
-        background-color: white;
-        width: 700px;
-        .--title{
-
+        .field{
+          display: flex;
         }
-        .--message{
-
-        }
-
-        }
-      .name{
 
       }
-      .kananame{
-
-      }
-      .birthday{
+      .mailaddress{
+        margin: 0 auto;
         display: flex;
-        .__year{
+        justify-content: center;
+      }
+      .password{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
 
+        // Provisional↓
+        padding-left: 121px;
+      }
+      .confirmation{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+       
+      }
+    }
+
+    .confirmation-sentence{
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      width: 700px;
+      .message{
+        width: 400px;
+
+        // Provisional↓
+        padding-left: 90px;
+
+        b{
+          font-size: 15px;
         }
-        .__mouth{
-
-        }
-        .__day{
-
+        &__contents{
+          font-size: 13px;
         }
       }
+    }
     
-      .button{
-        .--registration{
-          &--registration{
-            height: 30px;
-            width: 100px;
-            background-color: rgb(47, 255, 175);
+
+    .input-names{
+      margin: 0 auto;
+      // display: flex;
+      justify-content: center;
+      background-color: white;
+      width: 700px;
+
+      .names{
+        margin: 0 auto;
+        justify-content: center;
+        width: 400px;
+
+        // Provisional↓
+        padding-left: 91px;
+
+        .name1{
+          // justify-content: center;
+          // display: flex;
+          .character-name{
+            // display: flex;
+          }
+        }
+        .name2{
+          // justify-content: center;
+          // display: flex;
+          .kana-name{
+            // display: flex;
           }
         }
       }
+    }
+        
+    
+
+    .birthday{
+      margin: 0 auto;
+      // display: flex;
+      // text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 700px;
+      height: 120px;
+
+      .title{
+        // padding-left: 40px;
+        // display: flex;
+        // justify-content: center;
+        margin: 0 auto;
+        width: 400px;
+      }
+      .selects{
+        display: flex;
+        margin: 0 auto;
+        width: 400px;
+        &__year{
+        
+        }
+        &__mouth{
+
+        }
+        &__day{
+
+        }
+      }
+      .message{
+        color: rgb(139, 139, 139);
+        font-size: 13px;
+        width: 400px;
+        margin: 0 auto;
+        padding-top: 5px;
+
+
+      }
+    }
+
+    .input-personal-infomation{
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 700px;
+
+      // Provisional↓
+      padding-left: 147px;
+
+      .postcode{}
+      .addresses{
+        .prefecture{}
+        .municipality{}
+        .address{}
+      }
+      .phone{
+        &__number{
+          display: flex;
+        }
+      }
+    }
+
+
+    .button{
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      // align-items: center;
+      background-color: white;
+      height: 170px;
+      width: 700px;
+
+      .contents{
+        padding-top: 20px;
+
+        .contents__message{
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          width: 400px;
+
+          padding-bottom: 30px;
+        }
+        .contents__registration{
+          // height: 50px;
+          width: 400px;
+          background-color: rgb(47, 255, 186);
+
+          // font-size: 5px;
+          color: black;
+          text-align: center;
+          // padding-top: 10px;
+          // vertical-align: middle;
+
+          // Provisional
+          padding-top: 15px;
+          padding-bottom: 15px;
+
+          &__registration{
+          // text-align: center;
+          // vertical-align: middle;
+          // align-items: center;  
+          }
+        }
+      }
+    }
+    
+
+  }
+
+  .footer{
+    background-color: rgb(245, 245, 245);
+
+    .user-footer {
+      width: 456px;
+      height: 120px;
+      margin: 0px auto;
+      padding: 40px;
+
+      &__link {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        // padding: 0 30px;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+      &__logo {
+        width: 180px;
+        height: 65px;
+        margin: 30px auto;
+      }
+    }
   }
 }
 
-
-.footer{
-
+p.redicon {
+  background-color: red;
+  border-radius: 4px;
+  width: 50px;
+  padding-left: 9px;
+  color: white;
+  font-size: small;
 }

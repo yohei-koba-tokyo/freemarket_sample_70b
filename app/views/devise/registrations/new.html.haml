@@ -1,60 +1,202 @@
-.header
-  
-.body
-  %h2 会員情報入力
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .input-nickname
-      .field
-        = f.label :ニックネーム
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "nickname"
+.wrapper
+  .header
+    = render "shared/user-header"
 
-    .input-mailadress
-      .field
-        = f.label :メールアドレス
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-    .input-password
-      .field
-        = f.label :パスワード
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} 文字以上の半角英数字)
-        %br/
-        = f.password_field :password, autocomplete: "new-password"
-        %a ※ 英字と数字の両方を含めて設定してください
-        %a パスワードを表示する
 
-    .input-confirmation
-      .field
-        = f.label :パスワード確認
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+  .body
+    %h1 会員情報入力
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .input-person
+        .nickname
+          .field
+            -# %input#field.name-form__input(type="text")/
+            = f.label :ニックネーム
+            %br/
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+            -# %input type="text" placeholder="例）フリマ太郎"
+            %p.redicon 必須
 
-    .confirmation-sentence
-      .--title  本人確認
-      .--message  安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-    .input-name
-      .name
-        %a  お名前（全角）
-        .__first
-        .__last
-    .kana-name
-      %a  お名前カナ（全角）
-      .--first
-      .--last
-    .birthday
-      .birthday--input
-        .__year
-          %a 年
-        .__mouth
-          %a 月
-        .__day
-          %a 日
+        .mailaddress
+          .field
+            = f.label :メールアドレス
+            -# %b メールアドレス
+            %br/
+            -# %input#field.address-form__input(type="text")/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+            %p.redicon 必須
+
+        .password
+          .field
+            -# %b パスワード
+            = f.label :パスワード
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} 文字以上の半角英数字)
+            %br/
+            -# %input#field.pass-form__input(type="text")/
+            = f.password_field :password, autocomplete: "new-password"
+            %p.redicon 必須
+            .note
+              %a ※ 英字と数字の両方を含めて設定してください
+          -# .label 
+          -#   %input パスワードを表示する
+
+        .confirmation
+          .field
+            -# %a パスワード確認
+            = f.label :パスワード確認
+            %br/
+            -# %input#field.pass2-form__input(type="text")/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+            %confirmation__a 必須
+
+
+      .confirmation-sentence
+        .message
+          %b 本人確認
+          .message__contents
+            %message__contents 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      
+      .input-names
+        .names
+          .name1
+            %b お名前（全角）
+            .character-name
+              .first
+                .first--input
+                  =f.text_field :first_name, placeholder:"例）フリマ" 
+
+
+                  -# material↓
+                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
+              .last
+                .last--input
+                  =f.text_field :last_name, placeholder:"例）太郎" 
+
+                  -# material↓
+                  -# ="address-form__input" id="address-input-field" placeholder="例）太郎" type="text"
+          .name2
+            %b  お名前カナ（全角）
+            .kana-name
+              .first
+                .first--input
+                  =f.text_field :first_name_kana, placeholder:"例）ふりま" 
+
+
+                  -# material↓
+                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
+              .last
+                .last--input 
+                  =f.text_field :last_name_kana, placeholder:"例）たろう" 
+ 
+                
+                  -# material↓
+                  -# ="address-form__input" id="address-input-field" placeholder="例）タロウ" type="text"
+
+      .birthday
+        .title
+          %b 生年月日
+        .selects
+          .selects__year
+            %select
+              %option --
+              %option 2000
+              %option 2001
+              %option 2002
+              %option 2003
+              %option 2004
+              %option 2005
+              %option 2006
+              %option 2007
+              %option 2008
+              %option 2009
+              %option 2010
+            %a 年
+          .selects__month
+            %select
+              %option --
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+              %option 6
+              %option 7
+              %option 8
+              %option 9
+              %option 10
+              %option 11
+              %option 12
+            %a 月
+          .selects__day
+            %select
+              %option --
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+              %option 6
+              %option 7
+              %option 8
+              %option 9
+              %option 10
+              %option 11
+              %option 12
+              %option 13
+              %option 14
+              %option 15
+              %option value="1" 16
+              %option value="1" 17
+              %option value="1" 18
+              %option value="1" 19
+              %option value="1" 20
+              %option value="1" 21
+              %option value="1" 22
+              %option value="1" 23
+              %option value="1" 24
+              %option value="1" 25
+              %option value="1" 26
+              %option value="1" 27
+              %option value="1" 28
+              %option value="1" 29
+              %option value="1" 30
+              %option value="1" 31
+            %a 日
+        .message
           %a ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-      %a 「登録」のボタンを押すことにより、利用規約に同意したものとみなします
-
-    .button
-      %registration 登録する
-      = f.submit "Sign up"
+      
+      .input-personal-infomation
+        %b 住所
+        .postcode
+          %b 郵便番号
+          .postcode__number
+            %input
+            %a ー
+            %input
+        .addresses
+          .prefecture
+            %b 都道府県
+            %input
+          .municipality
+            %b 市町村
+            %input
+          .address
+            %b 番地
+            %input
+        .phone
+          %b 電話番号
+          .phone__number
+            %input
+            %a ー
+            %input
+      .button
+        .contents
+          .contents__message
+            %a 「登録」のボタンを押すことにより、利用規約に同意したものとみなします。
+          .contents__registration
+            -# %registration 登録する
+            = f.submit "Sign up"
+    .footer
+      = render "shared/user-footer"

@@ -65,7 +65,7 @@
       //     text-decoration: none;
       //   }
       // }
-      .forms {
+      .new-user {
         border-top: solid 1px #eee;
         background-color: white;
         margin: auto;
@@ -79,7 +79,7 @@
           border-radius: 4px;
           border: 1px solid #ccc
         }
-        &__pass-form input {
+        &__pass-form input{
           font-size: 16px;
           width: 100%;
           height: 48px;
@@ -89,24 +89,26 @@
           border-radius: 4px;
           border: 1px solid #ccc
         }
-
-        .login-btn {
-          color: white;
-          text-decoration: none;
-          width: 100%;
-          height: 48px;
-          margin-top: 24px;
-          background-color: red;
-          line-height: 48px;
-          font-size: 14px;
-        }
         
-        .forget-link {
-          display: block;
-          margin: 40px 0 0 0;
-          color: #0099e8;
-          text-align: left;
-          text-decoration: none;
+        .actions{
+          .login-btn {
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            height: 48px;
+            margin-top: 24px;
+            background-color: red;
+            line-height: 48px;
+            font-size: 14px;
+          }
+          
+          .forget-link {
+            display: block;
+            margin: 40px 0 0 0;
+            color: #0099e8;
+            text-align: left;
+            text-decoration: none;
+          }
         }
       }
     }

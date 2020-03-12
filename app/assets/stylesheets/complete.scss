@@ -1,0 +1,43 @@
+.header{
+
+}
+
+.body{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  justify-content: center;
+  .main{
+    display: flex;
+      align-items: center;
+      justify-self: center;
+    .upper{  
+      margin-bottom: 1px;
+    }
+    .center{
+      .message{
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        .message1{
+          
+        }
+        .message2{
+          
+        }
+      }
+      .button {
+        background-color: rgb(47, 255, 186)
+      }
+    }
+  .lowwer{
+
+  }
+
+  }
+}
+
+.footer{
+
+}
+
+
