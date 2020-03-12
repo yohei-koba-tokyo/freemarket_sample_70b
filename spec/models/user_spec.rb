@@ -65,10 +65,10 @@ describe User do
     end
 
     # 10. passwordが6文字以下であれば登録できないこと
-    it "is invalid with a password that has less than 5 characters " do
-      user = build(:user, password: "00000", password_confirmation: "00000")
+    it "is invalid with a password that has less than 6 characters " do
+      user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
     end
   end
 end
