@@ -85,7 +85,7 @@
       .productLists
         - @items.each do |value|
           .productList
-            = link_to "/items/#{value.id}" do
+            = link_to item_pa(id)
               .productList--image
                 - value.itemimages.each_with_index do |v|
                   =image_tag v.image
@@ -110,9 +110,9 @@
         = link_to "#" do
           %h3.title UNIQLO
       .productLists
-        - @bland_items.each do |value|
+        - @brand_items.each do |value|
           .productList
-            = link_to "/items/#{value.id}" do
+            = link_to item_itemimage_url(id)
               .productList--image
                 - value.itemimages.each_with_index do |v|
                   =image_tag v.image
