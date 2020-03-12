@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :items do
     resources :itemimages
     resources :categories
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
   resources :solditems
   resources :comments
@@ -14,8 +18,5 @@ Rails.application.routes.draw do
     resources :credit
     resources :addresses
   end
-
-  get 'items/search', to: "items#search"
-
 end
 
