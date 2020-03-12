@@ -83,90 +83,51 @@
         = link_to "#" do
           %h3.title 新規投稿商品
       .productLists
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a007.png"
-            .productList--body
-              %h3.name  product3
-              .details
-                %ul
-                  %li 3000円
-                  %li
+        - @items.each do |value|
+          .productList
+            = link_to item_path(value) do
+              .productList--image
+                - value.itemimages.each_with_index do |v|
+                  =image_tag v.image
+                  -break if i = 0
+              .productList--body
+                %h3.name
+                  =value.name
+                .detail
+                  %ul
+                    %li
+                      =value.price
+                      円
+                    %li
                     %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
+                  %p (税込)
 
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a004.png"
-            .productList--body
-              %h3.name  product2
-              .details
-                %ul
-                  %li 2000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-        
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a001.png"
-            .productList--body
-              %h3.name  product1
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
 
   %section.pickupContainer
     %h2.head ピックアップブランド
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title アーカイバ
+          %h3.title UNIQLO
       .productLists
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a007.png"
-            .productList--body
-              %h3.name  product3
-              .details
-                %ul
-                  %li 3000円
-                  %li
+        - @brand_items.each do |value|
+          .productList
+            = link_to item_path(value) do
+              .productList--image
+                - value.itemimages.each_with_index do |v|
+                  =image_tag v.image
+                  -break if i = 0
+              .productList--body
+                %h3.name
+                  =value.name
+                .detail
+                  %ul
+                    %li
+                      =value.price
+                      円
+                    %li
                     %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a004.png"
-            .productList--body
-              %h3.name  product2
-              .details
-                %ul
-                  %li 2000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-        
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a001.png"
-            .productList--body
-              %h3.name  product1
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
+                  %p (税込)
 
 %aside.appBanner
   .inner
