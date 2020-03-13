@@ -44,8 +44,9 @@
         .confirmation
           .field
             = f.label :パスワード確認
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password"
+            .box
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password"
 
       .input-confirmation
         .sentence

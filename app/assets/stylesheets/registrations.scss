@@ -124,6 +124,7 @@
             border-radius: 4px;
             border: 1px solid #ccc
           }
+        }
       }
     }
 
@@ -166,6 +167,20 @@
           .character-name{
             justify-content: space-between;
             display: flex;
+            .first{
+              .first--input{
+                width: 165.5px;
+                height: 48px;
+                .user_first_input{
+                  width: 165.5px;
+                  height: 48px;
+                }
+              }
+            }
+            .user_last_name input{
+              width: 48px;
+              height: 165.5px;
+            }
           }
         }
         .name2{
