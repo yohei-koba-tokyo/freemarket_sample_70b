@@ -20,21 +20,16 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-  # def create
-  #   if  item_params["itemimages_attributes"] != nil
-  #     if Item.create(item_params)[:id] != nil
-  #       redirect_to @current_user and return
-  #     end
-  #   end
-  # end
-
   def create
-    
-    item = Item.new(item_params)
-    if item.save
-      redirect_to @current_user
+    if  item_params["itemimages_attributes"] != nil
+      item = Item.new(item_params)
+      if item.save
+        redirect_to @current_user
+      else
+        redirect_to action: 'new'
+      end
     else
-      render action: 'new'
+      redirect_to action: 'new'
     end
   end
 
