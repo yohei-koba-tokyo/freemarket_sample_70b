@@ -10,14 +10,12 @@
       .input-person
         .nickname
           .field
-            -# %input#field.name-form__input(type="text")/
             .title
               = f.label :ニックネーム
               %p.redicon 必須
             .box
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-            -# %input type="text" placeholder="例）フリマ太郎"
 
         .mailaddress
           .field
@@ -26,42 +24,33 @@
               %p.redicon 必須
             .box
               %br/
-              -# %input#field.address-form__input(type="text")/
               = f.email_field :email, autofocus: true, autocomplete: "email"
 
         .password
           .contents
             .field
-              -# %b パスワード
               .title
                 = f.label :パスワード
                 %p.redicon 必須
                 - if @minimum_password_length
                   %em
-                    -# (#{@minimum_password_length} 文字以上の半角英数字)
               .box
                 %br/
-                -# %input#field.pass-form__input(type="text")/
                 = f.password_field :password, autocomplete: "new-password", placeholder:"(#{@minimum_password_length} 文字以上の半角英数字)"
 
           .note
             %a ※ 英字と数字の両方を含めて設定してください
-            -# .label 
-            -#   %input パスワードを表示する
 
         .confirmation
           .field
             = f.label :パスワード確認
             %br/
-            -# %input#field.pass2-form__input(type="text")/
             = f.password_field :password_confirmation, autocomplete: "new-password"
-            -# %confirmation__a 必須
 
       .input-confirmation
         .sentence
           .title
             %b 本人確認
-            -# %p.redicon 必須
           .message
             %message__comment 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
       
@@ -75,13 +64,9 @@
               .first
                 .first--input
                   =f.text_field :first_name, placeholder:"例）振間" 
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
               .last
                 .last--input
                   =f.text_field :last_name, placeholder:"例）太郎" 
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）太郎" type="text"
           .name2
             .title
               %b  お名前かな（全角）
@@ -90,13 +75,9 @@
               .first
                 .first--input
                   =f.text_field :first_name_kana, placeholder:"例）ふりま" 
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
               .last
                 .last--input 
                   =f.text_field :last_name_kana, placeholder:"例）たろう" 
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）タロウ" type="text"
 
 
       .birthday
@@ -233,10 +214,6 @@
           .contents__message
             %p 「登録」のボタンを押すことにより、利用規約に同意したものとみなします。
           .contents__registration
-            -# = f.label :"Set up", class: 'hidden' 
-            -# = f.submit "set up"
-            -# %p 登録する
-            -# = f.file_field :image, class: 'hidden'
             = f.submit '登録する', class: 'contents__registration' 
 
     .footer

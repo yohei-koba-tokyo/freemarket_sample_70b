@@ -50,16 +50,6 @@
           .title{
             display: flex;
           }
-          // 後に使用
-          // .box{
-          //   padding-left: 65px;
-          //   padding-bottom: 20px;
-          //   input[type=text] {
-          //     font-size: 16px;
-          //     transform: scale(1.8);
-          //     border-radius: 2px;
-          //   }
-          // }
         }
       }
       .mailaddress{
@@ -70,37 +60,15 @@
           .title{
             display: flex;
           }
-          // 後に使用
-          // .box{
-          //   padding-left: 65px;
-          //   padding-bottom: 20px;
-          //   input[type=text] {
-          //     font-size: 16px;
-          //     transform: scale(1.8);
-          //     border-radius: 4px;
-          //   }
-          // }
         }
       }
       .password{
         margin: 0 auto;
         width: 400px;
-        // display:flex;
         .field{
           .title{
             display: flex;
           }
-          // 後に使用
-          // .box{
-          //   padding-left: 65px;
-          //   padding-bottom: 20px;
-          //   .input[type=text] {
-          //     font-size: 16px;
-          //     transform: scale(1.8);
-          //     border-radius: 4px;
-          //     // padding-right: 100px;
-          //   }
-          // }
         }
         .note{
           color: rgb(139, 139, 139);
@@ -110,22 +78,11 @@
       .confirmation{
         margin: 0 auto;
         width: 400px;
-        // 後に使用
-        // .box{
-        //   padding-left: 65px;
-        //   padding-bottom: 20px;
-        //   input[type=text] {
-        //     font-size: 16px;
-        //     transform: scale(1.8);
-        //     border-radius: 4px;
-        //   }
-        // }
       }
     }
 
     .input-confirmation{
       margin: 0 auto;
-      // display: flex;
       justify-content: center;
       background-color: white;
       width: 700px;
@@ -137,16 +94,6 @@
           b{
             font-size: 15px;
           }
-          // 後に使用
-          // .box{
-          //   padding-left: 65px;
-          //   padding-bottom: 20px;
-          //   input[type=text] {
-          //     font-size: 16px;
-          //     transform: scale(1.8);
-          //     border-radius: 4px;
-          //   }
-          // }
         }
         .message {
           font-size: 13px;
@@ -157,7 +104,6 @@
 
     .input-names{
       margin: 0 auto;
-      // display: flex;
       justify-content: center;
       background-color: white;
       width: 700px;
@@ -171,8 +117,6 @@
           .title{
             display: flex;
           }
-          // justify-content: space-between;
-          // display: flex;
           .character-name{
             justify-content: space-between;
             display: flex;
@@ -182,8 +126,6 @@
           .title{
             display: flex;
           }
-          // justify-content: center;
-          // display: flex;
           .kana-name{
             justify-content: space-between;
             display: flex;
@@ -195,8 +137,6 @@
 
     .birthday{
       margin: 0 auto;
-      // display: flex;
-      // text-align: center;
       justify-content: center;
       align-items: center;
       background-color: white;
@@ -204,9 +144,7 @@
       height: 120px;
 
       .title{
-        // padding-left: 40px;
         display: flex;
-        // justify-content: center;
         margin: 0 auto;
         width: 400px;
       }
@@ -219,7 +157,6 @@
             height:48px;
             width: 76px;
           }
-          // input{font-size:3em;}
         }
         &__mouth{
 
@@ -254,7 +191,6 @@
           .postcode__number {
             display: flex;
           }
-          // textarea name="area1" class="sample3" cols="40" rows="8"
         }
         .addresses{
           .prefecture{}
@@ -272,12 +208,6 @@
           }
           &__number{
             display: flex;
-            // 後に使用
-            // input[type=text] {
-            //   font-size: 16px;
-            //   transform: scale(1.8);
-            //   border-radius: 2px;
-            // }
           }
         }
       }
@@ -288,7 +218,6 @@
       margin: 0 auto;
       display: flex;
       justify-content: center;
-      // align-items: center;
       background-color: white;
       height: 170px;
       width: 700px;
@@ -344,13 +273,6 @@
 }
 
 p.redicon {
-  // border-radius: 4px;
-  // width: 50px;
-  // padding-left: 9px;
-  // color: white;
-  // font-size: small;
-  // line-height: 8px;
-
   border-radius: 2px;
   background-color: red;
   margin-top: 2px;
@@ -362,7 +284,6 @@ p.redicon {
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  // line-height: 1.6em;
 }
 p.blueicon {
 
