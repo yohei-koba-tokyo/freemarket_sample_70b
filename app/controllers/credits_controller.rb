@@ -9,12 +9,47 @@ class CreditsController < ApplicationController
     redirect_to action: "index" if credit.present?
   end
 
-  def index 
+  def index #CardのデータをPayjpに送って情報を取り出す
+    if @credit.present?
+      # Payjp.api_key = "sk_test_6fdc4d02560876ba18e46565"
+      Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+
+      @credit_brand = @credit_information.brand      
+      case @credit_brand
+      when "Visa"
+        @credit_src = "visa.svg"
+      when "JCB"
+        @credit_src = "jcb.svg"
+      when "MasterCard"
+        @credit_src = "master-card.svg"
+      when "American Express"
+        @credit_src = "american_express.svg"
+      when "Diners Club"
+        @credit_src = "dinersclub.svg"
+      when "Discover"
+        @credit_src = "discover.svg"
+      end
+    end
+  end
+
+  def destroy #PayjpとCardのデータベースを削除
+    # Payjp.api_key = "sk_test_6fdc4d02560876ba18e46565"
+    Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+    customer = Payjp::Customer.retrieve(@credit.customer_id)
+    customer.delete
+    if @credit.destroy #削除に成功した時にポップアップを表示します。
+      redirect_to action: "index", notice: "削除しました"
+    else #削除に失敗した時にアラートを表示します。
+      redirect_to action: "index", alert: "削除できませんでした"
+    end
   end
  # indexアクションはここでは省略
 
   def create #Payjpとcreditのデータベースを作成
     Payjp.api_key = 'sk_test_6fdc4d02560876ba18e46565'
+    # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
     # テスト用の秘密鍵を入れてあります
 
     if params['payjp-token'].blank?
