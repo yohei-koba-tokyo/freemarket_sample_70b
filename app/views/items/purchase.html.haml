@@ -1,0 +1,14 @@
+.wrapper
+  .header
+    = render "shared/header"
+  .p-show
+    .p-show-main
+      .main-title
+        .main-title__title
+          ご購入の確認
+      = form_tag action: :pay, method: :post do
+        :plain
+          <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_744dfea221cdd9194fe212b5"></script>
+
+  .footer
+    = render "shared/user-footer"

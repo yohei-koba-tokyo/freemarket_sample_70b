@@ -75,16 +75,16 @@
             .item-stop-btn この商品を削除する   
         -else 
           -if @item.status == 1
-            = link_to done_items_path(@item) do
+            = link_to purchase_items_path(@item) do
               .item-buy-btn 購入画面に進む
           -else
             .item-buy-btn-sold 売り切れました
       -else
         -if @item.status == 1
-          = link_to done_items_path(@item) do
+          = link_to new_user_session_path(@user) do
             .item-buy-btn 購入画面に進む
         -else
-          .item-buy-btn-sold 売り切れました
+          .item-buy-btn-sold SOLD OUT
       .comment
         %b 
         = @item.explanation
@@ -112,5 +112,6 @@
         = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
         = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
 
-  .footer
-    = render "shared/footer"
+
+.footer
+  = render "shared/footer"

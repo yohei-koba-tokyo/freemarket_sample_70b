@@ -36,16 +36,22 @@ class ItemsController < ApplicationController
   end
 
 
-  def done
+  def purchase
   end
 
-  def pay
+  def pay    
+    @item = Item.find(params[:id])
     Payjp.api_key = 'sk_test_6fdc4d02560876ba18e46565'
     Payjp::Charge.create(
-      amount: 3500, # 決済する値段
+      amount: @item.price,
       card: params['payjp-token'],
       currency: 'jpy'
     )
+    @item.update( status: 0)
+    redirect_to done_items_path(@item)
+  end
+
+  def done
   end
 
   private
