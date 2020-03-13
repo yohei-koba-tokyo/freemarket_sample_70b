@@ -117,14 +117,14 @@ describe User do
 
     # 17. last_name_kanaは半角では登録できないこと
     it "is invalid without a last_name_kana is full-width" do
-      user = build(:user, last_name_kana: "aa")
+      user = build(:user, last_name_kana: "タロウ")
       user.valid?
       expect(user.errors[:last_name_kana]).to include("must be full-width")
     end 
 
     # 18. first_name_kanaは半角では登録できないこと
     it "is invalid without a first_name_kana is full-width" do
-      user = build(:user, first_name_kana: "aa")
+      user = build(:user, first_name_kana: "アベ")
       user.valid?
       expect(user.errors[:first_name_kana]).to include("must be full-width")
     end 
