@@ -1,20 +1,24 @@
 .wrapper {
   width: 100vw;
   height: auto;
-  background-color: rgb(245, 245, 245);
   min-height: 100vh;
-  .user-header {
-    height: 128px;
-    
-    &__logo {
-      line-height: center;
-      text-align: center;
-      padding-top: 40px;
-      width: 180px;
-      margin: auto;
+
+  .header{
+    background-color: rgb(245, 245, 245);
+
+    .user-header {
+      height: 128px;
+      margin: 0 auto;
+
+      &__logo {
+        line-height: center;
+        text-align: center;
+        padding-top: 40px;
+        width: 180px;
+        margin: auto;
+      }
     }
   }
-
 
   .body{
     background-color: rgb(245, 245, 245);
@@ -43,21 +47,60 @@
         width: 400px;
         display: flex;
         .field{
-          // display: flex;
+          .title{
+            display: flex;
+          }
+          // 後に使用
+          // .box{
+          //   padding-left: 65px;
+          //   padding-bottom: 20px;
+          //   input[type=text] {
+          //     font-size: 16px;
+          //     transform: scale(1.8);
+          //     border-radius: 2px;
+          //   }
+          // }
         }
       }
       .mailaddress{
         margin: 0 auto;
-        width: 400px
-        // display: flex;
+        width: 400px;
+        display: flex;
+        .field{
+          .title{
+            display: flex;
+          }
+          // 後に使用
+          // .box{
+          //   padding-left: 65px;
+          //   padding-bottom: 20px;
+          //   input[type=text] {
+          //     font-size: 16px;
+          //     transform: scale(1.8);
+          //     border-radius: 4px;
+          //   }
+          // }
+        }
       }
       .password{
         margin: 0 auto;
         width: 400px;
         // display:flex;
         .field{
-          // display: flex;
-
+          .title{
+            display: flex;
+          }
+          // 後に使用
+          // .box{
+          //   padding-left: 65px;
+          //   padding-bottom: 20px;
+          //   .input[type=text] {
+          //     font-size: 16px;
+          //     transform: scale(1.8);
+          //     border-radius: 4px;
+          //     // padding-right: 100px;
+          //   }
+          // }
         }
         .note{
           color: rgb(139, 139, 139);
@@ -67,7 +110,16 @@
       .confirmation{
         margin: 0 auto;
         width: 400px;
-
+        // 後に使用
+        // .box{
+        //   padding-left: 65px;
+        //   padding-bottom: 20px;
+        //   input[type=text] {
+        //     font-size: 16px;
+        //     transform: scale(1.8);
+        //     border-radius: 4px;
+        //   }
+        // }
       }
     }
 
@@ -79,13 +131,22 @@
       width: 700px;
       .sentence{
         margin: 0 auto;
-        // justify-content: center;
         width: 400px;
         .title {
           display: flex;
           b{
             font-size: 15px;
           }
+          // 後に使用
+          // .box{
+          //   padding-left: 65px;
+          //   padding-bottom: 20px;
+          //   input[type=text] {
+          //     font-size: 16px;
+          //     transform: scale(1.8);
+          //     border-radius: 4px;
+          //   }
+          // }
         }
         .message {
           font-size: 13px;
@@ -154,7 +215,11 @@
         margin: 0 auto;
         width: 400px;
         &__year{
-        
+          .select{
+            height:48px;
+            width: 76px;
+          }
+          // input{font-size:3em;}
         }
         &__mouth{
 
@@ -185,15 +250,34 @@
         .title{
           display: flex;
         }
-        .postcode{}
+        .postcode{
+          .postcode__number {
+            display: flex;
+          }
+          // textarea name="area1" class="sample3" cols="40" rows="8"
+        }
         .addresses{
           .prefecture{}
           .municipality{}
           .address{}
+          .apartment{
+            &__title{
+              display: flex;
+            }
+          }
         }
         .phone{
+          &__title{
+            display: flex;
+          }
           &__number{
             display: flex;
+            // 後に使用
+            // input[type=text] {
+            //   font-size: 16px;
+            //   transform: scale(1.8);
+            //   border-radius: 2px;
+            // }
           }
         }
       }
@@ -217,34 +301,19 @@
           align-items: center;
           display: flex;
           width: 400px;
-
           padding-bottom: 30px;
         }
         .contents__registration{
-          // height: 50px;
           width: 400px;
+          height: 50px;
           background-color: rgb(47, 255, 186);
-
-          // font-size: 5px;
           color: black;
           text-align: center;
-          // padding-top: 10px;
-          // vertical-align: middle;
 
-          // Provisional
-          padding-top: 15px;
-          padding-bottom: 15px;
-
-          &__registration{
-          // text-align: center;
-          // vertical-align: middle;
-          // align-items: center;  
-          }
+         
         }
       }
     }
-    
-
   }
 
   .footer{
@@ -260,7 +329,6 @@
         display: flex;
         justify-content: space-between;
         font-size: 12px;
-        // padding: 0 30px;
         a {
           text-decoration: none;
           color: black;
@@ -295,5 +363,19 @@ p.redicon {
   font-style: normal;
   font-weight: 600;
   // line-height: 1.6em;
+}
+p.blueicon {
 
+
+  border-radius: 2px;
+  background-color: rgb(0, 153, 255);
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 8px;
+  padding-right: 2px;
+  padding-left: 2px;
+  color: white;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
 }
