@@ -15,8 +15,8 @@
             最大4枚までアップロードできます
           .pictures
             = f.fields_for :itemimages do |itemimage|
-              = itemimage.file_field :image, class: 'hidden'
-
+              = itemimage.file_field :image, class: 'hidden', id:'uploaded-img'
+              
         .name
           %label.item-label
             商品名
@@ -28,7 +28,7 @@
             商品の説明
           %span.item-span 必須
           .explanation__inputbox
-            = f.text_field :explanation, placeholder: "商品の説明（必須1,000文字以内）"
+            = f.text_area :explanation, placeholder: "商品の説明（必須1,000文字以内）"
 
         .category
           %label.item-label
