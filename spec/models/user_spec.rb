@@ -94,12 +94,12 @@ describe User do
       expect(user.errors[:first_name_kana]).to include("can't be blank")
     end   
 
-    # 14. birthdayが空では登録できないこと
-    it "is invalid without a birthday" do
-      user = build(:user, birthday: nil)
-      user.valid?
-      expect(user.errors[:birthday]).to include("can't be blank")
-    end   
+    # # 14. birthdayが空では登録できないこと
+    # it "is invalid without a birthday" do
+    #   user = build(:user, birthday: nil)
+    #   user.valid?
+    #   expect(user.errors[:birthday]).to include("can't be blank")
+    # end   
 
     # 15. last_nameは半角では登録できないこと
     it "is invalid without a last_name is full-width" do
@@ -115,14 +115,14 @@ describe User do
       expect(user.errors[:first_name]).to include("must be full-width")
     end 
 
-    # 17. last_name_kanaは半角では登録できないこと
+    # 17. last_name_kanaは平仮名全角以外では登録できないこと
     it "is invalid without a last_name_kana is full-width" do
       user = build(:user, last_name_kana: "タロウ")
       user.valid?
       expect(user.errors[:last_name_kana]).to include("must be full-width")
     end 
 
-    # 18. first_name_kanaは半角では登録できないこと
+    # 18. first_name_kanaは平仮名全角以外では登録できないこと
     it "is invalid without a first_name_kana is full-width" do
       user = build(:user, first_name_kana: "アベ")
       user.valid?
