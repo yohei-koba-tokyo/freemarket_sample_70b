@@ -40,7 +40,7 @@ describe User do
 
     # 6. nicknameが6文字以下では登録できること
     it "is valid with a nickname that has less than 6 characters " do
-      user = build(:user, nickname: "aaaaaa")
+      user = build(:user, nickname: "abe")
       expect(user).to be_valid
     end
 
@@ -101,19 +101,33 @@ describe User do
       expect(user.errors[:birthday]).to include("can't be blank")
     end   
 
-    # 15. last_name_kanaは半角では登録できないこと
+    # 15. last_nameは半角では登録できないこと
+    it "is invalid without a last_name is full-width" do
+      user = build(:user, last_name: "aa")
+      user.valid?
+      expect(user.errors[:last_name]).to include("must be full-width")
+    end 
+
+    # 16. first_nameは半角では登録できないこと
+    it "is invalid without a first_name is full-width" do
+      user = build(:user, first_name: "aa")
+      user.valid?
+      expect(user.errors[:first_name]).to include("must be full-width")
+    end 
+
+    # 17. last_name_kanaは半角では登録できないこと
     it "is invalid without a last_name_kana is full-width" do
-      user = build(:user, last_name_kana: "ア")
+      user = build(:user, last_name_kana: "aa")
       user.valid?
       expect(user.errors[:last_name_kana]).to include("must be full-width")
     end 
 
-    # 15. first_name_kanaは半角では登録できないこと
+    # 18. first_name_kanaは半角では登録できないこと
     it "is invalid without a first_name_kana is full-width" do
-      user = build(:user, first_name_kana: "ア")
+      user = build(:user, first_name_kana: "aa")
       user.valid?
       expect(user.errors[:first_name_kana]).to include("must be full-width")
     end 
-
+    
   end
 end
