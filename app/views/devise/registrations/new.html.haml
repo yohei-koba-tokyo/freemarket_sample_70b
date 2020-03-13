@@ -36,7 +36,7 @@
                   %em
               .box
                 %br/
-                = f.password_field :password, autocomplete: "new-password", placeholder:"(#{@minimum_password_length} 文字以上の半角英数字)"
+                = f.password_field :password, autocomplete: "new-password", placeholder:"(7文字以上の半角英数字)"
 
           .note
             %a ※ 英字と数字の両方を含めて設定してください
@@ -64,10 +64,12 @@
             .character-name
               .first
                 .first--input
-                  =f.text_field :first_name, placeholder:"例）振間" 
+                  .user_first_name
+                    =f.text_field :first_name, placeholder:"例）振間" 
               .last
                 .last--input
-                  =f.text_field :last_name, placeholder:"例）太郎" 
+                  .user_last_name
+                    =f.text_field :last_name, placeholder:"例）太郎" 
           .name2
             .title
               %b  お名前かな（全角）
@@ -75,10 +77,12 @@
             .kana-name
               .first
                 .first--input
-                  =f.text_field :first_name_kana, placeholder:"例）ふりま" 
+                  .user_first_name_kana                
+                    =f.text_field :first_name_kana, placeholder:"例）ふりま" 
               .last
                 .last--input 
-                  =f.text_field :last_name_kana, placeholder:"例）たろう" 
+                  .user_last_name_kana
+                    =f.text_field :last_name_kana, placeholder:"例）たろう" 
 
 
       .birthday
@@ -189,13 +193,13 @@
               %input
           .addresses
             .prefecture
-              %b 都道府県
+              %b 　都道府県
               %input
             .municipality
-              %b 市町村
+              %b 　市町村
               %input
             .address
-              %b 番地
+              %b 　番地
               %input
             .apartment
               .apartment__title
