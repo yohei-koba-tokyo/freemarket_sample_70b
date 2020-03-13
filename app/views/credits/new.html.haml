@@ -52,7 +52,7 @@
 :javascript
   document.addEventListener(
   "DOMContentLoaded", (e) => {
-    Payjp.setPublicKey("pk_test_744dfea221cdd9194fe212b5");
+    Payjp.setPublicKey("ENV['PAYJP_OPEN_KEY']");
     //上記にてテスト公開鍵を入力してある
     const btn = document.getElementById('token_submit'); //IDがtoken_submitの場合に取得されます
     btn.addEventListener("click", (e) => {　//ボタンが押されたときに作動します
