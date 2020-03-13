@@ -25,7 +25,6 @@ $(function(){
                             </select>
                             `;
     $('.category__inputbox').append(grandchildSelectHtml);
-    console.log("hello")
   }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){

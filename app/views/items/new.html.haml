@@ -15,8 +15,10 @@
             最大4枚までアップロードできます
           .pictures
             = f.fields_for :itemimages do |itemimage|
-              = itemimage.file_field :image, class: 'hidden', id:'uploaded-img'
-              
+              %label.upload-place
+                %i.fa.fa-image
+                = itemimage.file_field :image, class: 'hidden', id:'myfile'
+                
         .name
           %label.item-label
             商品名

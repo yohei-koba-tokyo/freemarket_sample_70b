@@ -58,6 +58,16 @@ p.item-p {
           .pictures {
             padding-bottom: 40px;
             border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            .upload-place {
+              font-size: 80px;
+              color: rgb(110, 231, 221);
+              .hidden {
+                display: none;
+              }
+            }
+            
           }
         }
         .name {
