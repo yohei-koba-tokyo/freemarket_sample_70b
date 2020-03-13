@@ -128,6 +128,13 @@ describe User do
       user.valid?
       expect(user.errors[:first_name_kana]).to include("must be full-width")
     end 
+
+    # 19. passwordは英字と数字を組み合わせること
+    it "is valid with a password that Contains letters and numbers " do
+      user = build(:user, password: "a234567", password_confirmation: "a234567")
+      user.valid?
+      expect(user).to be_valid
+    end
     
   end
 end
