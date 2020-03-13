@@ -11,4 +11,12 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :solditems, dependent: :destroy
+
+
+  # has_many :images
+  # accepts_nested_attributes_for :images
+  
+
+  # root 'products#index'
+  # resources :products, except: :show
 end

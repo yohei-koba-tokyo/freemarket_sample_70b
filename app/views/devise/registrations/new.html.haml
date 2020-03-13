@@ -37,7 +37,6 @@
               .box
                 %br/
                 = f.password_field :password, autocomplete: "new-password", placeholder:"(#{@minimum_password_length} 文字以上の半角英数字)"
-
           .note
             %a ※ 英字と数字の両方を含めて設定してください
 
@@ -78,7 +77,6 @@
               .last
                 .last--input 
                   =f.text_field :last_name_kana, placeholder:"例）たろう" 
-
 
       .birthday
         .title
@@ -183,7 +181,6 @@
             %b 郵便番号
             .postcode__number
               %input 
-            
               %p ー
               %input
           .addresses
