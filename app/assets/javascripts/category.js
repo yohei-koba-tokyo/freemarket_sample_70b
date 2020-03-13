@@ -11,7 +11,7 @@ $(function(){
                       <select class="listing-select-wrapper__box--select" id="child_category" name="category2">
                         <option value="選択してください" data-category="選択してください">選択してください</option>
                         ${insertHTML}
-                      <select>
+                      </select>
                       `;
     $('.category__inputbox').append(childSelectHtml);
   }
