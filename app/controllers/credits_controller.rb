@@ -48,10 +48,9 @@ class CreditsController < ApplicationController
  # indexアクションはここでは省略
 
   def create #Payjpとcreditのデータベースを作成
-    Payjp.api_key = 'sk_test_6fdc4d02560876ba18e46565'
-    # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+    # Payjp.api_key = 'sk_test_6fdc4d02560876ba18e46565'
+    Payjp.api_key =ENV['PAYJP_SECRET_KEY']
     # テスト用の秘密鍵を入れてあります
-
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else

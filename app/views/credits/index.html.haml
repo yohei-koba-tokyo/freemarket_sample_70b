@@ -10,27 +10,7 @@
       .content__credit-credits
         %h3 クレジットカード一覧
         - if @credit.present?
-          %ul.content__credit-credits__list
-            %li
-              = form_with url: credit_path(@credit.id), method: :delete, local: true, id: 'charge-form' do |f|
-                -# カードブランドのアイコンを表示する場合-----
-                %figure
-                  = image_tag "credit-cards/#{@credit_src}", width: '26', height: '20', alt: @credit_brand, id: "credit_image"
-                -#----------------------------------
-                .content__credit-credits__list--pay-num
-                  = "**** **** **** " + @credit_information.last4
-                .content__credit-credits__list--pay-num
-                  - exp_month = @credit_information.exp_month.to_s
-                  - exp_year = @credit_information.exp_year.to_s.slice(2,3)
-                  = exp_month + " / " + exp_year
-                %input{type: "hidden", name: "credit_id", value: ""}
-                = f.submit "削除する", {class: "content__credit-credits__list__remove"}
-                - if flash[:notice]
-                  .alert.alert-success
-                  = flash[:notice]
-                - if flash[:alert]
-                  .alert.alert-dange
-                  = flash[:alert]
+          = render 'shared/card_info'
         - else
-          = link_to "カード新規登録へのリンク", new_credit_path
+          = link_to "クレジット新規登録", new_credit_path
 
