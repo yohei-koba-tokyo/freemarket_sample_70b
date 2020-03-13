@@ -35,6 +35,19 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+
+  def done
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_6fdc4d02560876ba18e46565'
+    Payjp::Charge.create(
+      amount: 3500, # 決済する値段
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:explanation,:category_id,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)
@@ -54,6 +67,10 @@ class ItemsController < ApplicationController
     ['徳島県','徳島県'],['香川県','香川県'],['愛媛県','愛媛県'],['高知県','高知県'],
     ['福岡県','福岡県'],['佐賀県','佐賀県'],['長崎県','長崎県'],['熊本県','熊本県'],
     ['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']]
+  end
+
+  def item_params
+    params.require(:item).permit(:status)
   end
 end
 
