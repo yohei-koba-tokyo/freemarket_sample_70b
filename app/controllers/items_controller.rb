@@ -37,6 +37,8 @@ class ItemsController < ApplicationController
 
 
   def purchase
+    @item = Item.find(params[:id])
+    @itemimages = @item.itemimages.all
   end
 
   def pay    
