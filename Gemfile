@@ -97,4 +97,5 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'payjp'
 gem 'gon'
 gem 'jquery-rails'
+gem 'dotenv-rails'
 

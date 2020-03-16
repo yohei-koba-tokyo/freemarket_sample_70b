@@ -12,18 +12,18 @@
             .users-info
               .users-info__icon
               .users-info__name
-                山田
+                = current_user.nickname
             .sub-info
               .assessment
                 .assessment__title
                   評価
                 .assessment__num
-                  0
+                  未実装
               .exhibit
                 .exhibit__title
                   出品数
                 .exhibit__num
-                  0
+                  = @user.items.length
         .contents
           %h1
             お知らせ
