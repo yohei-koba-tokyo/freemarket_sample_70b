@@ -1,0 +1,51 @@
+.wrapper
+  .header
+    = render "shared/header"
+
+  .mypage
+    = render "shared/mypage-side"
+
+    .main
+      .main-left
+        .block
+          .profile
+            .users-info
+              .users-info__icon
+              .users-info__name
+                山田
+            .sub-info
+              .assessment
+                .assessment__title
+                  評価
+                .assessment__num
+                  0
+              .exhibit
+                .exhibit__title
+                  出品数
+                .exhibit__num
+                  0
+        .contents
+          %h1
+            出品中
+          %h1
+            売却済み
+        .main-left__list
+          %ul
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+
+
+  %aside.appBanner
+    .inner
+      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      .inner__icon
+        = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
+        = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
+
+  .footer
+    = render "shared/footer"
