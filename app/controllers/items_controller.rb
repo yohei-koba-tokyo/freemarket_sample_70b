@@ -109,7 +109,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @message = Message.find(params[:id])
+    @item = Item.find(params[:id])
   end
 end
 
