@@ -15,8 +15,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
 
 
-  
-
   # root 'products#index'
   # resources :products, except: :show
 end

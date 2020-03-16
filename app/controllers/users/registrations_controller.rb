@@ -6,19 +6,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    super
+    # super
     @user = User.new
-    # binding.pry
-    @user.address.build
-    
+    @address = @user.build_address
   end
 
   # POST /resource
-  def create
-    super
-
-    # binding.pry
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
