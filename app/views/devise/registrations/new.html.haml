@@ -24,7 +24,7 @@
               %p.redicon 必須
             .box
               %br/
-              = f.email_field :email, autofocus: true, autocomplete: "email"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:" 例) free@market.jp"
 
         .password
           .contents
@@ -65,11 +65,11 @@
               .first
                 .first--input
                   .user_first_name
-                    =f.text_field :first_name, placeholder:"例）振間" 
+                    =f.text_field :first_name, placeholder:" 例）振間" 
               .last
                 .last--input
                   .user_last_name
-                    =f.text_field :last_name, placeholder:"例）太郎" 
+                    =f.text_field :last_name, placeholder:" 例）太郎" 
           .name2
             .title
               %b  お名前かな（全角）
@@ -78,11 +78,11 @@
               .first
                 .first--input
                   .user_first_name_kana                
-                    =f.text_field :first_name_kana, placeholder:"例）ふりま" 
+                    =f.text_field :first_name_kana, placeholder:" 例）ふりま" 
               .last
                 .last--input 
                   .user_last_name_kana
-                    =f.text_field :last_name_kana, placeholder:"例）たろう" 
+                    =f.text_field :last_name_kana, placeholder:" 例）たろう" 
 
 
       .birthday
