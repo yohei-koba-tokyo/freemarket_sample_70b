@@ -59,7 +59,6 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name,:explanation,:category_id,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)
-    binding.pry
   end
 
   def prefectures
