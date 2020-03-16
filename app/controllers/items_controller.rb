@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     4.times { @item.itemimages.build }
     @prefectures = prefectures
-    # @parents = Category.where(ancestry:nil)
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -22,7 +21,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    if  item_params["itemimages_attributes"] != nil
+      item = Item.new(item_params)
+      if item.save
+        redirect_to @current_user
+      else
+        redirect_to action: 'new'
+      end
+    else
+      redirect_to action: 'new'
+    end
   end
 
 
@@ -58,7 +66,29 @@ class ItemsController < ApplicationController
 
   private
   def item_params
+
     params.require(:item).permit(:name,:explanation,:category_id,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)
+
+    item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
+
+    if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"
+      item_array["category_id"] = ""
+    else
+      category1 = params.require(:item).permit(:category1)
+      category2 = params.require(:category2)
+      category3 = params.require(:category3)
+
+      category1_id = Category.where(name: category1["category1"]).where(ancestry: nil).ids
+      category2_id = Category.where("id>?",category1_id).where(name: category2).where.not("ancestry LIKE ?","%/%").ids
+      category2_2_id = category2_id[0]
+      category3_id = Category.where("id>?",category2_2_id).find_by(name: category3).id
+
+      item_array["category_id"] = category3_id
+    end
+    
+    item_array["status"] = 1
+    item_params = item_array
+
   end
 
   def prefectures

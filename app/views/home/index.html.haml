@@ -88,7 +88,7 @@
             = link_to item_path(value) do
               .productList--image
                 - value.itemimages.each_with_index do |v|
-                  =image_tag v.image
+                  =image_tag v.image.url
                   -break if i = 0
               .productList--body
                 %h3.name
@@ -108,14 +108,14 @@
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title UNIQLO
+          %h3.title ユニクロ
       .productLists
         - @brand_items.each do |value|
           .productList
             = link_to item_path(value) do
               .productList--image
                 - value.itemimages.each_with_index do |v|
-                  =image_tag v.image
+                  =image_tag v.image.url
                   -break if i = 0
               .productList--body
                 %h3.name
