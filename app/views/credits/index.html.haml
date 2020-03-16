@@ -17,14 +17,6 @@
           ※クレジットカードは、現在登録されていません
           = link_to "クレジット新規登録", new_credit_path, class:"submit-btn"
           = link_to "戻る", user_path(current_user), class:"submit-btn__white"
-  %aside.appBanner
-    .inner
-      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      .inner__icon
-        = link_to image_tag("appstore.jpeg", alt: "サンプル画像"), "aBtn"
-        = link_to image_tag("googleplay.png", alt: "サンプル画像"), "gBtn"
-
   .footer
     = render "shared/footer"
 
