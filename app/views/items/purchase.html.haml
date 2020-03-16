@@ -21,21 +21,28 @@
               .price__postage
                 送料込み
       .main-price
+        .main-price__title
+          支払い金額
+        .main-price__result
+          ￥ 
+          = @item.price
+      .main-buy
         .method
           .method__title
             支払い方法
           .method__result
-
+            aaaa
             
       .main-adress
         .place
           .place__title
             配送先住所
           .place__result
-
-      = form_tag action: :pay, method: :post ,class:"btn" do
-        :plain
-          <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_744dfea221cdd9194fe212b5"></script>
+            八王子
+      .buy-btn
+        = form_tag action: :pay, method: :post do
+          :plain
+            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_744dfea221cdd9194fe212b5"></script>
 
   .footer
     = render "shared/user-footer"

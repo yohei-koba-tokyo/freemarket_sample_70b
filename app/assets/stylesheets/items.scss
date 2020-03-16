@@ -695,91 +695,136 @@ body {
 .main-t{
   text-align: center;
   line-height: 500px;
-}
   .thank{
   font-size: 30px;
   }
-
+  a{
+    text-decoration: none;
+    padding-left: 10px;
+  }
+}
 .wrapper{
   .p-show{
     width: 100%;
-    height: 600px;
+    height: 850px;
     background-color: #f5f5f5;
     margin-top: 100px;
     .p-show-main{
-      height: 600px;
+      height: 850px;
       width: 700px;
       background-color: white;
       margin: 0 auto;
-    }
-    .main-title{
-      height: 80px;
-      background-color: white;
-      &__title{
-        text-align: center;
-        line-height: 80px;
-        font-size: 25px;
-        font-weight: bold;
+      .main-title{
+        height: 80px;
+        background-color: white;
+        &__title{
+          text-align: center;
+          line-height: 80px;
+          font-size: 25px;
+          font-weight: bold;
+        }
       }
-    }
-    .main-info{
-      min-width: 700px;
-      min-height: 150px;
-      border: 1px solid #f5f5f5;
-      .info{
+      .main-info{
+        min-width: 700px;
+        min-height: 150px;
+        border: 1px solid #f5f5f5;
+        .info{
+          display: flex;
+          justify-content: center;
+          min-height: 100px;
+          margin: 25px auto;
+          &__photo{
+            height: 100px;
+            width: 100px;
+            background-color: powderblue;
+          }
+          .name-and-price{
+            margin: 5px 20px;
+            font-size: 15px;
+
+            
+            .name{
+              margin-top: 15px;
+            }
+            .price{
+              height: 20px;
+              display: flex;
+              margin-top: 15px;
+              line-height: 20px;
+              padding-left: 5px;
+              font-weight: bold;
+            &__tax{
+              padding-left: 5px;
+
+            }
+            &__postage{
+              padding-left: 5px;
+            }
+            }
+          }
+        }
+      }
+      .main-price{
+        width: 700px;
+        height: 150px;
+        border-bottom: 1px solid #f5f5f5;
         display: flex;
-        justify-content: center;
-        min-height: 100px;
-        margin: 25px auto;
-        &__photo{
-          height: 100px;
-          width: 100px;
-          background-color: powderblue;
+        line-height: 150px;
+        padding-left: 150px;
+        font-size: 20px;
+        &__title{
+          font-weight: bold;
         }
-        .name-and-price{
-          margin: 5px 20px;
-          font-size: 15px;
-
-          
-          .name{
-            margin-top: 15px;
+        &__result{
+          padding-left: 150px;
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+      .main-buy{
+        width: 700px;
+        height: 150px;
+        border-bottom: 1px solid #f5f5f5;
+        .method{
+          display: flex;
+          line-height: 150px;
+          padding-left: 150px;
+          &__title{
+            font-weight: bold;
           }
-          .price{
-            height: 20px;
-            display: flex;
-            margin-top: 15px;
-            line-height: 20px;
-            padding-left: 5px;
-          &__tax{
-            padding-left: 5px;
-
-          }
-          &__postage{
-            padding-left: 5px;
-          }
+          &__result{
+            padding-left: 100px;
           }
         }
       }
-    }
-    .main-price{
-      width: 700px;
-      height: 150px;
-      border-bottom: 1px solid #f5f5f5;
-      .method{
-        text-align: center;
-        justify-content: center;
+      .main-adress{
+        width: 700px;
+        height: 150px;
+        border-bottom: 1px solid #f5f5f5;
+        .place{
+          display: flex;
+          line-height: 150px;
+          padding-left: 150px;
+          &__title{
+            font-weight: bold;
+          }
+          &__result{
+            padding-left: 100px;
+          }
+        }
+      }
+      .buy-btn{
+        height: 200px;
+        width: 100%;
+        padding: 50px 250px;
       }
     }
-    .main-adress{
-      width: 700px;
-      height: 150px;
-      border-bottom: 1px solid #f5f5f5;
-      .place{
-        text-align: center;
-
-      }
-    }
-
-
   }
 }
+#payjp_checkout_box input[type=button]{
+  background-color: #d9534f !important;
+  line-height: 30px !important;
+  font-size: 20px !important;
+}
+
+
