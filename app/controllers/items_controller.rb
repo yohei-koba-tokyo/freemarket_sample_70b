@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
   end
 
@@ -43,14 +44,12 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-
+  before_action :set_item
   def purchase
-    @item = Item.find(params[:id])
     @itemimages = @item.itemimages.all
   end
 
   def pay    
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
@@ -108,6 +107,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:status)
+  end
+
+  def set_item
+    @message = Message.find(params[:id])
   end
 end
 
