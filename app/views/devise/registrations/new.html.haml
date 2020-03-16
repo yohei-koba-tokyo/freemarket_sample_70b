@@ -253,6 +253,7 @@
           %a ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       
       .input-personal
+        = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
         .infomation
           .title
             %p 住所
