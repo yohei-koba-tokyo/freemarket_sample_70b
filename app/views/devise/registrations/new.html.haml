@@ -43,7 +43,9 @@
 
         .confirmation
           .field
-            = f.label :パスワード確認
+            .title
+              = f.label :パスワード確認
+              %p.redicon 必須
             .box
               %br/
               = f.password_field :password_confirmation, autocomplete: "new-password"
@@ -258,8 +260,7 @@
           .postcode
             %p 郵便番号
             .postcode__number
-              %input 
-              -# =f.postcode_field :postcode__number, placeholder:" 例）東京都" 
+              %input
           .addresses
             .prefecture
               %p 　都道府県
