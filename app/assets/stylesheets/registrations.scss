@@ -53,6 +53,10 @@
           width: 100%;
           .title{
             display: flex;
+            padding-top: 10px;
+          }
+          .box{
+            height: 75px;
           }
           .box input{
             font-size: 16px;
@@ -75,6 +79,9 @@
           .title{
             display: flex;
           }
+          .box{
+            height: 75px;
+          }
           .box input{
             font-size: 16px;
             width: 343px;
@@ -93,6 +100,9 @@
         .field{
           .title{
             display: flex;
+          }
+          .box{
+            height: 75px;
           }
           .box input{
             font-size: 16px;
@@ -117,6 +127,9 @@
         .field{
           .title{
             display: flex;
+          }
+          .box{
+            height: 75px;
           }
           .box input{
             font-size: 16px;
@@ -167,6 +180,7 @@
         .name1{
           .title{
             display: flex;
+            padding: 5px 0;
           }
           .character-name{
             justify-content: space-between;
@@ -205,6 +219,7 @@
         .name2{
           .title{
             display: flex;
+            padding: 5px 0;
           }
           .kana-name{
             justify-content: space-between;
@@ -256,6 +271,8 @@
         display: flex;
         margin: 0 auto;
         width: 400px;
+        padding: 5px 0;
+
       }
       .selects{
         display: flex;
@@ -297,6 +314,7 @@
         padding-top: 30px;
         .title{
           display: flex;
+          padding: 5px 0;
         }
         .postcode{
           margin: 0 24px;
@@ -304,6 +322,7 @@
             display: flex;
             width: 165.5px;
             height: 48px;
+            padding: 5px 0;
             input {
               border-radius: 4px;
               border: 1px solid #ccc
@@ -312,6 +331,7 @@
         }
         .addresses{
           .prefecture input{
+            padding: 5px 0;
             margin: 0 24px;
             display: flex;
             width: 165.5px;
@@ -320,6 +340,7 @@
             border: 1px solid #ccc
           }
           .municipality input{
+            padding: 5px 0;
             margin: 0 24px;
             display: flex;
             width: 165.5px;
@@ -328,6 +349,7 @@
             border: 1px solid #ccc
           }
           .address input{
+            padding: 5px 0;
             margin: 0 24px;
             display: flex;
             width: 165.5px;
@@ -339,6 +361,7 @@
             &__title{
               display: flex;
               width: 150px;
+              padding: 5px 0;
             }
             input{
               display: flex;
@@ -354,6 +377,7 @@
         .phone{
           &__title{
             display: flex;
+            padding: 5px 0;
           }
           &__number{
             display: flex;
