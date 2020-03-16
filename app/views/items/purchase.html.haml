@@ -42,7 +42,7 @@
       .buy-btn
         = form_tag action: :pay, method: :post do
           :plain
-            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_744dfea221cdd9194fe212b5"></script>
+            %script.payjp-button{"data-key" => "pk_test_744dfea221cdd9194fe212b5", :src => "https://checkout.pay.jp", :type => "text/javascript"}
 
   .footer
     = render "shared/user-footer"
