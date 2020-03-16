@@ -47,7 +47,6 @@
       .nickname{
         margin: 0 auto;
         width: 400px;
-        // height: 50px;
         display: flex;
         .field{
           width: 100%;
@@ -56,7 +55,8 @@
             padding-top: 10px;
           }
           .box{
-            height: 75px;
+            height: 60px;
+            line-height: 8px;
           }
           .box input{
             font-size: 16px;
@@ -80,7 +80,8 @@
             display: flex;
           }
           .box{
-            height: 75px;
+            height: 60px;
+            line-height: 8px;
           }
           .box input{
             font-size: 16px;
@@ -102,7 +103,8 @@
             display: flex;
           }
           .box{
-            height: 75px;
+            height: 60px;
+            line-height: 8px;
           }
           .box input{
             font-size: 16px;
@@ -129,7 +131,8 @@
             display: flex;
           }
           .box{
-            height: 75px;
+            height: 55px;
+            line-height: 9px;
           }
           .box input{
             font-size: 16px;
@@ -193,6 +196,7 @@
                 width: 165.5px;
                 height: 48px;
                 .user_first_name input{
+                  padding: 10px 16px 8px;
                   width: 165.5px;
                   height: 48px;
                   border-radius: 4px;
@@ -207,6 +211,7 @@
                 width: 165.5px;
                 height: 48px;
                 .user_last_name input{
+                  padding: 10px 16px 8px;
                   width: 165.5px;
                   height: 48px;
                   border-radius: 4px;
@@ -232,6 +237,7 @@
                 width: 165.5px;
                 height: 48px;
                 .user_first_name_kana input{
+                  padding: 10px 16px 8px;
                   width: 165.5px;
                   height: 48px;
                   border-radius: 4px;
@@ -246,6 +252,7 @@
                 width: 165.5px;
                 height: 48px;
                 .user_last_name_kana input{
+                  padding: 10px 16px 8px;
                   width: 165.5px;
                   height: 48px;
                   border-radius: 4px;
@@ -318,21 +325,22 @@
         }
         .postcode{
           margin: 0 24px;
-          .postcode__number {
-            display: flex;
+          .postcode__number{
+            padding: 5px 0;
+          }
+          .postcode__number input{
+            padding: 10px 16px 8px;
             width: 165.5px;
             height: 48px;
-            padding: 5px 0;
-            input {
-              border-radius: 4px;
-              border: 1px solid #ccc
-            }
+            display: flex;
+            border-radius: 4px;
+            border: 1px solid #ccc
           }
         }
         .addresses{
           .prefecture input{
-            padding: 5px 0;
-            margin: 0 24px;
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
             display: flex;
             width: 165.5px;
             height: 48px;
@@ -340,8 +348,8 @@
             border: 1px solid #ccc
           }
           .municipality input{
-            padding: 5px 0;
-            margin: 0 24px;
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
             display: flex;
             width: 165.5px;
             height: 48px;
@@ -349,8 +357,8 @@
             border: 1px solid #ccc
           }
           .address input{
-            padding: 5px 0;
-            margin: 0 24px;
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
             display: flex;
             width: 165.5px;
             height: 48px;
@@ -361,9 +369,10 @@
             &__title{
               display: flex;
               width: 150px;
-              padding: 5px 0;
+              padding: 3px 0;
             }
             input{
+              padding: 10px 16px 8px;
               display: flex;
               margin: 0 24px;
               display: flex;
@@ -377,12 +386,13 @@
         .phone{
           &__title{
             display: flex;
-            padding: 5px 0;
+            padding: 3px 0;
           }
           &__number{
             display: flex;
             margin: 0 24px;
             input{
+              padding: 10px 16px 8px;
               display: flex;
               width: 165.5px;
               height: 48px;
@@ -466,7 +476,7 @@ p.redicon {
   font-style: normal;
   font-weight: 600;
 }
-p.blueicon {
+p.grayicon {
   border-radius: 2px;
   background-color: #CECACA;
   margin-top: 2px;
