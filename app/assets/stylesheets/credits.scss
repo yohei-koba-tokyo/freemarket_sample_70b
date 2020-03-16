@@ -62,6 +62,7 @@ a.submit-btn, input#token_submit.content-bottom--add-btn {
   background-color: red;
   border-radius: 5px;
   font-size: 20px;
+  cursor: pointer;
   &__white {
     margin-top: 20px;
     text-decoration: none;
@@ -128,4 +129,9 @@ input#cvc.input-number {
   position: relative;
   top: 40px;
   font-size: small;
+}
+.alert.alert-success {
+  position: relative;
+  top: 300px;
+  font-size: 10px;
 }
