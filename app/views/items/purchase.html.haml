@@ -41,8 +41,7 @@
             八王子
       .buy-btn
         = form_tag action: :pay, method: :post do
-          :plain
-            %script.payjp-button{"data-key" => "pk_test_744dfea221cdd9194fe212b5", :src => "https://checkout.pay.jp", :type => "text/javascript"}
+          %script.payjp-button{"data-key" => "pk_test_744dfea221cdd9194fe212b5", :src => "https://checkout.pay.jp", :type => "text/javascript"}
 
   .footer
     = render "shared/user-footer"
