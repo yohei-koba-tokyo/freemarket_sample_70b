@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay]
+  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update]
   def index
   end
 
@@ -10,6 +10,17 @@ class ItemsController < ApplicationController
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+    end
+  end
+  
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: '商品情報を更新しました'
+    else
+      render :edit
     end
   end
 
@@ -41,6 +52,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to user_path(current_user)
   end
 
 
@@ -64,8 +78,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-
-    params.require(:item).permit(:name,:explanation,:category_id,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id:1)
 
     item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
 
@@ -102,10 +114,6 @@ class ItemsController < ApplicationController
     ['徳島県','徳島県'],['香川県','香川県'],['愛媛県','愛媛県'],['高知県','高知県'],
     ['福岡県','福岡県'],['佐賀県','佐賀県'],['長崎県','長崎県'],['熊本県','熊本県'],
     ['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']]
-  end
-
-  def item_params
-    params.require(:item).permit(:status)
   end
 
   def set_item
