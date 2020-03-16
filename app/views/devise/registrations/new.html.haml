@@ -183,32 +183,36 @@
               %input 
               %p ー
               %input
-                -# = f.fields_for :images do |i| 
-                -#   = i.file_field :src 
-                = f.label :postal_code, "郵便番号" 
-                = f.text_field :postcode 
+                = f.fields_for :images do |i| 
+                  = i.file_field :src 
+                
+                -# = f.label :postal_code, "郵便番号" 
+                -# = f.text_field :postcode 
           .addresses
             .prefecture
               %b 都道府県
               %input
-                -# = f.fields_for :images do |i| 
-                -#   = i.file_field :src 
-                = f.label :prefecture, "都道府県" 
-                = f.text_field :prefecture 
+                = f.fields_for :address do |i| 
+                  = i.file_field 
+
+                -# = f.label :prefecture, "都道府県" 
+                -# = f.text_field :prefecture 
             .municipality
               %b 市町村
               %input
-                -# = f.fields_for :images do |i| 
-                -#   = i.file_field :src 
-                = f.label :municipality, "市区町村"
-                = f.text_field :municipality
+                -# = f.fields_for :address do |i| 
+                -#   = i.file_field :src  
+
+                -# = f.label :municipality, "市区町村"
+                -# = f.text_field :municipality
             .address
               %b 番地
               %input
                 -# = f.fields_for :images do |i| 
                 -#   = i.file_field :src 
-                = f.label :address_number, "番地"
-                = f.text_field :address_number
+
+                -# = f.label :address_number, "番地"
+                -# = f.text_field :address_number
             .apartment
               .apartment__title
                 %b マンション名
@@ -216,8 +220,9 @@
               %input
                 -# = f.fields_for :images do |i| 
                 -#   = i.file_field :src 
-                = f.label :address_number, "マンション名"
-                = f.text_field :address_number
+
+                -# = f.label :address_number, "マンション名"
+                -# = f.text_field :address_number
           .phone
             .phone__title
               %b 電話番号
@@ -226,8 +231,8 @@
               %input
               %p ー
               %input
-                = f.fields_for :images do |i| 
-                  = i.file_field :src 
+                -# = f.fields_for :images do |i| 
+                -#   = i.file_field :src 
       .button
         .contents
           .contents__message
