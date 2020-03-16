@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :purchase, :pay]
   def index
   end
 
@@ -36,7 +36,6 @@ class ItemsController < ApplicationController
 
 
   def show
-    @item = Item.find(params[:id])
     @itemimages = @item.itemimages.all
     @category = Category.find(@item.category_id)
   end
@@ -44,7 +43,7 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  before_action :set_item
+
   def purchase
     @itemimages = @item.itemimages.all
   end
