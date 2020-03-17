@@ -12,27 +12,6 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end
   end
-  
-  def edit
-    @item = Item.find_by(id: params[:id])
-    @prefectures = prefectures
-    @category = Category.find(@item.category_id)
-    @category_parent_array = ["選択してください"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-    @category_child_array = @item.category.parent.parent.children
-    @category_grandchild_array = @item.category.parent.children
-  end
-
-  def update
-    binding.pry
-  #   if @item.update(item_params)
-  #     redirect_to item_path(@item), notice: '商品情報を更新しました'
-  #   else
-  #     render :edit
-  #   end
-  end
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -53,6 +32,26 @@ class ItemsController < ApplicationController
     else
       redirect_to action: 'new'
     end
+  end
+
+  def edit
+    @item = Item.find_by(id: params[:id])
+    4.times { @item.itemimages.build }
+    @prefectures = prefectures
+    @category = Category.find(@item.category_id)
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
+  end
+
+  def update
+    binding.pry
+    item = Item.find_by(id: params[:id])
+    item.update(item_params)
+    
   end
 
 
@@ -88,27 +87,32 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    binding.pry
-    item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
 
-    if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"
-      item_array["category_id"] = ""
-    else
-      category1 = params.require(:item).permit(:category1)
-      category2 = params.require(:category2)
-      category3 = params.require(:category3)
+    if params["action"] == "create"
+      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
+      if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"
+        item_array["category_id"] = ""
+      else
+        category1 = params.require(:item).permit(:category1)
+        category2 = params.require(:category2)
+        category3 = params.require(:category3)
 
-      category1_id = Category.where(name: category1["category1"]).where(ancestry: nil).ids
-      category2_id = Category.where("id>?",category1_id).where(name: category2).where.not("ancestry LIKE ?","%/%").ids
-      category2_2_id = category2_id[0]
-      category3_id = Category.where("id>?",category2_2_id).find_by(name: category3).id
+        category1_id = Category.where(name: category1["category1"]).where(ancestry: nil).ids
+        category2_id = Category.where("id>?",category1_id).where(name: category2).where.not("ancestry LIKE ?","%/%").ids
+        category2_2_id = category2_id[0]
+        category3_id = Category.where("id>?",category2_2_id).find_by(name: category3).id
 
+        item_array["category_id"] = category3_id
+      end
+      
+    elsif params["action"] == "update"
+      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
+      category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
+
     end
-    
     item_array["status"] = 1
     item_params = item_array
-
   end
 
   def prefectures
