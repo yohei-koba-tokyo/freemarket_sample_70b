@@ -1,47 +1,18 @@
-// Place all the styles related to the solditems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-left__list {
-  .ul {
-    // .li {
-    width: 100px;
-    height: 300px;
-    .productLists {
-      // width: 780px;
-      // margin: 26px auto;
-      // display: flex;
-      // justify-content: space-around;
-      .productList {
-        // width: 220px;
-        // display: inline-block;
-        // float: left;
-        a {
-          // background-color: #fff;
-          // display: inline-block;
-          // text-decoration: none;
-          .productList--image {
-            // width: 220px;
-            // height: 150px;
-            // position: relative;
-            // overflow: hidden;
-            // margin: 0;
-            // z-index: auto;
-            .img {
-              // position: absolute;
-              // top: 0;
-              // left: 0;
-              // right: 0;
-              // bottom: 0;
-              // width: 100%;
-              // z-index: auto;
-              // height: 150px;
-              // object-fit: cover;
-            }
-          }
+.main-left__list{
+
+  .productLists{
+    .productList{
+      display: flex;
+      .productList--image{
+        width: 100px;
+        height: 100px;
+      }
+      .productList--body{
+        .detail{
+          
         }
       }
     }
   }
 }
-// }
