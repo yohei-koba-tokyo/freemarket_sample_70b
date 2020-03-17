@@ -1,0 +1,47 @@
+.wrapper
+  .header
+    = render "shared/header"
+  .p-show
+    .p-show-main
+      .main-title
+        .main-title__title
+          ご購入の確認
+      .main-info
+        .info
+          .info__photo
+            - @itemimages.each do |i|
+              = image_tag i.image.url
+          .name-and-price
+            .name
+              = simple_format(@item.name)
+            .price
+              = @item.price
+              .price__tax
+                (税込)
+              .price__postage
+                送料込み
+      .main-price
+        .main-price__title
+          支払い金額
+        .main-price__result
+          ￥ 
+          = @item.price
+      .main-buy
+        .method
+          .method__title
+            支払い方法
+          .method__result
+            aaaa
+            
+      .main-adress
+        .place
+          .place__title
+            配送先住所
+          .place__result
+            八王子
+      .buy-btn
+        = form_tag action: :pay, method: :post do
+          %script.payjp-button{"data-key" => "pk_test_744dfea221cdd9194fe212b5", :src => "https://checkout.pay.jp", :type => "text/javascript"}
+
+  .footer
+    = render "shared/user-footer"
