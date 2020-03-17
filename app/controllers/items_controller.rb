@@ -88,11 +88,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def pay   
+  def pay
+    card = Credit.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
-      card: params['payjp-token'],
+      customer: card.customer_id,
       currency: 'jpy'
     )
     @item.update( status: 0)

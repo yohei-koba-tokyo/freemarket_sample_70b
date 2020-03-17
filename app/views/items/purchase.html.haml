@@ -11,6 +11,8 @@
           .info__photo
             - @itemimages.each do |i|
               = image_tag i.image.url
+              - if i.present?
+                - break
           .name-and-price
             .name
               = simple_format(@item.name)
@@ -52,6 +54,6 @@
             八王子
       .buy-btn
         = form_tag(action: :pay, method: :post) do
-          %button.buy-button{type:"submit"} 購入する
+          %button{type:"submit"} 購入する
   .footer
     = render "shared/user-footer"
