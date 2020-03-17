@@ -72,6 +72,4 @@ class CreditsController < ApplicationController
   def set_credit
     @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
   end
-
 end
-
