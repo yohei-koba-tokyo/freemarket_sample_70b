@@ -203,8 +203,8 @@
               .apartment__title
                 %b マンション名
                 %p.blueicon 任意
-              -# = f.fields_for :address do |i| 
-              -#   = i.text_field :postcode
+                = f.fields_for :address do |i| 
+                  = i.text_field :room_number
                 
           .phone
             .phone__title
