@@ -59,10 +59,36 @@ class ItemsController < ApplicationController
 
 
   def purchase
+    set_credit
     @itemimages = @item.itemimages.all
+    if @credit.blank?
+    else
+      Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      #カード情報表示のためインスタンス変数に代入
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+    end
+    if @credit_information.present?
+      @credit_brand = @credit_information.brand      
+      case @credit_brand
+        when "Visa"
+          @credit_src = "visa.svg"
+        when "JCB"
+          @credit_src = "jcb.svg"
+        when "MasterCard"
+          @credit_src = "master-card.svg"
+        when "American Express"
+          @credit_src = "american_express.svg"
+        when "Diners Club"
+          @credit_src = "dinersclub.svg"
+        when "Discover"
+          @credit_src = "discover.svg"
+      end
+    end
   end
 
-  def pay    
+  def pay   
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
@@ -119,5 +145,10 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_credit
+    @credit = Credit.find_by(user_id: current_user.id)
+  end
+
 end
 
