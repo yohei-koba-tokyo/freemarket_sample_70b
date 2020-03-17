@@ -116,8 +116,10 @@ body {
   .mypage {
     height: 700px;
     margin: 40px 200px;
+    min-width: 650px;
     .side {
       width: 30%;
+      min-width: 195px;
       float: left;
       .side-top {
         height: 300px;

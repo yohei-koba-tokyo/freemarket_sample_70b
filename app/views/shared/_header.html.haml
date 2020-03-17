@@ -18,7 +18,11 @@
       %li.listsLeft__item
         = link_to "ブランド", "#"
     - if user_signed_in?
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          = link_to "マイページ", user_path(current_user.id)
+        %li.listsRight__item.listsRight__item--new
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
       %ul.listsRight
         %li.listsRight__item.listsRight__item--login
