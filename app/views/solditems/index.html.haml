@@ -1,3 +1,4 @@
+
 .wrapper
   .header
     = render "shared/header"
@@ -26,11 +27,11 @@
                   0
         .contents
           %h1
-            出品中
+            =link_to "出品中", solditems_path  
           %h1
             売却済み
         .main-left__list
-          .ploductLists
+          .productLists
             - @items.each do |value|
               .productList
                 = link_to item_path(value) do
@@ -46,12 +47,8 @@
                         =value.price
                         円(税込) 
                         %i.fa.fa-star.LikeIcon 0
-            -# %li
-            -# %li
-            -# %li
-            -# %li
-            -# %li
-
+                    .sale-icon
+                      出品中
 
   %aside.appBanner
     .inner
