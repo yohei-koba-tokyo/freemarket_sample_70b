@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update]
   def index
   end
 
@@ -9,6 +10,17 @@ class ItemsController < ApplicationController
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+    end
+  end
+  
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: '商品情報を更新しました'
+    else
+      render :edit
     end
   end
 
@@ -35,12 +47,33 @@ class ItemsController < ApplicationController
 
 
   def show
-    @item = Item.find(params[:id])
     @itemimages = @item.itemimages.all
     @category = Category.find(@item.category_id)
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to user_path(current_user)
+  end
+
+
+  def purchase
+    @itemimages = @item.itemimages.all
+  end
+
+  def pay    
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+    @item.update( status: 0)
+    redirect_to done_items_path(@item)
+  end
+
+  def done
   end
 
   def unsold
@@ -53,6 +86,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
+
     item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
 
     if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"
@@ -88,6 +122,10 @@ class ItemsController < ApplicationController
     ['徳島県','徳島県'],['香川県','香川県'],['愛媛県','愛媛県'],['高知県','高知県'],
     ['福岡県','福岡県'],['佐賀県','佐賀県'],['長崎県','長崎県'],['熊本県','熊本県'],
     ['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']]
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
 

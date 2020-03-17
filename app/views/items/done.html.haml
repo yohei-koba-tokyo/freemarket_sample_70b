@@ -1,0 +1,12 @@
+.wrapper
+  .header
+    = render "shared/header"
+  .main-t
+    .thank
+      ご購入ありがとうございました。
+    .illustration
+  = link_to "トップページへ戻る", root_path, class: "gototop"
+  = link_to "マイページへ戻る", user_path(current_user.id) , class: "gotomypage"
+
+.footer
+  = render "shared/footer"
