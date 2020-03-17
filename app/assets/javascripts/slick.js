@@ -7,8 +7,8 @@ $(function() {
   asNavFor: '.slider-nav'
   });
   $('.slider-nav').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     asNavFor: '.slider-for',
     centerMode: true,
     focusOnSelect: true,
