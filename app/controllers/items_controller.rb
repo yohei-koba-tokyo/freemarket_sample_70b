@@ -43,6 +43,14 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def unsold
+    @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+  end
+
+  def soldout
+    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+  end
+
   private
   def item_params
     item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
