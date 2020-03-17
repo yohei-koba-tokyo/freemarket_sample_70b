@@ -114,7 +114,7 @@ body {
   }
 
   .mypage {
-    height: 1170px;
+    height: 700px;
     margin: 40px 200px;
     min-width: 650px;
     .side {
@@ -238,44 +238,6 @@ body {
         }
         &__list {
           height: 400px;
-          background-color: white;
-          overflow: scroll;
-          li {
-            height: 80px;
-            background-color: white;
-            border: 1px solid #f5f5f5;
-          }
-          li:hover{
-            background-color: #f1f1f1;
-          }
-        }
-      }
-      .main-right {
-        height: 400px;
-        margin-top: 50px;
-        &__title {
-          height: 80px;
-          background-color:white;
-          border: 1px solid #f5f5f5;
-          padding-left: 15px;
-          line-height: 80px;
-          font-weight: bold;
-          font-size: 15px;
-        }
-        &__contents {
-          display: flex;
-          h1 {
-            height: 80px;
-            width: calc(100% / 2);
-            background-color: white;
-            border: 1px solid #f5f5f5;
-            line-height: 80px;
-            text-align: center;
-            font-weight: bold;
-          }
-        }
-        &__dealings {
-          height: 240px;
           background-color: white;
           overflow: scroll;
           li {

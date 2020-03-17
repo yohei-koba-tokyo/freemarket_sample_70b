@@ -76,6 +76,14 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def unsold
+    @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+  end
+
+  def soldout
+    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+  end
+
   private
   def item_params
 
