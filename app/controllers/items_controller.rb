@@ -14,14 +14,24 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    @item = Item.find_by(id: params[:id])
+    @prefectures = prefectures
+    @category = Category.find(@item.category_id)
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to item_path(@item), notice: '商品情報を更新しました'
-    else
-      render :edit
-    end
+    binding.pry
+  #   if @item.update(item_params)
+  #     redirect_to item_path(@item), notice: '商品情報を更新しました'
+  #   else
+  #     render :edit
+  #   end
   end
 
   def get_category_children
@@ -78,7 +88,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-
+    binding.pry
     item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
 
     if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"

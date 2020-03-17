@@ -3,6 +3,7 @@ document.addEventListener(
   Payjp.setPublicKey("pk_test_744dfea221cdd9194fe212b5");
   //上記にてテスト公開鍵を入力してある
   const btn = document.getElementById('token_submit'); //IDがtoken_submitの場合に取得されます
+  if (!$(btn).length) return;
   btn.addEventListener("click", (e) => {  //ボタンが押されたときに作動します
     e.preventDefault();  //ボタンを一旦無効化します
 
