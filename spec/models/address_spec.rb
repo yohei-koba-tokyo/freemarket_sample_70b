@@ -30,17 +30,6 @@ describe Address do
       expect(address.errors[:address]).to include("can't be blank")
     end   
 
-#     it "is valid with a phone_num that Phone number format " do
-#       user = build(:user, phone_num: "08012345678")
-#       user.valid?
-#       expect(user).to be_valid
-#     end
-
-#     it "is invalid with a phone_num that Phone number format " do
-#       user = build(:user, phone_num: "a8012345678")
-#       user.valid?
-#       expect(user.errors[:phone_num][0]).to include("の入力が正しくありません")
-#     end
   end
 
 
