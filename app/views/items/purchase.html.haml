@@ -51,7 +51,7 @@
           .place__title
             配送先住所
           .place__result
-            八王子
+            = @address.prefecture
       .buy-btn
         = form_tag(action: :pay, method: :post) do
           %button{type:"submit"} 購入する

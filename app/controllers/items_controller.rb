@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
 
   def purchase
     set_credit
+    @address = Address.find(current_user.id)
     @itemimages = @item.itemimages.all
     if @credit.blank?
     else
