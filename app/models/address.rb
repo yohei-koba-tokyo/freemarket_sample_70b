@@ -9,7 +9,7 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true
   validates :municipality, presence: true
   validates :address, presence: true
-  validates :birthday, presence: true
+ 
 
   validates :postcode, format: { with: /\A\d{7}\z/ }
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
