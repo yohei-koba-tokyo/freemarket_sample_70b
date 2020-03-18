@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
       if item.save
