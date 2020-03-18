@@ -49,6 +49,8 @@ class ItemsController < ApplicationController
   def show
     @itemimages = @item.itemimages.all
     @category = Category.find(@item.category_id)
+    @parents = Category.where(ancestry: nil)
+
   end
 
   def destroy
@@ -78,10 +80,12 @@ class ItemsController < ApplicationController
 
   def unsold
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+    @parents = Category.where(ancestry: nil)
   end
 
   def soldout
     @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @parents = Category.where(ancestry: nil)
   end
 
   private
