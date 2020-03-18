@@ -86,7 +86,6 @@
                   .user_last_name_kana
                     =f.text_field :last_name_kana, placeholder:" 例）たろう" 
 
-
       .birthday
         .title
           %p 生年月日
@@ -260,28 +259,41 @@
           .postcode
             %p 郵便番号
             .postcode__number
-              %input
+              = f.fields_for :address do |i| 
+                = i.text_field :postcode
+                
           .addresses
             .prefecture
-              %p 　都道府県
-              %input
+              %b 都道府県
+              = f.fields_for :address do |i| 
+                = i.text_field :prefecture
+
             .municipality
-              %p 　市町村
-              %input
+              %b 市町村
+              = f.fields_for :address do |i| 
+                = i.text_field :municipality
+
             .address
-              %p 　番地
-              %input
+              %b 番地
+              = f.fields_for :address do |i| 
+                = i.text_field :address
+
             .apartment
               .apartment__title
-                %p 　マンション名
-                %p.grayicon 任意
-              %input
+                %b マンション名
+                %p.blueicon 任意
+                = f.fields_for :address do |i| 
+                  = i.text_field :room_number
+                
+
           .phone
             .phone__title
               %p 　電話番号
               %p.grayicon 任意
             .phone__number
-              %input
+              = f.fields_for :address do |i| 
+                = i.text_field :phone
+
 
       .button
         .contents
