@@ -281,21 +281,27 @@
 
       }
       .selects{
-        display: flex;
-        margin: 0 auto;
+        margin-left: 175px;
         width: 343px;
         height: 50px;
-        &__year select{
-          height:48px;
-          width: 76px;
-        }
-        &__month select{
-          height:48px;
-          width: 76px;
-        }
-        &__day select{
-          height:48px;
-          width: 76px;
+        // &__year select{
+        //   height:48px;
+        //   width: 76px;
+        // }
+        // &__month select{
+        //   height:48px;
+        //   width: 76px;
+        // }
+        // &__day select{
+        //   height:48px;
+        //   width: 76px;
+        // }
+      input{
+        padding: 10px 16px 8px;
+        width: 165.5px;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc
         }
       }
       .message{

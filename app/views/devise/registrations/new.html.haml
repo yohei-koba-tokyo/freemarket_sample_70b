@@ -265,24 +265,25 @@
                 
           .addresses
             .prefecture
-              %b 都道府県
+              %p 　都道府県
               = f.fields_for :address do |i| 
                 = i.text_field :prefecture
 
             .municipality
-              %b 市町村
+              %p 　市町村
               = f.fields_for :address do |i| 
                 = i.text_field :municipality
 
             .address
-              %b 番地
+              %p 　番地
               = f.fields_for :address do |i| 
                 = i.text_field :address
 
             .apartment
               .apartment__title
-                %b マンション名
-                %p.blueicon 任意
+                %p 　マンション名
+                %p.grayicon 任意
+              .apartment__input
                 = f.fields_for :address do |i| 
                   = i.text_field :room_number
                 
