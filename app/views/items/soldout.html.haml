@@ -47,8 +47,13 @@
                         =value.price
                         円(税込) 
                         %i.fa.fa-star.LikeIcon 0
-                    .soldout-icon
-                      売却済み
+                    .status
+                      .created-at
+                        出品日：
+                        =value.created_at
+                        -#  strftime("%Y年%m月%d日%H時%M分")
+                      .soldout-icon
+                        売却済み
 
   %aside.appBanner
     .inner

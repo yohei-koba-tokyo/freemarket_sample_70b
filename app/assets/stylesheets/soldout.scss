@@ -39,14 +39,20 @@
                 margin-left: 20px;
               }
             }
-            .soldout-icon {
-              background-color: red;
-              font-size: 17px;
-              width: 80px;
-              color: white;
-              border-radius: 3px;
-              margin: 8px 0 0;
-              padding: 5px 6px;
+            .status{
+              // display: flex;
+              .soldout-icon {
+                background-color: red;
+                font-size: 17px;
+                width: 80px;
+                color: white;
+                border-radius: 3px;
+                margin: 8px 0 0;
+                padding: 5px 6px;
+              }
+              .created-at{
+                font-size: smaller;
+              }
             }
           }
         }
