@@ -12,10 +12,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :solditems, dependent: :destroy
 
-  validates :birthday, presence: true
+  # validates :birthday, presence: true
   accepts_nested_attributes_for :address
 
 
-  # root 'products#index'
-  # resources :products, except: :show
 end
