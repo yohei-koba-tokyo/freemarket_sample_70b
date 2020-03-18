@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     4.times { @item.itemimages.build }
+    # binding.pry
     @prefectures = prefectures
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
@@ -36,7 +37,10 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find_by(id: params[:id])
-    4.times { @item.itemimages.build }
+    @number = Itemimage.where(item_id: @item.id).length.to_i
+    number = 4 - @number
+    number.times { @item.itemimages.build }
+    # binding.pry
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -48,10 +52,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     item = Item.find_by(id: params[:id])
     item.update(item_params)
-    
   end
 
 

@@ -55,12 +55,48 @@ p.item-p {
     .sellingitem {
       form {
         .images {
-          .pictures {
+          .image-box {
             padding-bottom: 40px;
             border-bottom: 1px solid #f5f5f5;
             display: flex;
-            justify-content: space-between;
-            .upload-place {
+            justify-content: space-around;
+            .item-image {
+              width: 20%;
+              height: 100px;
+              &__operetion--delete {
+                text-align: center;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: bold;
+                margin: 5px 30px 0 30px;
+                background-color: gray;
+                color: white;
+                border-radius: 5px;
+              }
+            }
+            .item-num-0 {
+              font-size: 80px;
+              color: rgb(110, 231, 221);
+              
+              .hidden {
+                display: none;
+              }
+            }
+            .item-num-1 {
+              font-size: 80px;
+              color: rgb(110, 231, 221);
+              .hidden {
+                display: none;
+              }
+            }
+            .item-num-2 {
+              font-size: 80px;
+              color: rgb(110, 231, 221);
+              .hidden {
+                display: none;
+              }
+            }
+            .item-num-3 {
               font-size: 80px;
               color: rgb(110, 231, 221);
               .hidden {

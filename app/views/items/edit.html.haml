@@ -13,12 +13,23 @@
           %span.item-span 必須
           %p.item-p
             最大4枚までアップロードできます
-          .pictures
-            = f.fields_for :itemimages do |itemimage|
-              %label.upload-place
-                %i.fa.fa-image
-                = itemimage.file_field :image, class: 'hidden', id:'myfile'
-                
+          .image-box
+            - @item.itemimages.each do |image|
+              - if image.id != nil
+                .item-image
+                  .item-image__content
+                    .item-image__content--icon
+                      %img{:height => "80", :src => "#{image.image}", :width => "114"}/
+                  .item-image__operetion
+                    .item-image__operetion--delete 削除
+
+            .item-num-0#image-box__container
+              = f.fields_for :itemimages do |itemimage|
+                .input-area
+                  = itemimage.file_field :image, type: 'file', name: "item[itemimages_attributes][][image]", value:"", style: "display:none", id:"img-file"
+              %label{for: "img-file"}
+                %i.fas.fa-camera
+
         .name
           %label.item-label
             商品名
