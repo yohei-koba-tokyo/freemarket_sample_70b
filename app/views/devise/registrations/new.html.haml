@@ -1,7 +1,7 @@
 .wrapper
   .header
     = render "shared/user-header"
-
+    
 
   .body
     %h1 会員情報入力
@@ -11,11 +11,11 @@
         .nickname
           .field
             .title
-              = f.label :ニックネーム
+              %p ニックネーム
               %p.redicon 必須
             .box
               %br/
-              = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
 
         .mailaddress
           .field
@@ -24,7 +24,7 @@
               %p.redicon 必須
             .box
               %br/
-              = f.email_field :email, autofocus: true, autocomplete: "email"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
 
         .password
           .contents
@@ -36,15 +36,19 @@
                   %em
               .box
                 %br/
-                = f.password_field :password, autocomplete: "new-password", placeholder:"(#{@minimum_password_length} 文字以上の半角英数字)"
+                = f.password_field :password, autocomplete: "new-password", placeholder:" 7文字以上の半角英数字"
+
           .note
             %a ※ 英字と数字の両方を含めて設定してください
 
         .confirmation
           .field
-            = f.label :パスワード確認
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password"
+            .title
+              = f.label :パスワード確認
+              %p.redicon 必須
+            .box
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password"
 
       .input-confirmation
         .sentence
@@ -57,35 +61,110 @@
         .names
           .name1
             .title
-              %b お名前（全角）
+              %p お名前（全角）
               %p.redicon 必須
             .character-name
               .first
                 .first--input
-                  =f.text_field :first_name, placeholder:"例）振間" 
+                  .user_first_name
+                    =f.text_field :first_name, placeholder:" 例）振間" 
               .last
                 .last--input
-                  =f.text_field :last_name, placeholder:"例）太郎" 
+                  .user_last_name
+                    =f.text_field :last_name, placeholder:" 例）太郎" 
           .name2
             .title
-              %b  お名前かな（全角）
+              %p  お名前かな（全角）
               %p.redicon 必須
             .kana-name
               .first
                 .first--input
-                  =f.text_field :first_name_kana, placeholder:"例）ふりま" 
+                  .user_first_name_kana                
+                    =f.text_field :first_name_kana, placeholder:" 例）ふりま" 
               .last
                 .last--input 
-                  =f.text_field :last_name_kana, placeholder:"例）たろう" 
+                  .user_last_name_kana
+                    =f.text_field :last_name_kana, placeholder:" 例）たろう" 
 
       .birthday
         .title
-          %b 生年月日
+          %p 生年月日
           %p.redicon 必須
         .selects
           .selects__year
             %select
               %option  --
+              %option 1920
+              %option 1921
+              %option 1922
+              %option 1923
+              %option 1924
+              %option 1925
+              %option 1926
+              %option 1927
+              %option 1928
+              %option 1929
+              %option 1930
+              %option 1931
+              %option 1932
+              %option 1933
+              %option 1934
+              %option 1935
+              %option 1936
+              %option 1937
+              %option 1938
+              %option 1939
+              %option 1940
+              %option 1941
+              %option 1942
+              %option 1943
+              %option 1944
+              %option 1945
+              %option 1946
+              %option 1947
+              %option 1948
+              %option 1949
+              %option 1950
+              %option 1951
+              %option 1952
+              %option 1953
+              %option 1954
+              %option 1955
+              %option 1956
+              %option 1957
+              %option 1958
+              %option 1959
+              %option 1960
+              %option 1961
+              %option 1962
+              %option 1963
+              %option 1964
+              %option 1965
+              %option 1966
+              %option 1967
+              %option 1968
+              %option 1969
+              %option 1970
+              %option 1971
+              %option 1972
+              %option 1973
+              %option 1974
+              %option 1975
+              %option 1976
+              %option 1977
+              %option 1978
+              %option 1979
+              %option 1980
+              %option 1981
+              %option 1982
+              %option 1983
+              %option 1984
+              %option 1985
+              %option 1986
+              %option 1987
+              %option 1988
+              %option 1989
+              %option 1990
               %option 1991
               %option 1992
               %option 1993
@@ -175,10 +254,10 @@
       .input-personal
         .infomation
           .title
-            %b 住所
+            %p 住所
             %p.redicon 必須
           .postcode
-            %b 郵便番号
+            %p 郵便番号
             .postcode__number
               = f.fields_for :address do |i| 
                 = i.text_field :postcode
@@ -206,20 +285,23 @@
                 = f.fields_for :address do |i| 
                   = i.text_field :room_number
                 
+
           .phone
             .phone__title
-              %b 電話番号
-              %p.blueicon 任意
+              %p 　電話番号
+              %p.grayicon 任意
             .phone__number
               = f.fields_for :address do |i| 
                 = i.text_field :phone
 
+
       .button
         .contents
           .contents__message
-            %p 「登録」のボタンを押すことにより、利用規約に同意したものとみなします。
+            %p 「登録する」のボタンを押すことにより、利用規約に同意したものとみなします。
           .contents__registration
             = f.submit '登録する', class: 'contents__registration' 
 
     .footer
       = render "shared/user-footer"
+
