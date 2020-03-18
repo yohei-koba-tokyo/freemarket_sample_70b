@@ -99,3 +99,5 @@ gem 'gon'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 
+
+gem 'aws-sdk'

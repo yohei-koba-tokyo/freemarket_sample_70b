@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
       if item.save
@@ -49,13 +48,15 @@ class ItemsController < ApplicationController
     end
     @category_child_array = @item.category.parent.parent.children
     @category_grandchild_array = @item.category.parent.children
+
   end
 
   def update
     item = Item.find_by(id: params[:id])
-    binding.pry
     item.update(item_params)
   end
+
+  
 
 
   def show
@@ -109,6 +110,7 @@ class ItemsController < ApplicationController
       end
       
     elsif params["action"] == "update"
+      binding.pry
       item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
       category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
