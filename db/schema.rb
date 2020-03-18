@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_102755) do
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at.strftime("%Y-%m-%d %H:%M")", null: false
+    t.datetime "updated_at.strftime("%Y-%m-%d %H:%M")", null: false
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

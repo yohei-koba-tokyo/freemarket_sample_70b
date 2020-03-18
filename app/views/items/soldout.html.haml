@@ -49,8 +49,8 @@
                         %i.fa.fa-star.LikeIcon 0
                     .status
                       .created-at
-                        出品日：
-                        =value.created_at
+                        出品日時：
+                        = value.created_at.to_s(:japanese)
                       .soldout-icon
                         売却済み
 

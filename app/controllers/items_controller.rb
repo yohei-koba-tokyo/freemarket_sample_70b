@@ -78,13 +78,14 @@ class ItemsController < ApplicationController
 
   def unsold
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 } 
-    # @unsolditems = Item.select {order(created_at: :desc) }
+    # @unsolditems.order(created_at: :desc) 
     @items = Item.select { |item| item.user_id == current_user.id }
   end
 
   def soldout
     @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 } 
     # @soldoutitems = Item.select {order(created_at: :desc) }
+    # @soldoutitems.order(created_at: :desc) 
     @items = Item.select { |item| item.user_id == current_user.id }
   end
 
