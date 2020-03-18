@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
                                                                             :prefecture,
                                                                             :municipality,
                                                                             :address,
+                                                                            :room_number,
                                                                             :phone]])
   end
 

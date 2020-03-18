@@ -10,6 +10,7 @@ class Address < ApplicationRecord
   validates :municipality, presence: true
   validates :address, presence: true
 
+  validates :postcode, format: { with: /\A\d{7}\z/ }
   # validates :phone, presence: true
   # validates :phone, exclusion: { in: %w(-) }
   # validates :postcode, length: { maximum: 8 } 
