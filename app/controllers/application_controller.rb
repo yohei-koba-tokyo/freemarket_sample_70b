@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
                                                        :first_name,
                                                        :last_name_kana,
                                                        :first_name_kana,
-                                                       :brithday,
+                                                       :birthday,
                                                        :profile, 
                                                        address_attributes: [:postcode,
                                                                             :prefecture,
