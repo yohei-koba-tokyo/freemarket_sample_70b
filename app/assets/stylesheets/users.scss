@@ -96,10 +96,8 @@ body {
             opacity: 1;
           }
           .first {
-            opacity: 0;
             visibility: hidden;
-            background-color: white;
-            position: absolute;
+            background-color: rgba(255, 247, 247, 0.7);            position: absolute;
             top: 32px;
             z-index: 2;
             &__parent {
@@ -115,11 +113,9 @@ body {
                 border-left: 1px solid #f5f5f5;
               }
               .second {
-                height: 108%;
-                opacity: 0;
+                height: 100%;
                 visibility: hidden;
-                background-color: white;
-                position: absolute;
+                background-color: rgba(255, 247, 247, 0.7);                position: absolute;
                 top: 0;
                 left: 100%;
                 &__child {
@@ -132,10 +128,8 @@ body {
                   }
                   .third {
                     height: 100%;
-                    opacity: 0;
                     visibility: hidden;
-                    background-color: white;
-                    position: absolute;
+                    background-color: rgba(255, 247, 247, 0.7);                    position: absolute;
                     top: 0;
                     left: 100%;
                     &__grandchild {
