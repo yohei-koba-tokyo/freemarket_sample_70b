@@ -365,6 +365,23 @@
             border-radius: 4px;
             border: 1px solid #ccc
           }
+          .apartment{
+            &__title{
+              display: flex;
+              width: 150px;
+              padding: 3px 0;
+            }
+            input{
+              padding: 10px 16px 8px;
+              display: flex;
+              margin: 0 24px;
+              display: flex;
+              width: 165.5px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc
+            }
+          }
         }
         .phone{
           &__title{
@@ -382,23 +399,6 @@
               border-radius: 4px;
               border: 1px solid #ccc
             }
-          }
-        }
-        .apartment{
-          &__title{
-            display: flex;
-            width: 150px;
-            padding: 3px 0;
-          }
-          input{
-            padding: 10px 16px 8px;
-            display: flex;
-            margin: 0 24px;
-            display: flex;
-            width: 165.5px;
-            height: 48px;
-            border-radius: 4px;
-            border: 1px solid #ccc
           }
         }
       }
