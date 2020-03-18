@@ -1,23 +1,23 @@
 .wrapper {
   width: 100vw;
   height: auto;
-  // background-color: #f5f5f5;
-  background-color: rgb(245, 245, 245);
   min-height: 100vh;
-  .user-header {
-    height: 128px;
-    // margin: 0 auto;
-    // justify-content: center;
-    
-    &__logo {
-      line-height: center;
-      text-align: center;
-      padding-top: 40px;
-      width: 180px;
-      margin: auto;
+
+  .header{
+    background-color: rgb(245, 245, 245);
+
+    .user-header {
+      height: 128px;
+      margin: 0 auto;
+      &__logo {
+        line-height: center;
+        text-align: center;
+        padding-top: 40px;
+        width: 180px;
+        margin: auto;
+      }
     }
   }
-
 
   .body{
     background-color: rgb(245, 245, 245);
@@ -34,64 +34,134 @@
       height: 90px;
       width: 700px;
       margin-bottom: 1px;
+      font-size: 22px;
+      font-weight: bold;
     }
 
     .input-person{
       margin: 0 auto;
       background-color: white;
       width: 700px;
+      padding: 10px 0;
       .nickname{
-        // margin: 0 auto;
-        // display: flex;
-        // text-align: center;
-        // align-items: center;
-        // justify-content: center;
-
-        // Provisional↓
-        padding-left: 248px;
-
+        margin: 0 auto;
+        width: 400px;
+        display: flex;
         .field{
-          display: flex;
+          width: 100%;
+          .title{
+            display: flex;
+            padding-top: 10px;
+          }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
         }
-
       }
       .mailaddress{
         margin: 0 auto;
+        width: 400px;
         display: flex;
-        justify-content: center;
+        .field{
+          width: 100%;
+          .title{
+            display: flex;
+          }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+        }
       }
       .password{
         margin: 0 auto;
-        display: flex;
-        justify-content: center;
-
-        // Provisional↓
-        padding-left: 121px;
+        width: 400px;
+        .field{
+          .title{
+            display: flex;
+          }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+        }
+        .note{
+          color: rgb(139, 139, 139);
+          font-size: 13px;
+          padding-bottom: 10px;
+        }
       }
       .confirmation{
         margin: 0 auto;
-        display: flex;
-        justify-content: center;
-       
+        width: 400px;
+        .field{
+          .title{
+            display: flex;
+          }
+          .box{
+            height: 55px;
+            line-height: 9px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+        }
       }
     }
 
-    .confirmation-sentence{
+    .input-confirmation{
       margin: 0 auto;
-      display: flex;
       justify-content: center;
       background-color: white;
       width: 700px;
-      .message{
+      .sentence{
+        margin: 0 auto;
         width: 400px;
-
-        // Provisional↓
-        padding-left: 90px;
-
-        b{
-          font-size: 15px;
+        .title {
+          display: flex;
+          b{
+            font-size: 15px;
+          }
         }
-        &__contents{
+        .message {
           font-size: 13px;
         }
       }
@@ -100,7 +170,6 @@
 
     .input-names{
       margin: 0 auto;
-      // display: flex;
       justify-content: center;
       background-color: white;
       width: 700px;
@@ -110,32 +179,94 @@
         justify-content: center;
         width: 400px;
 
-        // Provisional↓
-        padding-left: 91px;
-
         .name1{
-          // justify-content: center;
-          // display: flex;
+          .title{
+            display: flex;
+            padding: 5px 0;
+          }
           .character-name{
-            // display: flex;
+            justify-content: space-between;
+            display: flex;
+            margin: 0 24px;
+            .first{
+              width: 165.5px;
+              height: 48px;
+              .first--input{
+                width: 165.5px;
+                height: 48px;
+                .user_first_name input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
+            .last{
+              width: 165.5px;
+              height: 48px;
+              .last--input{
+                width: 165.5px;
+                height: 48px;
+                .user_last_name input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
           }
         }
         .name2{
-          // justify-content: center;
-          // display: flex;
+          .title{
+            display: flex;
+            padding: 5px 0;
+          }
           .kana-name{
-            // display: flex;
+            justify-content: space-between;
+            display: flex;
+            margin: 0 24px;
+            .first{
+              width: 165.5px;
+              height: 48px;
+              .first--input{
+                width: 165.5px;
+                height: 48px;
+                .user_first_name_kana input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
+            .last{
+              width: 165.5px;
+              height: 48px;
+              .last--input{
+                width: 165.5px;
+                height: 48px;
+                .user_last_name_kana input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
           }
         }
       }
     }
-        
-    
+
 
     .birthday{
       margin: 0 auto;
-      // display: flex;
-      // text-align: center;
       justify-content: center;
       align-items: center;
       background-color: white;
@@ -143,24 +274,28 @@
       height: 120px;
 
       .title{
-        // padding-left: 40px;
-        // display: flex;
-        // justify-content: center;
+        display: flex;
         margin: 0 auto;
         width: 400px;
+        padding: 5px 0;
+
       }
       .selects{
         display: flex;
         margin: 0 auto;
-        width: 400px;
-        &__year{
-        
+        width: 343px;
+        height: 50px;
+        &__year select{
+          height:48px;
+          width: 76px;
         }
-        &__mouth{
-
+        &__month select{
+          height:48px;
+          width: 76px;
         }
-        &__day{
-
+        &__day select{
+          height:48px;
+          width: 76px;
         }
       }
       .message{
@@ -169,30 +304,101 @@
         width: 400px;
         margin: 0 auto;
         padding-top: 5px;
-
-
       }
     }
 
-    .input-personal-infomation{
+
+    .input-personal{
       margin: 0 auto;
       justify-content: center;
       align-items: center;
       background-color: white;
       width: 700px;
-
-      // Provisional↓
-      padding-left: 147px;
-
-      .postcode{}
-      .addresses{
-        .prefecture{}
-        .municipality{}
-        .address{}
-      }
-      .phone{
-        &__number{
+      .infomation{
+        margin: 0px auto;
+        width: 400px;
+        padding-top: 30px;
+        .title{
           display: flex;
+          padding: 5px 0;
+        }
+        .postcode{
+          margin: 0 24px;
+          .postcode__number{
+            padding: 5px 0;
+          }
+          .postcode__number input{
+            padding: 10px 16px 8px;
+            width: 165.5px;
+            height: 48px;
+            display: flex;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+        }
+        .addresses{
+          .prefecture input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+          .municipality input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+          .address input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+          .apartment{
+            &__title{
+              display: flex;
+              width: 150px;
+              padding: 3px 0;
+            }
+            input{
+              padding: 10px 16px 8px;
+              display: flex;
+              margin: 0 24px;
+              display: flex;
+              width: 165.5px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc
+            }
+          }
+        }
+        .phone{
+          &__title{
+            display: flex;
+            padding: 3px 0;
+          }
+          &__number{
+            display: flex;
+            margin: 0 24px;
+            input{
+              padding: 10px 16px 8px;
+              display: flex;
+              width: 165.5px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc
+            }
+          }
         }
       }
     }
@@ -202,7 +408,6 @@
       margin: 0 auto;
       display: flex;
       justify-content: center;
-      // align-items: center;
       background-color: white;
       height: 170px;
       width: 700px;
@@ -215,34 +420,20 @@
           align-items: center;
           display: flex;
           width: 400px;
-
           padding-bottom: 30px;
+          font-size: 13px;
         }
         .contents__registration{
-          // height: 50px;
           width: 400px;
-          background-color: rgb(47, 255, 186);
-
-          // font-size: 5px;
-          color: black;
+          height: 50px;
+          background-color: #ea352d;
+          color: white;
           text-align: center;
-          // padding-top: 10px;
-          // vertical-align: middle;
 
-          // Provisional
-          padding-top: 15px;
-          padding-bottom: 15px;
-
-          &__registration{
-          // text-align: center;
-          // vertical-align: middle;
-          // align-items: center;  
-          }
+         
         }
       }
     }
-    
-
   }
 
   .footer{
@@ -258,7 +449,6 @@
         display: flex;
         justify-content: space-between;
         font-size: 12px;
-        // padding: 0 30px;
         a {
           text-decoration: none;
           color: black;
@@ -274,12 +464,17 @@
 }
 
 p.redicon {
+  border-radius: 2px;
   background-color: red;
-  border-radius: 4px;
-  width: 50px;
-  padding-left: 9px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 8px;
+  padding-right: 2px;
+  padding-left: 2px;
   color: white;
-  font-size: small;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 
@@ -292,4 +487,17 @@ p.redicon {
   ul {
     color: whitesmoke;
   }
+}
+p.grayicon {
+  border-radius: 2px;
+  background-color: #CECACA;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 8px;
+  padding-right: 2px;
+  padding-left: 2px;
+  color: white;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
 }

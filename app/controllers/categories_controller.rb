@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationControlleclass CategoryController < ApplicationController
+class CategoriesController < ApplicationController
 
   def category
     @categories = MainCategory.includes(sub_categories: :sub2_categories).find_by(id: params[:id])

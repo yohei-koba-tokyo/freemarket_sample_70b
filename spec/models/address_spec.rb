@@ -29,5 +29,10 @@ describe Address do
       address.valid?
       expect(address.errors[:address]).to include("can't be blank")
     end   
+
+
   end
+
+
+
 end

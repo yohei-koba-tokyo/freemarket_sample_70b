@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture            {"aaa"}
     municipality          {"aaa"}
     address               {"1-1-1"}    
+    phone                 {"08012345678"}
   end
 
 end

@@ -1,7 +1,7 @@
 .wrapper
   .header
     = render "shared/user-header"
-
+    
 
   .body
     %h1 会員情報入力
@@ -10,126 +10,211 @@
       .input-person
         .nickname
           .field
-            -# %input#field.name-form__input(type="text")/
-            = f.label :ニックネーム
-            %br/
-            = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-            -# %input type="text" placeholder="例）フリマ太郎"
-            %p.redicon 必須
+            .title
+              %p ニックネーム
+              %p.redicon 必須
+            .box
+              %br/
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
 
         .mailaddress
           .field
-            = f.label :メールアドレス
-            -# %b メールアドレス
-            %br/
-            -# %input#field.address-form__input(type="text")/
-            = f.email_field :email, autofocus: true, autocomplete: "email"
-            %p.redicon 必須
+            .title
+              = f.label :メールアドレス
+              %p.redicon 必須
+            .box
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
 
         .password
-          .field
-            -# %b パスワード
-            = f.label :パスワード
-            - if @minimum_password_length
-              %em
-                (#{@minimum_password_length} 文字以上の半角英数字)
-            %br/
-            -# %input#field.pass-form__input(type="text")/
-            = f.password_field :password, autocomplete: "new-password"
-            %p.redicon 必須
-            .note
-              %a ※ 英字と数字の両方を含めて設定してください
-          -# .label 
-          -#   %input パスワードを表示する
+          .contents
+            .field
+              .title
+                = f.label :パスワード
+                %p.redicon 必須
+                - if @minimum_password_length
+                  %em
+              .box
+                %br/
+                = f.password_field :password, autocomplete: "new-password", placeholder:" 7文字以上の半角英数字"
+
+          .note
+            %a ※ 英字と数字の両方を含めて設定してください
 
         .confirmation
           .field
-            -# %a パスワード確認
-            = f.label :パスワード確認
-            %br/
-            -# %input#field.pass2-form__input(type="text")/
-            = f.password_field :password_confirmation, autocomplete: "new-password"
-            %confirmation__a 必須
+            .title
+              = f.label :パスワード確認
+              %p.redicon 必須
+            .box
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password"
 
-
-      .confirmation-sentence
-        .message
-          %b 本人確認
-          .message__contents
-            %message__contents 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .input-confirmation
+        .sentence
+          .title
+            %b 本人確認
+          .message
+            %message__comment 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
       
       .input-names
         .names
           .name1
-            %b お名前（全角）
+            .title
+              %p お名前（全角）
+              %p.redicon 必須
             .character-name
               .first
                 .first--input
-                  =f.text_field :first_name, placeholder:"例）フリマ" 
-
-
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
+                  .user_first_name
+                    =f.text_field :first_name, placeholder:" 例）振間" 
               .last
                 .last--input
-                  =f.text_field :last_name, placeholder:"例）太郎" 
-
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）太郎" type="text"
+                  .user_last_name
+                    =f.text_field :last_name, placeholder:" 例）太郎" 
           .name2
-            %b  お名前カナ（全角）
+            .title
+              %p  お名前かな（全角）
+              %p.redicon 必須
             .kana-name
               .first
                 .first--input
-                  =f.text_field :first_name_kana, placeholder:"例）ふりま" 
-
-
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）フリマ" type="text"
+                  .user_first_name_kana                
+                    =f.text_field :first_name_kana, placeholder:" 例）ふりま" 
               .last
                 .last--input 
-                  =f.text_field :last_name_kana, placeholder:"例）たろう" 
- 
-                
-                  -# material↓
-                  -# ="address-form__input" id="address-input-field" placeholder="例）タロウ" type="text"
+                  .user_last_name_kana
+                    =f.text_field :last_name_kana, placeholder:" 例）たろう" 
 
       .birthday
         .title
-          %b 生年月日
+          %p 生年月日
+          %p.redicon 必須
         .selects
-          .selects__year
-            %select
-              %option --
-              %option 2000
-              %option 2001
-              %option 2002
-              %option 2003
-              %option 2004
-              %option 2005
-              %option 2006
-              %option 2007
-              %option 2008
-              %option 2009
-              %option 2010
-            %a 年
-          .selects__month
-            %select
-              %option --
-              %option 1
-              %option 2
-              %option 3
-              %option 4
-              %option 5
-              %option 6
-              %option 7
-              %option 8
-              %option 9
-              %option 10
-              %option 11
-              %option 12
-            %a 月
-          .selects__day
+          =f.date_field :birthday
+          -# =f.selects__year
+          -#   %select
+          -#     %option  --
+          -#     %option 1920
+          -#     %option 1921
+          -#     %option 1922
+          -#     %option 1923
+          -#     %option 1924
+          -#     %option 1925
+          -#     %option 1926
+          -#     %option 1927
+          -#     %option 1928
+          -#     %option 1929
+          -#     %option 1930
+          -#     %option 1931
+          -#     %option 1932
+          -#     %option 1933
+          -#     %option 1934
+          -#     %option 1935
+          -#     %option 1936
+          -#     %option 1937
+          -#     %option 1938
+          -#     %option 1939
+          -#     %option 1940
+          -#     %option 1941
+          -#     %option 1942
+          -#     %option 1943
+          -#     %option 1944
+          -#     %option 1945
+          -#     %option 1946
+          -#     %option 1947
+          -#     %option 1948
+          -#     %option 1949
+          -#     %option 1950
+          -#     %option 1951
+          -#     %option 1952
+          -#     %option 1953
+          -#     %option 1954
+          -#     %option 1955
+          -#     %option 1956
+          -#     %option 1957
+          -#     %option 1958
+          -#     %option 1959
+          -#     %option 1960
+          -#     %option 1961
+          -#     %option 1962
+          -#     %option 1963
+          -#     %option 1964
+          -#     %option 1965
+          -#     %option 1966
+          -#     %option 1967
+          -#     %option 1968
+          -#     %option 1969
+          -#     %option 1970
+          -#     %option 1971
+          -#     %option 1972
+          -#     %option 1973
+          -#     %option 1974
+          -#     %option 1975
+          -#     %option 1976
+          -#     %option 1977
+          -#     %option 1978
+          -#     %option 1979
+          -#     %option 1980
+          -#     %option 1981
+          -#     %option 1982
+          -#     %option 1983
+          -#     %option 1984
+          -#     %option 1985
+          -#     %option 1986
+          -#     %option 1987
+          -#     %option 1988
+          -#     %option 1989
+          -#     %option 1990
+          -#     %option 1991
+          -#     %option 1992
+          -#     %option 1993
+          -#     %option 1994
+          -#     %option 1995
+          -#     %option 1996
+          -#     %option 1997
+          -#     %option 1998
+          -#     %option 1999
+          -#     %option 2000
+          -#     %option 2000
+          -#     %option 2001
+          -#     %option 2002
+          -#     %option 2003
+          -#     %option 2004
+          -#     %option 2005
+          -#     %option 2006
+          -#     %option 2007
+          -#     %option 2008
+          -#     %option 2009
+          -#     %option 2010
+          -#     %option 2011
+          -#     %option 2012
+          -#     %option 2013
+          -#     %option 2014
+          -#     %option 2015
+          -#     %option 2016
+          -#     %option 2017
+          -#     %option 2018
+          -#     %option 2019
+          -#     %option 2020
+          -#   %a 年
+          -# =f.selects__month
+          -#   %select
+          -#     %option --
+          -#     %option 1
+          -#     %option 2
+          -#     %option 3
+          -#     %option 4
+          -#     %option 5
+          -#     %option 6
+          -#     %option 7
+          -#     %option 8
+          -#     %option 9
+          -#     %option 10
+          -#     %option 11
+          -#     %option 12
+          -#   %a 月
+          -# =f.selects__day
             %select
               %option --
               %option 1
@@ -147,56 +232,77 @@
               %option 13
               %option 14
               %option 15
-              %option value="1" 16
-              %option value="1" 17
-              %option value="1" 18
-              %option value="1" 19
-              %option value="1" 20
-              %option value="1" 21
-              %option value="1" 22
-              %option value="1" 23
-              %option value="1" 24
-              %option value="1" 25
-              %option value="1" 26
-              %option value="1" 27
-              %option value="1" 28
-              %option value="1" 29
-              %option value="1" 30
-              %option value="1" 31
+              %option 16
+              %option 17
+              %option 18
+              %option 19
+              %option 20
+              %option 21
+              %option 22
+              %option 23
+              %option 24
+              %option 25
+              %option 26
+              %option 27
+              %option 28
+              %option 29
+              %option 30
+              %option 31
             %a 日
         .message
           %a ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       
-      .input-personal-infomation
-        %b 住所
-        .postcode
-          %b 郵便番号
-          .postcode__number
-            %input
-            %a ー
-            %input
-        .addresses
-          .prefecture
-            %b 都道府県
-            %input
-          .municipality
-            %b 市町村
-            %input
-          .address
-            %b 番地
-            %input
-        .phone
-          %b 電話番号
-          .phone__number
-            %input
-            %a ー
-            %input
+      .input-personal
+        .infomation
+          .title
+            %p 住所
+            %p.redicon 必須
+          .postcode
+            %p 郵便番号
+            .postcode__number
+              = f.fields_for :address do |i| 
+                = i.text_field :postcode
+                
+          .addresses
+            .prefecture
+              %b 都道府県
+              = f.fields_for :address do |i| 
+                = i.text_field :prefecture
+
+            .municipality
+              %b 市町村
+              = f.fields_for :address do |i| 
+                = i.text_field :municipality
+
+            .address
+              %b 番地
+              = f.fields_for :address do |i| 
+                = i.text_field :address
+
+            .apartment
+              .apartment__title
+                %b マンション名
+                %p.blueicon 任意
+                = f.fields_for :address do |i| 
+                  = i.text_field :room_number
+                
+
+          .phone
+            .phone__title
+              %p 　電話番号
+              %p.grayicon 任意
+            .phone__number
+              = f.fields_for :address do |i| 
+                = i.text_field :phone
+
+
       .button
         .contents
           .contents__message
-            %a 「登録」のボタンを押すことにより、利用規約に同意したものとみなします。
+            %p 「登録する」のボタンを押すことにより、利用規約に同意したものとみなします。
           .contents__registration
-            -# %registration 登録する
-            = f.submit "Sign up"
+            = f.submit '登録する', class: 'contents__registration' 
+
     .footer
       = render "shared/user-footer"
+

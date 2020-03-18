@@ -15,8 +15,10 @@
             最大4枚までアップロードできます
           .pictures
             = f.fields_for :itemimages do |itemimage|
-              = itemimage.file_field :image, class: 'hidden'
-
+              %label.upload-place
+                %i.fa.fa-image
+                = itemimage.file_field :image, class: 'hidden', id:'myfile'
+                
         .name
           %label.item-label
             商品名
@@ -28,14 +30,14 @@
             商品の説明
           %span.item-span 必須
           .explanation__inputbox
-            = f.text_field :explanation, placeholder: "商品の説明（必須1,000文字以内）"
+            = f.text_area :explanation, placeholder: "商品の説明（必須1,000文字以内）"
 
         .category
           %label.item-label
             カテゴリー
           %span.item-span 必須
           .category__inputbox
-            = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            = f.select :category1, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
 
         .brand
           %label.item-label
@@ -80,16 +82,6 @@
               価格（￥300〜9,999,999）
             .price-input__inputbox
               = f.number_field :price, style: "text-align: right;", placeholder: '0'
-          .price-fee
-            %p
-              販売手数料（10%）
-            .price-fee__calc
-              1000000円
-          .price-profit
-            %p
-              販売利益
-            .price-profit__calc
-              100000円
         
         .submit-btn
           = f.submit "出品する"

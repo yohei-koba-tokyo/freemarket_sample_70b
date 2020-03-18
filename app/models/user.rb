@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :credit
-  has_one :profile, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_many :credits, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -27,6 +27,8 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: VALID_HIRAGANA_REGEX }
   # validates :birthday, presence: true
 
+  validates :birthday, presence: true
+  accepts_nested_attributes_for :address
 
 
 end
