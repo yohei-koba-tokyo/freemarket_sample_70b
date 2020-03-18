@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
     @number = Itemimage.where(item_id: @item.id).length.to_i
     number = 4 - @number
     number.times { @item.itemimages.build }
-    # binding.pry
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -53,6 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find_by(id: params[:id])
+    binding.pry
     item.update(item_params)
   end
 

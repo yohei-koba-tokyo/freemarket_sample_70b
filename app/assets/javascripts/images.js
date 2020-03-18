@@ -19,7 +19,7 @@ $(function(){
       var num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
       //画像が4枚になったら超えたらドロップボックスを削除する
-      if (num == 4){
+      if (num >= 4){
         $('#image-box__container').css('display', 'none')   
       }
       //読み込みが完了すると、srcにfileのURLを格納
