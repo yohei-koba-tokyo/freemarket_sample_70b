@@ -14,23 +14,25 @@
           %p.item-p
             最大4枚までアップロードできます
           
+ 
+              
           #image-box
             #previews
               - if @item.persisted?
                 - @item.itemimages.each_with_index do |image, i|
                   = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
             = f.fields_for :itemimages do |image|
+              
               .js-file_group{"data-index" => image.index}
-                = image.file_field :image, class: 'js-file'
+                = image.file_field :image, class: 'js-file', style: "display:none"
                 %br
-                %span.js-remove 削除
+                %span.js-remove#js-remove0 削除
               - if @item.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
             - if @item.persisted?
               .js-file_group{"data-index" => @item.itemimages.count}
-                = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file'
-                .js-remove 削除
-
+                = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file',id: "item_images_attributes_1_image"
+                .js-remove#js-remove1 削除
 
 
 

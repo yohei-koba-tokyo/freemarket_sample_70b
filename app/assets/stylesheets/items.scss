@@ -43,6 +43,10 @@ p.item-p {
   margin-bottom: 16px;
 }
 
+#js-remove1, #js-remove2, #js-remove3,#js-remove4,{
+  display: none;
+}
+
 .item-new {
   background-color: #f5f5f5;
   width: 100%;
@@ -54,15 +58,15 @@ p.item-p {
     padding: 50px 40px 50px 40px;
     .sellingitem {
       form {
-        .images {
+        .images
           #image-box {
             padding-bottom: 10px;
             border-bottom: 2px solid #f5f5f5;
-            .image-box-wrapper {
-              background-color: rgb(215, 243, 241);
-              border: dashed 2px gray;
-              padding: 10px;
-              height: 180px;
+            // .image-box-wrapper {
+            //   background-color: rgb(215, 243, 241);
+            //   border: dashed 2px gray;
+            //   padding: 10px;
+            //   height: 180px;
               #previews {
                 display: flex;
                 justify-content: space-around;
@@ -72,15 +76,17 @@ p.item-p {
                   padding: 0 2px 0 2px;
                 }
               }
-              #saved {
-                display: flex;
-                justify-content: space-around;
-                padding: 10px;
-                height: 30px;
-                // .js-file_group {
-                  
-                // }
+             
+              .js-file_group {
+                background-color: red;
+                .label {
+                  background-color: yellow;
+                  .js-file {
+                    display: none;
+                  }
+                }
               }
+              
             }
             .add-image {
               text-align: center;
@@ -91,7 +97,7 @@ p.item-p {
                   color: rgb(110, 231, 221);
                 }
               }
-            }
+            // }
           }
         }
         .name {
@@ -297,7 +303,7 @@ p.item-p {
       }
     }
   }
-}
+
 
 .item-footer {
   width: 100%;

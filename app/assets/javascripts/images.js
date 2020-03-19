@@ -1,3 +1,4 @@
+
 $(function() {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
@@ -12,7 +13,6 @@ $(function() {
 
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    console.log("hello")
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
@@ -26,7 +26,7 @@ $(function() {
   $('.hidden-destroy').hide();
 
   $('#image-box').on('change', '.js-file', function(e) {
-    console.log("hello");
+    
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -39,6 +39,19 @@ $(function() {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
+      
+      console.log(fileIndex[0]);
+      if (fileIndex[0] == 1 ) {
+        $('#item_images_attributes_0_image').hide();
+      } else if (fileIndex[0] == 2 ) {
+        $('#item_images_attributes_1_image').hide();
+      } else if (fileIndex[0] == 3 ){
+        $('#item_images_attributes_2_image').hide();
+      } else if (fileIndex[0] == 4 ){
+        $('#item_images_attributes_3_image').hide();
+        $('#item_images_attributes_4_image').hide();
+      }
+      
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -62,7 +75,7 @@ $(function() {
 
 
 
-
+// 以下は一旦OKなので残しておく
 // -------------------------------
 // $(function(){
 //   //DataTransferオブジェクトで、データを格納する箱を作る
