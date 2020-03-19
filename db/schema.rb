@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_102755) do
   create_table "solditems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "item_id", null: false
     t.string "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at.strftime("%Y-%m-%d %H:%M")", null: false
+    t.datetime "updated_at.strftime("%Y-%m-%d %H:%M")", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

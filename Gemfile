@@ -99,3 +99,6 @@ gem 'gon'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 
+
+# 以下砂賀実装
+gem 'kaminari'
