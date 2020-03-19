@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  @items = Item.all.order("created_at DESC")
-
+  # SELECT * FROM item ORDER BY created_at DESC;
+  Item.all.order(created_at: "DESC")
   
 end
