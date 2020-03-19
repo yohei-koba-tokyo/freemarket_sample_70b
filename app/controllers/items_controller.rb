@@ -70,6 +70,9 @@ class ItemsController < ApplicationController
       currency: 'jpy'
     )
     @item.update( status: 0)
+    solditem = Solditem.new( item_id: params[:id], user_id: current_user.id )
+    solditem.save
+
     redirect_to done_items_path(@item)
   end
 
