@@ -25,7 +25,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: { with: VALID_ZENKAKU_REGEX }
   validates :last_name_kana, presence: true, format: { with: VALID_HIRAGANA_REGEX }
   validates :first_name_kana, presence: true, format: { with: VALID_HIRAGANA_REGEX }
-  # validates :birthday, presence: true
 
   validates :birthday, presence: true
   accepts_nested_attributes_for :address
