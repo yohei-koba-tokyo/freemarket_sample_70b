@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    binding.pry
     item = Item.find_by(id: params[:id])
     item.update(item_params)
   end
@@ -110,7 +111,6 @@ class ItemsController < ApplicationController
       end
       
     elsif params["action"] == "update"
-      binding.pry
       item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
       category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
