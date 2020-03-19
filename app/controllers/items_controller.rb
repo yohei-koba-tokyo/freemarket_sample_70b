@@ -5,13 +5,14 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    4.times { @item.itemimages.build }
-    # binding.pry
+    @item.itemimages.new
+    # 4.times { @item.itemimages.build }
     @prefectures = prefectures
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+
   end
 
   def get_category_children
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
   def create
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
+      
       if item.save
         redirect_to @current_user
       else
@@ -37,9 +39,10 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find_by(id: params[:id])
-    @number = Itemimage.where(item_id: @item.id).length.to_i
-    number = 4 - @number
-    number.times { @item.itemimages.build }
+    # @number = Itemimage.where(item_id: @item.id).length.to_i
+    # number = 4 - @number
+    # number.times { @item.itemimages.build }
+    # 4.times { @item.itemimages.build }
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -48,12 +51,11 @@ class ItemsController < ApplicationController
     end
     @category_child_array = @item.category.parent.parent.children
     @category_grandchild_array = @item.category.parent.children
-
   end
 
   def update
-    binding.pry
     item = Item.find_by(id: params[:id])
+    binding.pry
     item.update(item_params)
   end
 
@@ -68,7 +70,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user)  
   end
 
 
@@ -94,7 +96,7 @@ class ItemsController < ApplicationController
   def item_params
 
     if params["action"] == "create"
-      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
+      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
       if params.require(:item).permit(:category1)["category1"] == "選択してください" or params.require(:category2) == "選択してください" or params.require(:category3) == "選択してください"
         item_array["category_id"] = ""
       else
@@ -111,13 +113,15 @@ class ItemsController < ApplicationController
       end
       
     elsif params["action"] == "update"
-      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image]).merge(user_id: current_user.id)
+      
+      item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
       category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
-
+      # binding.pry
     end
     item_array["status"] = 1
     item_params = item_array
+    
   end
 
   def prefectures

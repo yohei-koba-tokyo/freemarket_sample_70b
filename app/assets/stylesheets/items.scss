@@ -55,55 +55,43 @@ p.item-p {
     .sellingitem {
       form {
         .images {
-          .image-box {
-            padding-bottom: 40px;
-            border-bottom: 1px solid #f5f5f5;
-            display: flex;
-            justify-content: space-around;
-            .item-image {
-              width: 20%;
-              height: 100px;
-              &__operetion--delete {
-                text-align: center;
-                font-size: 14px;
-                font-family: "Source Sans Pro";
-                font-weight: bold;
-                margin: 5px 30px 0 30px;
-                background-color: gray;
-                color: white;
-                border-radius: 5px;
+          #image-box {
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f5f5f5;
+            .image-box-wrapper {
+              background-color: rgb(215, 243, 241);
+              border: dashed 2px gray;
+              padding: 10px;
+              height: 180px;
+              #previews {
+                display: flex;
+                justify-content: space-around;
+                img {
+                  width: 25%;
+                  height: 125px;
+                  padding: 0 2px 0 2px;
+                }
+              }
+              #saved {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px;
+                height: 30px;
+                // .js-file_group {
+                  
+                // }
               }
             }
-            .item-num-0 {
-              font-size: 80px;
-              color: rgb(110, 231, 221);
-              
-              .hidden {
-                display: none;
+            .add-image {
+              text-align: center;
+              margin-top: 15px;
+              .label {
+                .fas {
+                  font-size: 80px;
+                  color: rgb(110, 231, 221);
+                }
               }
             }
-            .item-num-1 {
-              font-size: 80px;
-              color: rgb(110, 231, 221);
-              .hidden {
-                display: none;
-              }
-            }
-            .item-num-2 {
-              font-size: 80px;
-              color: rgb(110, 231, 221);
-              .hidden {
-                display: none;
-              }
-            }
-            .item-num-3 {
-              font-size: 80px;
-              color: rgb(110, 231, 221);
-              .hidden {
-                display: none;
-              }
-            }
-            
           }
         }
         .name {
