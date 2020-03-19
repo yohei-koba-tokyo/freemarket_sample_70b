@@ -12,11 +12,12 @@ body {
 
 .wrapper {
   width: 100vw;
-  height: auto;
   background-color: #f5f5f5;
-  min-height: 100vh;
+  min-height: auto;
   .header {
+    white-space: nowrap;
     padding: 0 60px;
+    background-color: white !important;
     .headerInner {
       max-width: 1040px;
       width: 100%;

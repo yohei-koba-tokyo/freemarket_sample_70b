@@ -88,6 +88,11 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def subshow
+    @parents = Category.where(ancestry: nil)
+    @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
+  end
+
   private
   def item_params
 

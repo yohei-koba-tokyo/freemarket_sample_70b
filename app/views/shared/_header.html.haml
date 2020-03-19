@@ -18,15 +18,18 @@
         %ul.first
           - @parents.each do |parent|
             %li.first__parent
-              = parent.name
+              = link_to subshow_items_path(parent.id) do
+                = parent.name
               %ul.second
                 - parent.children.each do |child|
                   %li.second__child
-                    = child.name
+                    = link_to subshow_items_path(child.id) do
+                      = child.name
                     %ul.third
                       - child.children.each do |grandchild|
                         %li.third__grandchild
-                          = grandchild.name
+                          = link_to subshow_items_path(grandchild.id) do
+                            = grandchild.name
 
       -# %li.listsLeft__item
       -#   = link_to "ブランド", "#"
