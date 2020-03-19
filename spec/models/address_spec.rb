@@ -30,6 +30,7 @@ describe Address do
       expect(address.errors[:address]).to include("can't be blank")
     end   
 
+
   end
 
 
