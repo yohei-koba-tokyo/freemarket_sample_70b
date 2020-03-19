@@ -32,7 +32,7 @@
             =link_to "売却済み", soldout_items_path  
         .list
           .productLists
-            - @unsolditems.each do |value| find("created_at DESC")
+            - @unsolditems.each do |value| 
               .productList
                 = link_to item_path(value) do
                   .productList--image
