@@ -54,9 +54,7 @@
             = @address.prefecture
       .buy-btn
         - if @credit_information.blank?
-          %p.no_card カード登録せずに購入↓
-          = form_tag action: :pay, method: :post do
-            %script.payjp-button{"data-key" => "公開鍵", :src => "https://checkout.pay.jp", :type => "text/javascript"}
+          %p.no_card ※購入前に、クレジットカードの登録をお願いします
         - else 
           = form_tag(action: :pay, method: :post) do
             %button{type:"submit", id:"buy__btn"} 購入する(確定)
