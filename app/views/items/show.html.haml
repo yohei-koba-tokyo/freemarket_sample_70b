@@ -100,14 +100,28 @@
         .chat-main
           
         .chat-form
-          %b 
-            = simple_format(h(""))
+          -# %p
+            -# = simple_format(h(""))
+          = text_area :comment, placeholder: "コメントする"
+          
+          -# = text_field :key, class:"searchBox--input", id:"searchInput", placeholder:"キーワードから探す"
 
         .chat-btn
-          コメントする
-
+          -# コメントする
+          = submit "コメントする"
         .chat-box
-    
+          
+            
+        -# - material -
+        -# %if "current_user"
+        -#   %form_with( model: [@tweet, @comment], local: true) do |form|
+        -#   %end
+        -# %else
+        -#   %strong 
+        -#   %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+        -# %end
+
+
   %aside.appBanner
     .inner
       %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
