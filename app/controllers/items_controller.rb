@@ -94,16 +94,24 @@ class ItemsController < ApplicationController
   end
 
   def unsold
+
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
     # @unsolditems.order(created_at: :desc) 
     @items = Item.select { |item| item.user_id == current_user.id }
   end
 
+  
+
   def soldout
-    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 && Item.all.order(created_at: "DESC") } 
-    # @soldoutitems = Item.select {order(created_at: :desc) }
-    # @soldoutitems.order(created_at: :desc) 
-    @items = Item.select { |item| item.user_id == current_user.id }
+    @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def subshow
+    @parents = Category.where(ancestry: nil)
+    @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
+
   end
 
   private
