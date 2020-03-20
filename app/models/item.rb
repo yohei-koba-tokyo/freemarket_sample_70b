@@ -27,4 +27,14 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+
+  def self.search(subshow)
+    if subshow
+      # Item.where((category_id), "#{subshow}")
+      @search_paramss = Item.where("#{subshow}")
+    else
+      Item.all
+    end
+  end
+
 end

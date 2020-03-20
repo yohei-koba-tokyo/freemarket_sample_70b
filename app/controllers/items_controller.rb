@@ -93,14 +93,16 @@ class ItemsController < ApplicationController
 
   def subshow
     @parents = Category.where(ancestry: nil)
-    @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
+    # @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
+    @search_paramss = params[:format]
+    @items = Item.search(@search_paramss).order("created_at DESC")
+    @count = @items.count
   end
 
   def search
     @search_params = params[:keyword]
     @items = Item.search(@search_params).order("created_at DESC")
     @count = @items.count
-    @items
   end
   
   private
