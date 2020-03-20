@@ -113,6 +113,8 @@ class ItemsController < ApplicationController
       item_array["category_id"] = category3_id
     end
     
+
+    
     item_array["status"] = 1
     item_params = item_array
 
