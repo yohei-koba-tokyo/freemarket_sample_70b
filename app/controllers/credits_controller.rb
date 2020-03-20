@@ -5,8 +5,8 @@ class CreditsController < ApplicationController
   before_action :set_credit
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    credit = Credit.where(user_id: current_user.id).first
-    redirect_to action: "index" if credit.present?
+    # credit = Credit.where(user_id: current_user.id).first
+    redirect_to action: "index" if current_user.credit.present?
   end
 
   def index #CardのデータをPayjpに送って情報を取り出す
