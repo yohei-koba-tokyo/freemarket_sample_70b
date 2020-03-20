@@ -43,7 +43,7 @@ p.item-p {
   margin-bottom: 16px;
 }
 
-#js-remove1, #js-remove2, #js-remove3,#js-remove4,{
+#js-remove0,#js-remove1, #js-remove2, #js-remove3, #js-remove4{
   display: none;
 }
 
@@ -60,25 +60,48 @@ p.item-p {
       form {
         .images
           #image-box {
-            padding-bottom: 10px;
+            padding-bottom: 30px;
             border-bottom: 2px solid #f5f5f5;
-            // .image-box-wrapper {
-            //   background-color: rgb(215, 243, 241);
-            //   border: dashed 2px gray;
-            //   padding: 10px;
-            //   height: 180px;
+            .image-box-wrapper {
+              
               #previews {
                 display: flex;
                 justify-content: space-around;
+                background-color: rgb(215, 243, 241);
+                border: dashed 2px gray;
+                padding: 18px;
+                height: 160px;
                 img {
                   width: 25%;
                   height: 125px;
                   padding: 0 2px 0 2px;
                 }
               }
-             
-              .js-file_group {
-                background-color: red;
+              #buttons {
+                text-align: center;
+                margin-top: 20px;
+                .js-file_group {
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                  background-color: rgb(50, 235, 219);
+                  border-radius: 10px;
+                  box-shadow: 0px 5px rgb(215, 243, 241);
+                  height: 40px;
+                  line-height: 40px;
+                  color: white;
+                  font-weight: bold;
+                }
+                .js-file_group:hover {
+                  cursor: pointer;
+                }
+                .js-file_group:active {
+                  position: relative;
+                  top: 5px;
+                  box-shadow: none;
+                }
+
+
+              
                 .label {
                   background-color: yellow;
                   .js-file {
@@ -97,7 +120,7 @@ p.item-p {
                   color: rgb(110, 231, 221);
                 }
               }
-            // }
+            }
           }
         }
         .name {

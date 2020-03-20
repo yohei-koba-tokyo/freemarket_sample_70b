@@ -5,8 +5,8 @@ $(function() {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[itemimages_attributes][${index}][image]"
-                    id="item_images_attributes_${index}_image"><br>
-                    <div class="js-remove">削除</div>
+                    id="item_images_attributes_${index}_image">
+                    <div class="js-remove" id="js-remove${index}">削除</div>
                   </div>`;
     return html;
   }
@@ -25,7 +25,7 @@ $(function() {
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
 
-  $('#image-box').on('change', '.js-file', function(e) {
+  $('#buttons').on('change', '.js-file', function(e) {
     
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
@@ -38,18 +38,22 @@ $(function() {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      $('#buttons').append(buildFileField(fileIndex[0]));
       
-      console.log(fileIndex[0]);
+      
       if (fileIndex[0] == 1 ) {
         $('#item_images_attributes_0_image').hide();
+        $('#js-remove0').show();
       } else if (fileIndex[0] == 2 ) {
         $('#item_images_attributes_1_image').hide();
+        $('#js-remove1').show();
       } else if (fileIndex[0] == 3 ){
         $('#item_images_attributes_2_image').hide();
+        $('#js-remove2').show();
       } else if (fileIndex[0] == 4 ){
         $('#item_images_attributes_3_image').hide();
         $('#item_images_attributes_4_image').hide();
+        $('#js-remove3').show();
       }
       
       fileIndex.shift();
@@ -58,7 +62,7 @@ $(function() {
     }
   });
 
-  $('#image-box').on('click', '.js-remove', function() {
+  $('#buttons').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
@@ -69,7 +73,7 @@ $(function() {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('#buttons').append(buildFileField(fileIndex[0]));
   });
 });
 
