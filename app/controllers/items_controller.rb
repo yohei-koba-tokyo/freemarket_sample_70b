@@ -91,7 +91,7 @@ class ItemsController < ApplicationController
 
   def search
     @search_params = params[:keyword]
-    @items = Item.search(@search_params).order("created_at DESC").page(params[:page]).per(18)
+    @items = Item.search(@search_params).order("created_at DESC")
     @count = @items.count
     @items
   end
