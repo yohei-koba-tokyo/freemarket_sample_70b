@@ -10,8 +10,12 @@ class CommentsController < ApplicationController
   end
   
   def show
-    @comment = Comment.new
-    @comments = @tweet.comments.includes(:user)
+    @comment.update( status: 0)
+    comment = Comment.new
+    comments = @tweet.comments.includes(comments_id: params[:id], user_id: current_user.id)
+
+    comment.save
+
   end
 
 end
