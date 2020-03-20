@@ -13,8 +13,6 @@
           %span.item-span 必須
           %p.item-p
             最大4枚までアップロードできます
-          
- 
               
           #image-box
             .image-box-wrapper
@@ -33,28 +31,6 @@
                   .js-file_group{"data-index" => @item.itemimages.count}
                     = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file',id: "item_images_attributes_#{@item.itemimages.count}_image"
                     .js-remove{id: "js-remove#{@item.itemimages.count}"} 削除
-
-
-
-
-            -# - @item.itemimages.each do |image|
-            -#   - if image.id != nil
-            -#     .item-image
-            -#       .item-image__content
-            -#         .item-image__content--icon
-            -#           %img{:height => "80", :src => "#{image.image}", :width => "114"}
-            -#       .item-image__operetion
-            -#         .item-image__operetion--delete 削除
-
-            -# .item-num-0#image-box__container
-            -#   = f.fields_for :itemimages do |itemimage|
-            -#     .input-area
-            -#       = itemimage.file_field :image, type: 'file', value:"", style: "display:none", id:"img-file"
-            -#   %label{for: "img-file"}
-            -#     %i.fas.fa-camera
-
-              
-                
 
         .name
           %label.item-label

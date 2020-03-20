@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.itemimages.new
-    # 4.times { @item.itemimages.build }
     @prefectures = prefectures
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
@@ -24,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
       
@@ -40,10 +38,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find_by(id: params[:id])
-    # @number = Itemimage.where(item_id: @item.id).length.to_i
-    # number = 4 - @number
-    # number.times { @item.itemimages.build }
-    # 4.times { @item.itemimages.build }
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -56,12 +50,9 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find_by(id: params[:id])
-    binding.pry
     item.update(item_params)
+    redirect_to @current_user
   end
-
-  
-
 
   def show
     @itemimages = @item.itemimages.all
@@ -118,7 +109,6 @@ class ItemsController < ApplicationController
       item_array = params.require(:item).permit(:name,:explanation,:brand,:condition,:postage,:area,:day,:price,itemimages_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
       category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
-      # binding.pry
     end
     item_array["status"] = 1
     item_params = item_array
