@@ -9,10 +9,13 @@
           = @item.name
       .main-details
         .photo
-          .photo__big
+          .slider-for
             - @itemimages.each do |i|
               = image_tag i.image.url
-          .photo__small
+          .slider-nav
+            - @itemimages.each do |i|
+              = image_tag i.image.url
+
         .contents
           %ul
             %li 
