@@ -13,24 +13,24 @@
             .users-info
               .users-info__icon
               .users-info__name
-                山田
+                = current_user.nickname
             .sub-info
               .assessment
                 .assessment__title
                   評価
                 .assessment__num
-                  0
+                  未実装
               .exhibit
                 .exhibit__title
                   出品数
                 .exhibit__num
-                  0
+                  = @items.length
         .contents
-          %h1
+          .unsold-titles
             =link_to "出品中", unsold_items_path  
-          %h1
+          .soldout-titles
             =link_to "売却済み", soldout_items_path  
-        .main-left__list
+        .list
           .productLists
             - @soldoutitems.each do |value|
               .productList
@@ -47,8 +47,12 @@
                         =value.price
                         円(税込) 
                         %i.fa.fa-star.LikeIcon 0
-                    .soldout-icon
-                      売却済み
+                    .status
+                      .created-at
+                        出品日時：
+                        = value.created_at.to_s(:japanese)
+                      .soldout-icon
+                        売却済み
 
   %aside.appBanner
     .inner

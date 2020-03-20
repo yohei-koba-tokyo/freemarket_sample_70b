@@ -39,7 +39,7 @@ Things you may want to cover:
 |birthday|integer||
 |profile|text||
 ### Association
-- has_one :profile, dependent: :destroy
+- has_one :address, dependent: :destroy
 - has_one :credit
 <!-- アソシエーションが1対1の関係の時は、どちらかをhas_one、もう一方をbelongs_toにする。 -->
 - has_many :creditcards, dependent: :destroy
@@ -47,7 +47,6 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :solditems, dependent: :destroy
-
 
 ## addressesテーブル
 |Column|Type|Options|

@@ -8,7 +8,6 @@
     .user-header {
       height: 128px;
       margin: 0 auto;
-
       &__logo {
         line-height: center;
         text-align: center;
@@ -35,19 +34,37 @@
       width: 700px;
       margin-bottom: 1px;
       font-size: 22px;
+      font-weight: bold;
     }
 
     .input-person{
       margin: 0 auto;
       background-color: white;
       width: 700px;
+      padding: 10px 0;
       .nickname{
         margin: 0 auto;
         width: 400px;
         display: flex;
         .field{
+          width: 100%;
           .title{
             display: flex;
+            padding-top: 10px;
+          }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
           }
         }
       }
@@ -56,8 +73,23 @@
         width: 400px;
         display: flex;
         .field{
+          width: 100%;
           .title{
             display: flex;
+          }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
           }
         }
       }
@@ -68,15 +100,49 @@
           .title{
             display: flex;
           }
+          .box{
+            height: 60px;
+            line-height: 8px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
         }
         .note{
           color: rgb(139, 139, 139);
           font-size: 13px;
+          padding-bottom: 10px;
         }
       }
       .confirmation{
         margin: 0 auto;
         width: 400px;
+        .field{
+          .title{
+            display: flex;
+          }
+          .box{
+            height: 55px;
+            line-height: 9px;
+          }
+          .box input{
+            font-size: 16px;
+            width: 343px;
+            height: 46px;
+            margin: 0 29px;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+        }
       }
     }
 
@@ -115,19 +181,83 @@
         .name1{
           .title{
             display: flex;
+            padding: 5px 0;
           }
           .character-name{
             justify-content: space-between;
             display: flex;
+            margin: 0 24px;
+            .first{
+              width: 165.5px;
+              height: 48px;
+              .first--input{
+                width: 165.5px;
+                height: 48px;
+                .user_first_name input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
+            .last{
+              width: 165.5px;
+              height: 48px;
+              .last--input{
+                width: 165.5px;
+                height: 48px;
+                .user_last_name input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
           }
         }
         .name2{
           .title{
             display: flex;
+            padding: 5px 0;
           }
           .kana-name{
             justify-content: space-between;
             display: flex;
+            margin: 0 24px;
+            .first{
+              width: 165.5px;
+              height: 48px;
+              .first--input{
+                width: 165.5px;
+                height: 48px;
+                .user_first_name_kana input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
+            .last{
+              width: 165.5px;
+              height: 48px;
+              .last--input{
+                width: 165.5px;
+                height: 48px;
+                .user_last_name_kana input{
+                  padding: 10px 16px 8px;
+                  width: 165.5px;
+                  height: 48px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc
+                }
+              }
+            }
           }
         }
       }
@@ -146,22 +276,19 @@
         display: flex;
         margin: 0 auto;
         width: 400px;
+        padding: 5px 0;
+
       }
       .selects{
-        display: flex;
-        margin: 0 auto;
-        width: 400px;
-        &__year{
-          .select{
-            height:48px;
-            width: 76px;
-          }
-        }
-        &__mouth{
-
-        }
-        &__day{
-
+        margin-left: 175px;
+        width: 343px;
+        height: 50px;
+      input{
+        padding: 10px 16px 8px;
+        width: 165.5px;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc
         }
       }
       .message{
@@ -181,32 +308,89 @@
       background-color: white;
       width: 700px;
       .infomation{
-        margin: 0 auto;
+        margin: 0px auto;
         width: 400px;
+        padding-top: 30px;
         .title{
           display: flex;
+          padding: 5px 0;
         }
         .postcode{
-          .postcode__number {
+          margin: 0 24px;
+          .postcode__number{
+            padding: 5px 0;
+          }
+          .postcode__number input{
+            padding: 10px 16px 8px;
+            width: 165.5px;
+            height: 48px;
             display: flex;
+            border-radius: 4px;
+            border: 1px solid #ccc
           }
         }
         .addresses{
-          .prefecture{}
-          .municipality{}
-          .address{}
+          .prefecture input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+          .municipality input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
+          .address input{
+            padding: 10px 16px 8px;
+            margin: 3px 24px;
+            display: flex;
+            width: 165.5px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc
+          }
           .apartment{
             &__title{
               display: flex;
+              width: 150px;
+              padding: 3px 0;
+            }
+            input{
+              padding: 10px 16px 8px;
+              display: flex;
+              margin: 0 24px;
+              display: flex;
+              width: 165.5px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc
             }
           }
         }
         .phone{
           &__title{
             display: flex;
+            padding: 3px 0;
           }
           &__number{
             display: flex;
+            margin: 0 24px;
+            input{
+              padding: 10px 16px 8px;
+              display: flex;
+              width: 165.5px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc
+            }
           }
         }
       }
@@ -230,6 +414,7 @@
           display: flex;
           width: 400px;
           padding-bottom: 30px;
+          font-size: 13px;
         }
         .contents__registration{
           width: 400px;
@@ -237,7 +422,6 @@
           background-color: #ea352d;
           color: white;
           text-align: center;
-
          
         }
       }
@@ -284,11 +468,21 @@ p.redicon {
   font-style: normal;
   font-weight: 600;
 }
-p.blueicon {
 
 
+ #error_explanation {
+  width: 0px;
+  height: 0px;
+  h2 {
+    color: whitesmoke;
+  }
+  ul {
+    color: whitesmoke;
+  }
+}
+p.grayicon {
   border-radius: 2px;
-  background-color: rgb(0, 153, 255);
+  background-color: #CECACA;
   margin-top: 2px;
   margin-bottom: 2px;
   margin-left: 8px;

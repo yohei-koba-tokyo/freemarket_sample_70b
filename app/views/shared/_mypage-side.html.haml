@@ -1,11 +1,13 @@
 .side
   .side-top
     %ul
-      %li マイページ
+      %li 
+        =link_to "マイページ", user_path(current_user.id)
       -# %li お知らせ
       -# %li やることリスト
       -# %li いいね！一覧
-      %li 出品する
+      %li 
+        =link_to "出品する", new_item_path
       %li 
         =link_to "出品した商品 - 出品中", unsold_items_path    
       %li

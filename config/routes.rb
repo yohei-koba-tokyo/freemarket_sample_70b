@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'home#index'
 
   resources :items do
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'unsold'
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       get  'done'=>      'items#done', as: 'done'
+      get 'search'
     end
     member do
       post 'pay'
@@ -30,4 +31,3 @@ Rails.application.routes.draw do
   end
   resources :credits
 end
-

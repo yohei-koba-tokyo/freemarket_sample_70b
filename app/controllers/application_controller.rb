@@ -4,8 +4,22 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:last_name,:first_name,:last_name_kana,:first_name_kana,:brithday,:profile])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,
+                                                       :last_name,
+                                                       :first_name,
+                                                       :last_name_kana,
+                                                       :first_name_kana,
+                                                       :birthday,
+                                                       :profile, 
+                                                       address_attributes: [:postcode,
+                                                                            :prefecture,
+                                                                            :municipality,
+                                                                            :address,
+                                                                            :room_number,
+                                                                            :phone]])
   end
+
+
 
   # 中島作成（全コントローラー実行前に呼び出される処理）
   def delete_session_item_id
@@ -13,8 +27,8 @@ class ApplicationController < ActionController::Base
     session.delete(:item_id) if session[:item_id]
   end
 
-  private
 
+  private
   def production?
     Rails.env.production?
   end
