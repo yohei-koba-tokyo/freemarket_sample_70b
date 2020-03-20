@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find_by(id: params[:id])
+    @item = Item.find(params[:id])
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -49,9 +49,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find_by(id: params[:id])
-    item.update(item_params)
-    redirect_to @current_user
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to @current_user
+    else
+      redirect_to action: 'edit'
+    end
   end
 
   def show
@@ -61,8 +64,11 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
-    redirect_to user_path(current_user)  
+    if item.destroy
+      redirect_to user_path(current_user)
+    else
+      redirect_to action: 'show'
+    end
   end
 
 
