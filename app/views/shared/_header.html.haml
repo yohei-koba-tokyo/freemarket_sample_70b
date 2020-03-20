@@ -15,9 +15,25 @@
   .nav
     %ul.listsLeft
       %li.listsLeft__item.listsLeft__item--first
-        = link_to "カテゴリー", "#"
-      %li.listsLeft__item
-        = link_to "ブランド", "#"
+        = link_to "カテゴリー", root_path
+        %ul.first
+          - @parents.each do |parent|
+            %li.first__parent
+              = link_to subshow_items_path(parent.id) do
+                = parent.name
+              %ul.second
+                - parent.children.each do |child|
+                  %li.second__child
+                    = link_to subshow_items_path(child.id) do
+                      = child.name
+                    %ul.third
+                      - child.children.each do |grandchild|
+                        %li.third__grandchild
+                          = link_to subshow_items_path(grandchild.id) do
+                            = grandchild.name
+
+      -# %li.listsLeft__item
+      -#   = link_to "ブランド", "#"
     - if user_signed_in?
       %ul.listsRight
         %li.listsRight__item.listsRight__item--login
