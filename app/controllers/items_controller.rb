@@ -83,11 +83,13 @@ class ItemsController < ApplicationController
 
   def unsold
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
 
   def soldout
-    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
 
