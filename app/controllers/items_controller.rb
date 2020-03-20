@@ -97,10 +97,10 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @parents = Category.where(ancestry: nil)
     @search_params = params[:keyword]
     @items = Item.search(@search_params).order("created_at DESC")
     @count = @items.count
-    @items
   end
   
   private
