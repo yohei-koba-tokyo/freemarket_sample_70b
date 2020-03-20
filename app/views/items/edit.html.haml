@@ -1,0 +1,118 @@
+.item-header
+  .item-logo
+    = link_to image_tag("logo.png", size: "50x50", alt: "サンプル画像"), root_path
+
+
+.item-new
+  .item-wrapper
+    .sellingitem
+      = form_with model: @item, local: true do |f|
+        .images
+          %label.item-label
+            出品画像
+          %span.item-span 必須
+          %p.item-p
+            最大4枚までアップロードできます
+              
+          #image-box
+            .image-box-wrapper
+              #previews
+                - if @item.persisted?
+                  - @item.itemimages.each_with_index do |image, i|
+                    = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+              #buttons
+                = f.fields_for :itemimages do |image|
+                  .js-file_group{"data-index" => image.index}
+                    = image.file_field :image, class: 'js-file', style: "display:none"
+                    .js-remove#js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  .js-file_group{"data-index" => @item.itemimages.count}
+                    = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file',id: "item_images_attributes_#{@item.itemimages.count}_image"
+                    .js-remove{id: "js-remove#{@item.itemimages.count}"} 削除
+
+        .name
+          %label.item-label
+            商品名
+          %span.item-span 必須
+          .name__inputbox
+            = f.text_field :name, placeholder: "40文字まで"
+        .explanation
+          %label.item-label
+            商品の説明
+          %span.item-span 必須
+          .explanation__inputbox
+            = f.text_area :explanation, placeholder: "商品の説明（必須1,000文字以内）"
+
+        .category
+          %label.item-label
+            カテゴリー
+          %span.item-span 必須
+          .category__inputbox
+            = f.select :category1, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            = f.select :category2, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+            = f.select :category3, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+
+        .brand
+          %label.item-label
+            ブランド
+          %span.item-span.any 任意
+          .brand__inputbox
+            = f.text_field :brand, placeholder: "例）シャネル"
+
+        .condition
+          %label.item-label
+            商品の状態
+          %span.item-span 必須
+          .condition__inputbox
+            = f.select :condition, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], include_blank: "選択してください"
+        
+        .postage
+          %label.item-label
+            配送料の負担
+          %span.item-span 必須
+          .postage__inputbox
+            = f.select :postage, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: "選択してください"
+        
+        .area
+          %label.item-label
+            配送元の地域
+          %span.item-span 必須
+          .area__inputbox
+            = f.select :area, @prefectures, include_blank: "選択してください"
+            
+        .day
+          %label.item-label
+            配送までの日数
+          %span.item-span 必須
+          .day__inputbox
+            = f.select :day, [["１〜２日で発送", "１〜２日で発送"], ["２〜３日で発送", "２〜３日で発送"], ["４〜７日で発送", "４〜７日で発送"]], include_blank: "選択してください"
+
+        .price
+          %label.item-label
+            販売価格
+          %span.item-span 必須
+          .price-input
+            %p
+              価格（￥300〜9,999,999）
+            .price-input__inputbox
+              = f.number_field :price, style: "text-align: right;", placeholder: '0'
+        
+        .submit-btn
+          = f.submit "出品内容を更新する"
+        .back-btn
+          = link_to "もどる", root_path
+          
+      .item-remark
+        %p
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+
+.item-footer
+  .item-footer__link
+    = link_to "プライバシーポリシー"
+    = link_to "FURIMA 利用規約"
+    = link_to "特定商取引に関する表記"
+  .item-footer__logo
+    = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path

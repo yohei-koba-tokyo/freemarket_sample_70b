@@ -99,3 +99,10 @@ gem 'gon'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 
+
+
+gem 'aws-sdk'
+
+# 以下砂賀実装
+gem 'kaminari'
+
