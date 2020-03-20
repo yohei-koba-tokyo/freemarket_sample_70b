@@ -3,8 +3,9 @@
     %h1.icon
       = link_to image_tag("logo.png", width: '140px', height: '40.55px', alt: "サンプル画像"), root_path
     .searchBox
-      = form_with url:root_path do |f|
-        = f.text_field :key, class:"searchBox--input", id:"searchInput", placeholder:"キーワードから探す"
+      = form_with(url: search_items_path, local: true, method: :get, class: "searchBox__keyword-form") do |f|
+        = f.text_field :keyword, value: @search_params, placeholder: " 何かお探しですか？", class: "searchBox__keyword-form"
+        -# = f.text_field :key, class:"searchBox--input", id:"searchInput", placeholder:"キーワードから探す"
         = button_tag type: :submit do
           .searchBox__icon
             = image_tag "icon-search1.png"

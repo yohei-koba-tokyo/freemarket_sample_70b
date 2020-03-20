@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'unsold'
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       get  'done'=>      'items#done', as: 'done'
+      get 'search'
     end
     member do
       post 'pay'

@@ -66,11 +66,11 @@ img {
       .searchBox {
         margin-left: auto;
         width: 100%;
-        form {
+        .searchBox__keyword-form {
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-          .searchBox--input {
+          .searchBox__keyword-form {
             width: calc(100% - 26px);
             height: 36px;
             padding: 0 0 0 5px;

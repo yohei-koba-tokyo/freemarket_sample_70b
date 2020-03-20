@@ -92,6 +92,13 @@ class ItemsController < ApplicationController
     @items = Item.select { |item| item.user_id == current_user.id }
   end
 
+  def search
+    @search_params = params[:keyword]
+    @items = Item.search(@search_params).order("created_at DESC")
+    @count = @items.count
+    @items
+  end
+  
   private
   def item_params
 
