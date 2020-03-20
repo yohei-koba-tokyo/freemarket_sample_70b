@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update]
+  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destr]
   def index
   end
 
@@ -37,7 +37,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @prefectures = prefectures
     @category = Category.find(@item.category_id)
     @category_parent_array = ["選択してください"]
@@ -49,8 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to @current_user
     else
       redirect_to action: 'edit'
@@ -63,8 +61,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.destroy
+    if @item.destroy
       redirect_to user_path(current_user)
     else
       redirect_to action: 'show'
@@ -96,7 +93,6 @@ class ItemsController < ApplicationController
   def unsold
 
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
-    # @unsolditems.order(created_at: :desc) 
     @items = Item.select { |item| item.user_id == current_user.id }
   end
 
