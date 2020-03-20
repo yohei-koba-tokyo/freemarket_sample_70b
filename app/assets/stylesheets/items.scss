@@ -367,9 +367,8 @@ body {
 
 .wrapper {
   width: 100vw;
-  height: auto;
   background-color: #f5f5f5;
-  min-height: 100vh;
+  min-height: auto;
   .header {
     padding: 0 60px;
     background-color: white;
@@ -931,3 +930,95 @@ body {
 }
 
 
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  &__detail{
+    display: flex;
+    justify-content: space-around;
+    &--categories{
+      font-family: "游ゴシック体", YuGothic;
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 36px;
+      white-space: nowrap;
+      .fas{
+        color: rgb(234, 53, 45);
+      }
+    }
+  }
+}
+
+.mains {
+  margin: 0 auto;
+  width: 100%;
+  background: #f8f8f8;
+  min-height: auto;
+  .pickupContainers {
+    font-size: 30px;
+    padding: 80px 0 0 50px;
+  }
+  .productBoxs {
+    font-size: 15px;
+    .productLists {
+      width: 780px;
+      margin: 26px auto;
+      justify-content: space-around;
+      .productList {
+        width: 220px;
+        display: inline-block;
+        float: left;
+        a {
+          background-color: #fff;
+          display: inline-block;
+          text-decoration: none;
+          margin: 0 20px;
+          .productList--image {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            z-index: auto;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          .productList--body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            .details {
+              font-size: 16px;
+            }
+            ul {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+            p {
+              font-size: 10px;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
