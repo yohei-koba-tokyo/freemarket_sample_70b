@@ -973,30 +973,20 @@ body {
 .search-result {
   .search-main {
     .result-box {
-      margin: 0 auto;
-      width: 100%;
-      height: 100%;
       background: #f8f8f8;
-      min-height: auto;
       .title{
         padding: 5px;
       }
       .mains{
+        overflow: auto;
         .pickupContainers{
           padding: 10px 0 0 20px;
-          height: 120vh;
           .productBoxs {
             background: #f8f8f8;
             font-size: 15px;
-            height: 100vh;
             .productLists {
-              // width: 780px;
               margin: 26px auto 0 ;
-              // justify-content: space-around;
               .productList {
-                // width: 220px;
-                // display: inline-block;
-                // float: left;
                 margin: 0 40px 40px 0 ;
                 a {
                   background-color: #fff;
@@ -1008,7 +998,6 @@ body {
                     height: 150px;
                     position: relative;
                     overflow: hidden;
-                    z-index: auto;
                     img {
                       position: absolute;
                       top: 0;
@@ -1016,7 +1005,6 @@ body {
                       right: 0;
                       bottom: 0;
                       width: 220px;
-                      z-index: auto;
                       height: 150px;
                       object-fit: cover;
                     }
