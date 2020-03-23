@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'subshow'
       get 'soldout'
       get 'unsold'
+      get 'afterbuy'
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       get  'done'=>      'items#done', as: 'done'
       get 'search'
