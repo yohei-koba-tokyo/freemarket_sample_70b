@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destr]
+  before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destroy]
   def index
   end
 
