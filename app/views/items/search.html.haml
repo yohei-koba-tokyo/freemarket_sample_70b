@@ -1,24 +1,30 @@
+%header.pcHeader
+  = render "shared/header"
+
 .search-result
   .search-main
-    .search-main__result__box
+    .result__box
       - if @search_params.empty?
-        .search-main__result__box__title
+        .title
           %h3.new 新着一覧
         = render "item-search"
         = paginate(@items)
       - if @search_params.present? && @count == 0
-        .search-main__result__box__title
+        .title
           %h3 
             =@search_params
             を検索した結果、該当する商品が見つかりませんでした。
-        .search-main__result__box__title
+        .title
           %h3.new 新着一覧
         = render "item-search"
       - if @search_params.present? && @count >= 1 
-        .search-main__result__box__title
+        .title
           %h3 
             =@search_params
             の検索結果
-          .search-main__result__box__title__number
-            = "検索結果：#{@count}件"
+          .number
+            = "HIT商品：#{@count}件"
         = render "item-search"
+
+.footer
+  = render "shared/footer" 

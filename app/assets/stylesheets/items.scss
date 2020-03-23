@@ -43,10 +43,6 @@ p.item-p {
   margin-bottom: 16px;
 }
 
-#js-remove0,#js-remove1, #js-remove2, #js-remove3, #js-remove4{
-  display: none;
-}
-
 .item-new {
   background-color: #f5f5f5;
   width: 100%;
@@ -58,69 +54,20 @@ p.item-p {
     padding: 50px 40px 50px 40px;
     .sellingitem {
       form {
-        .images
-          #image-box {
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f5f5f5;
-            .image-box-wrapper {
-              
-              #previews {
-                display: flex;
-                justify-content: space-around;
-                background-color: rgb(215, 243, 241);
-                border: dashed 2px gray;
-                padding: 18px;
-                height: 160px;
-                img {
-                  width: 25%;
-                  height: 125px;
-                  padding: 0 2px 0 2px;
-                }
-              }
-              #buttons {
-                text-align: center;
-                margin-top: 20px;
-                .js-file_group {
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                  background-color: rgb(50, 235, 219);
-                  border-radius: 10px;
-                  box-shadow: 0px 5px rgb(215, 243, 241);
-                  height: 40px;
-                  line-height: 40px;
-                  color: white;
-                  font-weight: bold;
-                }
-                .js-file_group:hover {
-                  cursor: pointer;
-                }
-                .js-file_group:active {
-                  position: relative;
-                  top: 5px;
-                  box-shadow: none;
-                }
-
-
-              
-                .label {
-                  background-color: yellow;
-                  .js-file {
-                    display: none;
-                  }
-                }
-              }
-              
-            }
-            .add-image {
-              text-align: center;
-              margin-top: 15px;
-              .label {
-                .fas {
-                  font-size: 80px;
-                  color: rgb(110, 231, 221);
-                }
+        .images {
+          .pictures {
+            padding-bottom: 40px;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            .upload-place {
+              font-size: 80px;
+              color: rgb(110, 231, 221);
+              .hidden {
+                display: none;
               }
             }
+            
           }
         }
         .name {
@@ -326,7 +273,7 @@ p.item-p {
       }
     }
   }
-
+}
 
 .item-footer {
   width: 100%;
@@ -928,15 +875,6 @@ body {
   line-height: 30px !important;
   font-size: 20px !important;
 }
-button#buy__btn {
-  background-color: red;
-  width: 100%;
-  height: 60px;
-  font-weight: bold;
-  color: white;
-  border-radius: 5px;
-  font-size: 20px;
-}
 
 
 .bottom{
@@ -1024,6 +962,90 @@ button#buy__btn {
             p {
               font-size: 10px;
               text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-result {
+  .search-main {
+    .result-box {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      background: #f8f8f8;
+      min-height: auto;
+      .title{
+        padding: 5px;
+      }
+      .mains{
+        .pickupContainers{
+          padding: 10px 0 0 20px;
+          height: 120vh;
+          .productBoxs {
+            background: #f8f8f8;
+            font-size: 15px;
+            height: 100vh;
+            .productLists {
+              // width: 780px;
+              margin: 26px auto 0 ;
+              // justify-content: space-around;
+              .productList {
+                // width: 220px;
+                // display: inline-block;
+                // float: left;
+                margin: 0 40px 40px 0 ;
+                a {
+                  background-color: #fff;
+                  display: inline-block;
+                  text-decoration: none;
+                  margin: 0 20px;
+                  .productList--image {
+                    width: 220px;
+                    height: 150px;
+                    position: relative;
+                    overflow: hidden;
+                    z-index: auto;
+                    img {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      width: 220px;
+                      z-index: auto;
+                      height: 150px;
+                      object-fit: cover;
+                    }
+                  }
+                  .productList--body {
+                    background-color: white;
+                    color: #333;
+                    padding: 16px;
+                    .name {
+                      overflow: hidden;
+                      line-height: 1.5;
+                      font-size: 16px;
+                      text-align: left;
+                    }
+                    .details {
+                      font-size: 16px;
+                    }
+                      ul {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                      }
+                      p {
+                        font-size: 10px;
+                        text-align: left;
+                      }
+                  }
+                }
+              }
             }
           }
         }

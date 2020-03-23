@@ -122,15 +122,12 @@ class ItemsController < ApplicationController
   end
 
   def unsold
-
-
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
-    @items = Item.select { |item| item.user_id == current_user.id }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
     @parents = Category.where(ancestry: nil)
   end
 
-  
 
   def soldout
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
@@ -142,7 +139,6 @@ class ItemsController < ApplicationController
   def subshow
     @parents = Category.where(ancestry: nil)
     @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
-
   end
 
   
@@ -154,10 +150,10 @@ class ItemsController < ApplicationController
 
 
   def search
+    @parents = Category.where(ancestry: nil)
     @search_params = params[:keyword]
     @items = Item.search(@search_params).order("created_at DESC")
     @count = @items.count
-    @items
   end
   
   private
