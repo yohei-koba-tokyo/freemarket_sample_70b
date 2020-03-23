@@ -33,7 +33,7 @@
           .method__title
             支払い方法
           .method__result
-            .user-info-text
+            .user-info-text  
               - if @credit_information.blank? 
                 = link_to "カード情報を登録", credits_path, class:"user-info-change"
               - else
