@@ -51,7 +51,8 @@
           .place__title
             配送先住所
           .place__result
-            = @address.prefecture
+            -if @address.present? 
+              = @address.prefecture
       .buy-btn
         - if @credit_information.blank?
           %p.no_card ※購入前に、クレジットカードの登録をお願いします
