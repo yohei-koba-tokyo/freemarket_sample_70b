@@ -4,15 +4,25 @@
     
 
   .body
+    - if resource.errors.any?
+      #error_explanation
+        %h2
+          = I18n.t("errors.messages.not_saved",                 |
+            count: resource.errors.count,                       |
+            resource: resource.class.model_name.human.downcase) |
+
     %h1 会員情報入力
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .input-person
         .nickname
           .field
             .title
               %p ニックネーム
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Nicknameを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Nicknameは6文字以内で入力してください")
+                %span= "　6文字以内!"
             .box
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
@@ -22,6 +32,10 @@
             .title
               = f.label :メールアドレス
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Eメールを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Eメールは不正な値です")
+                %span= "　入力不正!"
             .box
               %br/
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
@@ -32,6 +46,13 @@
               .title
                 = f.label :パスワード
                 %p.redicon 必須
+                - if resource.errors.full_messages.include?("パスワードを入力してください")
+                  %span= "　入力必須!"
+                - if resource.errors.full_messages.include?("パスワードは7文字以上で入力してください")
+                  %span= "　７文字以上!"
+                - if resource.errors.full_messages.include?("パスワードは不正な値です")
+                  %span= "　入力不正!"
+
                 - if @minimum_password_length
                   %em
               .box
@@ -63,6 +84,10 @@
             .title
               %p お名前（全角）
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Last nameを入力してください") || resource.errors.full_messages.include?("First nameを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Last nameは不正な値です") || resource.errors.full_messages.include?("First nameは不正な値です")
+                %span= "　入力不正!"
             .character-name
               .first
                 .first--input
@@ -76,6 +101,10 @@
             .title
               %p  お名前かな（全角）
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Last name kanaを入力してください") || resource.errors.full_messages.include?("First name kanaを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Last name kanaは不正な値です") || resource.errors.full_messages.include?("First name kanaは不正な値です")
+                %span= "　入力不正!"
             .kana-name
               .first
                 .first--input
@@ -90,6 +119,8 @@
         .title
           %p 生年月日
           %p.redicon 必須
+          - if resource.errors.full_messages.include?("Birthdayを入力してください")
+            %span= "　入力必須!"
         .selects
           =f.date_field :birthday
         .message
@@ -102,6 +133,10 @@
             %p.redicon 必須
           .postcode
             %p 郵便番号
+            - if resource.errors.full_messages.include?("Address postcodeを入力してください")
+              %span= "　入力必須!"
+            - if resource.errors.full_messages.include?("Address postcodeは不正な値です")
+              %span= "　入力不正!"
             .postcode__number
               = f.fields_for :address do |i| 
                 = i.text_field :postcode
@@ -109,18 +144,24 @@
           .addresses
             .prefecture
               %p 　都道府県
+              - if resource.errors.full_messages.include?("Address prefectureを入力してください")
+                %span= "　入力必須!"
               = f.fields_for :address do |i| 
-                = i.text_field :prefecture
+                %span= i.text_field :prefecture
 
             .municipality
               %p 　市町村
+              - if resource.errors.full_messages.include?("Address municipalityを入力してください")
+                %span= "　入力必須!"
               = f.fields_for :address do |i| 
-                = i.text_field :municipality
+                %span= i.text_field :municipality
 
             .address
               %p 　番地
+              - if resource.errors.full_messages.include?("Address addressを入力してください")
+                %span= "　入力必須!"
               = f.fields_for :address do |i| 
-                = i.text_field :address
+                %span= i.text_field :address
 
             .apartment
               .apartment__title
@@ -135,6 +176,8 @@
             .phone__title
               %p 　電話番号
               %p.grayicon 任意
+              - if resource.errors.full_messages.include?("Address phoneは不正な値です")
+                %span= "　入力不正!"
             .phone__number
               = f.fields_for :address do |i| 
                 = i.text_field :phone
