@@ -99,7 +99,7 @@
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           
         .chat-main
-          = form_for [@comments] do |f|
+          = form_for [@comment] do |f|
             = f.text_field :content, class: 'chat-main', placeholder: '質問・コメントする'
 
         .chat-form
@@ -111,8 +111,7 @@
           .chat-btn
             = f.submit '質問・コメントする', class: 'chat-btn' 
         .chat-box
-          
-            
+
         -#                    ↓ material ↓
         -# = form_for [@group, @message] do |f|
         -# = f.text_field :content, class: 'form__message', placeholder: 'type a message'
