@@ -58,6 +58,8 @@ class ItemsController < ApplicationController
   def show
     @itemimages = @item.itemimages.all
     @category = Category.find(@item.category_id)
+    @parents = Category.where(ancestry: nil)
+
   end
 
   def destroy
@@ -121,8 +123,11 @@ class ItemsController < ApplicationController
 
   def unsold
 
+
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
     @items = Item.select { |item| item.user_id == current_user.id }
+    @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+    @parents = Category.where(ancestry: nil)
   end
 
   
@@ -130,6 +135,7 @@ class ItemsController < ApplicationController
   def soldout
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
+    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
     @parents = Category.where(ancestry: nil)
   end
 
@@ -139,6 +145,13 @@ class ItemsController < ApplicationController
 
   end
 
+  def search
+    @search_params = params[:keyword]
+    @items = Item.search(@search_params).order("created_at DESC")
+    @count = @items.count
+    @items
+  end
+  
   private
   def item_params
 
@@ -165,6 +178,7 @@ class ItemsController < ApplicationController
       category3_id = params.require(:item).permit(:category3)["category3"]
       item_array["category_id"] = category3_id
     end
+
     item_array["status"] = 1
     item_params = item_array
     
