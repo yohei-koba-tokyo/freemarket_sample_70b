@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :category
   has_one :solditem, dependent: :destroy
   has_many :itemimages, inverse_of: :item, dependent: :destroy
-  accepts_nested_attributes_for :itemimages
+  accepts_nested_attributes_for :itemimages, allow_destroy: true
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -20,11 +20,4 @@ class Item < ApplicationRecord
   # item = Item.all.order(created_at: "DESC")
   default_scope -> { order(created_at: :desc)}
   
-  def self.search(search)
-    if search
-      Item.where('name LIKE(?)', "%#{search}%")
-    else
-      Item.all
-    end
-  end
 end

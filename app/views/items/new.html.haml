@@ -13,12 +13,27 @@
           %span.item-span 必須
           %p.item-p
             最大4枚までアップロードできます
-          .pictures
-            = f.fields_for :itemimages do |itemimage|
-              %label.upload-place
-                %i.fa.fa-image
-                = itemimage.file_field :image, class: 'hidden', id:'myfile'
-                
+
+
+
+          #image-box
+            .image-box-wrapper
+              #previews
+                - if @item.persisted?
+                  - @item.itemimages.each_with_index do |image, i|
+                    = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+              #buttons
+                = f.fields_for :itemimages do |image|
+                  .js-file_group{"data-index" => image.index}
+                    = image.file_field :image, class: 'js-file',id: "item_images_attributes_0_image"
+                    .js-remove#js-remove0 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  .js-file_group{"data-index" => @item.itemimages.count}
+                    = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file',id: "item_images_attributes_1_image"
+                    .js-remove#js-remove1 削除
+
         .name
           %label.item-label
             商品名
@@ -100,3 +115,42 @@
     = link_to "特定商取引に関する表記"
   .item-footer__logo
     = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
+
+
+
+
+
+
+
+
+
+
+-# 以下は一旦OKなので残しておく
+-# ---------------------------------
+-#           #image-box
+-#             #previews
+-#               - if @item.persisted?
+-#                 - @item.itemimages.each_with_index do |image, i|
+-#                   = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+-#             = f.fields_for :itemimages do |image|
+-#               .js-file_group{"data-index" => image.index}
+-#                 = image.file_field :image, class: 'js-file'
+-#                 %br
+-#                 %span.js-remove 削除
+-#               - if @item.persisted?
+-#                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+-#             - if @item.persisted?
+-#               .js-file_group{"data-index" => @item.itemimages.count}
+-#                 = file_field_tag :image, name: "item[itemimages_attributes][#{@item.itemimages.count}][image]", class: 'js-file'
+-#                 .js-remove 削除
+-# ---------------------------------
+-# 以下は一旦OKなので残しておく
+-# ---------------------------------
+          -# .image-box
+          -#   .item-num-0#image-box__container
+          -#     = f.fields_for :itemimages do |itemimage|
+          -#       .input-area
+          -#         = itemimage.file_field :image, type: 'file',  value:"", style: "display:none", id:"img-file"
+          -#     %label{for: "img-file"}
+          -#       %i.fas.fa-camera
+-# ---------------------------------
