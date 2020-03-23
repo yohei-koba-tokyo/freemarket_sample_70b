@@ -97,11 +97,11 @@
       .show-chat
         .chat-attention
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        .chat-main
           
+        .chat-main
           = form_for [@comments] do |f|
             = f.text_field :content, class: 'chat-main', placeholder: '質問・コメントする'
-          
+
         .chat-form
           .chat-form__comment
             = f.each do |comment|
