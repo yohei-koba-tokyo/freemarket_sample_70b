@@ -15,6 +15,7 @@
           .slider-nav
             - @itemimages.each do |i|
               = image_tag i.image.url
+
         .contents
           %ul
             %li 
@@ -26,7 +27,7 @@
               .item
                 カテゴリー
               .result-c
-                =link_to @category.parent.parent.name,subshow_items_path
+                =link_to @category.parent.parent.name,"#"
                 %br
                 ＞
                 =link_to @category.parent.name,"#"
