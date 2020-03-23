@@ -75,7 +75,8 @@ class ItemsController < ApplicationController
     @itemimages = @item.itemimages.all
     if @credit.blank?
     else
-      Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+      # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key =Rails.application.credentials[:PAYJP_SECRET_KEY]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@credit.customer_id)
       #カード情報表示のためインスタンス変数に代入
