@@ -91,7 +91,7 @@ class ItemsController < ApplicationController
   end
 
   def unsold
-
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
     @items = Item.select { |item| item.user_id == current_user.id }
   end
@@ -107,6 +107,7 @@ class ItemsController < ApplicationController
   def subshow
     @parents = Category.where(ancestry: nil)
     @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
+  end
 
   def search
     @parents = Category.where(ancestry: nil)
