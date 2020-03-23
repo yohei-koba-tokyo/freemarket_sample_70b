@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
 
   def purchase
     set_credit
-    @address = Address.where(user_id: current_user.id).first
+    @address = Address.find_by(user_id: current_user.id)
     @itemimages = @item.itemimages.all
     if @credit.blank?
     else
@@ -102,7 +102,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    card = Credit.where(user_id: current_user.id).first
+    card = Credit.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     Payjp::Charge.create(
       amount: @item.price,
