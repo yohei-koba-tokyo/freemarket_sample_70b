@@ -3,6 +3,7 @@ class CreditsController < ApplicationController
 
   require "payjp"
   before_action :set_credit
+  before_action :set_parents
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     # credit = Credit.where(user_id: current_user.id).first
@@ -74,5 +75,8 @@ class CreditsController < ApplicationController
 
   def set_credit
     @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
+  end
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 end
