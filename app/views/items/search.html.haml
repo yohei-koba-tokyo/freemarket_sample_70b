@@ -6,7 +6,7 @@
     .result-box
       - if @search_params.empty?
         .title
-          %h3.new 新着一覧
+          -# %h3.new 新着一覧
         = render "item-search"
         = paginate(@items)
       - if @search_params.present? && @count == 0
@@ -15,7 +15,7 @@
             =@search_params
             を検索した結果、該当する商品が見つかりませんでした。
         .title
-          %h3.new 新着一覧
+          -# %h3.new 新着一覧
         = render "item-search"
       - if @search_params.present? && @count >= 1 
         .title
