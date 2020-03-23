@@ -11,9 +11,3 @@
         = image_tag "credit-cards/#{@credit_src}", width: '26', height: '20', alt: @credit_brand, id: "credit_image"
       %input{type: "hidden", name: "credit_id", value: ""}
       = f.submit "削除する", {class: "content__credit-credits__list__remove"}
-      - if flash[:notice]
-        .alert.alert-success
-        = flash[:notice]
-      - if flash[:alert]
-        .alert.alert-dange
-        = flash[:alert]
