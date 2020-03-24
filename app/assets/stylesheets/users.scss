@@ -269,8 +269,9 @@ body {
             height: 120px;
             text-align: center;
               .users-info{
+                font-size: 18px;
                 height: 100px;
-                width: 50px;
+                width: 130px;
                 line-height: 100px;
                 margin: 0 auto;
                 &__name{
@@ -302,22 +303,12 @@ body {
           display: flex;
           .news {
             height: 80px;
-            width: calc(100% / 2);
+            width: 100%;
             background-color: white;
             border: 1px solid #f5f5f5;
             line-height: 80px;
             text-align: center;
             font-weight: bold;
-          }
-          .todo {
-            height: 80px;
-            width: calc(100% / 2);
-            background-color: white;
-            border: 1px solid #f5f5f5;
-            line-height: 80px;
-            text-align: center;
-            font-weight: bold;
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAJ0lEQVQoU2NkIAz+MxJWw8BAkaL/DEgGUGQSilORTUKxAlkV9awDAFi7Awk1UQF9AAAAAElFTkSuQmCC)repeat;
           }
         }
         &__list {
