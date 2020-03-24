@@ -7,20 +7,21 @@
     .productBoxs
       .productLists
         - @items.each do |value|
-          .productList
-            = link_to item_path(value) do
-              .productList--image
-                - value.itemimages.each_with_index do |v|
-                  =image_tag v.image.url
-                  -break if i = 0
-              .productList--body
-                %h3.name
-                  =value.name
-                .detail
-                  %ul
-                    %li
-                      =value.price
-                      円
-                    %li
-                    %i.fa.fa-star.LikeIcon 0
-                  %p (税込)
+          .contents clearfix
+            .productList
+              = link_to item_path(value) do
+                .productList--image
+                  - value.itemimages.each_with_index do |v|
+                    =image_tag v.image.url
+                    -break if i = 0
+                .productList--body
+                  %h3.name
+                    =value.name
+                  .detail
+                    %ul
+                      %li
+                        =value.price
+                        円
+                      %li
+                      %i.fa.fa-star.LikeIcon 0
+                    %p (税込)

@@ -300,7 +300,7 @@ body {
           }
         .contents {
           display: flex;
-          h1 {
+          .news {
             height: 80px;
             width: calc(100% / 2);
             background-color: white;
@@ -309,15 +309,27 @@ body {
             text-align: center;
             font-weight: bold;
           }
+          .todo {
+            height: 80px;
+            width: calc(100% / 2);
+            background-color: white;
+            border: 1px solid #f5f5f5;
+            line-height: 80px;
+            text-align: center;
+            font-weight: bold;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAJ0lEQVQoU2NkIAz+MxJWw8BAkaL/DEgGUGQSilORTUKxAlkV9awDAFi7Awk1UQF9AAAAAElFTkSuQmCC)repeat;
+          }
         }
         &__list {
           height: 400px;
           background-color: white;
           overflow: scroll;
           li {
+            font-size: 15px;
             height: 80px;
             background-color: white;
             border: 1px solid #f5f5f5;
+            padding: 13px 20px 5px;
           }
           li:hover{
             background-color: #f1f1f1;

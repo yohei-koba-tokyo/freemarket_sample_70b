@@ -425,6 +425,32 @@
       }
     }
   }
+
+  .footer{
+    background-color: #272727;
+
+    .user-footer {
+      width: 456px;
+      height: 120px;
+      margin: 0px auto;
+      padding: 40px;
+
+      &__link {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+      &__logo {
+        width: 180px;
+        height: 65px;
+        margin: 30px auto;
+      }
+    }
+  }
 }
 
 p.redicon {
