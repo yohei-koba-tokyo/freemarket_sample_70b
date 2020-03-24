@@ -145,7 +145,7 @@ class ItemsController < ApplicationController
 
   
   def afterbuy
-    @items = Item.select { |item| item.user_id != current_user.id && item.status == 0 }
+    @items = Item.includes(:itemimages).select { |item| item.user_id != current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
@@ -154,7 +154,7 @@ class ItemsController < ApplicationController
   def search
     @parents = Category.where(ancestry: nil)
     @search_params = params[:keyword]
-    @items = Item.search(@search_params).order("created_at DESC")
+    @items = Item.includes([:itemimages]).search(@search_params).order("created_at DESC")
     @count = @items.count
   end
   
