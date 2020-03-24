@@ -31,31 +31,35 @@
           .soldout-title
             =link_to "売却済み", soldout_items_path  
         .list
-          .productLists
-            - @items.each do |value|
-              .productList
-                = link_to item_path(value) do
-                  .productList--image
-                    - value.itemimages.each_with_index do |v|
-                      =image_tag v.image.url
-                      -break if i = 0
-                  .productList--body
-                    %h3.name
-                      =value.name
-                    .detail
-                      %ul
-                        =value.price
-                        円(税込) 
-                        %i.fa.fa-star.LikeIcon 0
-                    .status
-                      .created-at
-                        出品日時：
-                        = value.created_at.to_s(:japanese)
-                      .unsold-icon
-                        出品中
-            -# = paginate(@items)
-
-
+          -if @unsolditems.empty?
+            .icon
+              = image_tag "logo.png"
+            .unsold-text
+              出品中の商品がありません
+          -else
+            .productLists
+              - @items.each do |value|
+                .productList
+                  = link_to item_path(value) do
+                    .productList--image
+                      - value.itemimages.each_with_index do |v|
+                        =image_tag v.image.url
+                        -break if i = 0
+                    .productList--body
+                      %h3.name
+                        =value.name
+                      .detail
+                        %ul
+                          =value.price
+                          円(税込) 
+                          %i.fa.fa-star.LikeIcon 0
+                      .status
+                        .created-at
+                          出品日時：
+                          = value.created_at.to_s(:japanese)
+                        .unsold-icon
+                          出品中
+              -# = paginate(@items)
 
 
 .mypage-footer

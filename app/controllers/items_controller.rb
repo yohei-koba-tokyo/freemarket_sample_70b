@@ -125,16 +125,16 @@ class ItemsController < ApplicationController
 
   def unsold
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
-    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
 
 
   def soldout
+    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) }
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
-    @soldoutitems = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
     @parents = Category.where(ancestry: nil)
   end
 

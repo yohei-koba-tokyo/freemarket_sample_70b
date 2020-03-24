@@ -41,6 +41,15 @@
       height: 400px;
       background-color: white;
       overflow: scroll;
+      .icon {
+        width: 200px;
+        margin: auto;
+        line-height: 200px;
+      }
+      .soldout-text {
+        margin-left: 230px;
+        padding-top: 15px;
+      }
       li {
         height: 80px;
         background-color: white;
