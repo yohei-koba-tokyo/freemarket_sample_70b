@@ -417,7 +417,6 @@ img {
       font-weight: bold;
     }
     .productBox {
-      min-height: 100vh;
       .productHead {
         text-align: center;
         a {
@@ -437,6 +436,7 @@ img {
         .productList {
           width: 220px;
           display: inline-block;
+          float: left;
           a {
             background-color: #fff;
             display: inline-block;
