@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destroy]
+  before_action :set_parent
+
   def index
   end
 
@@ -209,6 +211,10 @@ class ItemsController < ApplicationController
 
   def set_credit
     @credit = Credit.find_by(user_id: current_user.id)
+  end
+
+  def set_parent
+    @parents = Category.where(ancestry: nil)
   end
 
 end
