@@ -13,12 +13,6 @@ class Address < ApplicationRecord
   validates :municipality, presence: true
   validates :address, presence: true
 
-  # validates :phone, absence: true
-  # validates :phone, :numericality => { :allow_blank => true }
-  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
-  # validates :phone, presence: true, format: { with: VALID_PHONE_REGEX }, numericality: true
-
-
-
+  
   # validates :phone, length: {minimum: 11, maximum:11},presence: true
 end
