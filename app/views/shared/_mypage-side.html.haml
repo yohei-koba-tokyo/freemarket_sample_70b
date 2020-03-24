@@ -3,9 +3,7 @@
     %ul
       %li 
         =link_to "マイページ", user_path(current_user.id)
-      -# %li お知らせ
-      -# %li やることリスト
-      -# %li いいね！一覧
+      
       %li 
         =link_to "出品する", new_item_path
       %li 
@@ -14,20 +12,17 @@
         =link_to "出品した商品 - 売却済み", soldout_items_path
       %li 
         =link_to "購入履歴", afterbuy_items_path
-      -# %li ニュース一覧
-      -# %li 評価一覧
-      -# %li ガイド
-      -# %li お問い合わせ
+      
 
   .side-cog
     .side-cog__title
       設定
     .side-cog__contents
       %ul
-        -# %li プロフィール
-        %li 発送元・お届け先住所変更
         %li 
           =link_to "支払い方法", credits_path
-        %li メール/パスワード
-        %li 本人情報
-        -# %li 電話番号
+        %li 
+          =link_to "本人情報編集", "/users/#{current_user.id}/edit"
+        %li
+          =link_to "登録住所変更", "/users/#{current_user.id}/addresses/#{@user_address_id}/edit"
+       
