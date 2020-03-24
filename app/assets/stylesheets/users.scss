@@ -182,11 +182,11 @@ body {
 
   .mypage {
     height: 700px;
-    margin: 40px 200px;
+    margin: 0 200px;
     min-width: 650px;
     .side {
       width: 30%;
-      min-width: 195px;
+      min-width: 160px;
       float: left;
       .side-top {
         height: 300px;
@@ -230,7 +230,7 @@ body {
       //   }
       // }
       .side-cog {
-        height: 420px;
+        height: 300px;
         margin-top: 30px;
         &__title {
           height: 30px;
@@ -256,7 +256,7 @@ body {
       }
     }
     .main {
-      height: 1180px;
+      height: 680px;
       width: 65%;
       float: right;
       .main-left {
@@ -366,45 +366,44 @@ body {
       }
     }
   }
-
-  .footer {
-    padding: 60px 0;
-    color: #fff;
-    background-color: #272727;
-    text-align: center;
-    .contents {
-      max-width: 840px;
-      margin: 0 auto;
-      display: flex;
-      .content {
-        display: flex;
-        flex-direction: column;
-        width: calc(1 / 3 * 100%);
-        margin: 0 2% 0 0;
-        &__head {
-          margin: 0 0 20px;
-          font-size: 16px;
-          font-weight: bold;
-        }
-        li a {
-          color: #fff;
-          text-decoration: none;
-          font-size: 12px;
-          line-height: 32px;
-        }
-      }
-    }
-    &__logo {
-      max-width: 160px;
-      width: 100%;
-      margin: 0 auto;
-    }
-    p {
-      font-size: 14px;
-    }
-  }
 }
 
+.mypage-footer {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  .contents {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &__head {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 32px;
+      }
+    }
+  }
+  &__logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 14px;
+  }
+}
 
 
 .after-buy{
