@@ -56,7 +56,7 @@ Things you may want to cover:
 |municipality|string|null: false|
 |address|string|null: false|
 |room_number|string||
-|phone|integer|null: false|
+|phone|integer||
 |user_id|integer|null: false, foreign_key: true|    /  references
 ### Association
 - belongs_to :user
