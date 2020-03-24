@@ -421,35 +421,7 @@
           height: 50px;
           background-color: #ea352d;
           color: white;
-          text-align: center;
-         
         }
-      }
-    }
-  }
-
-  .footer{
-    background-color: rgb(245, 245, 245);
-
-    .user-footer {
-      width: 456px;
-      height: 120px;
-      margin: 0px auto;
-      padding: 40px;
-
-      &__link {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        a {
-          text-decoration: none;
-          color: black;
-        }
-      }
-      &__logo {
-        width: 180px;
-        height: 65px;
-        margin: 30px auto;
       }
     }
   }
@@ -470,7 +442,7 @@ p.redicon {
 }
 
 
- #error_explanation {
+#error_explanation {
   width: 0px;
   height: 0px;
   h2 {

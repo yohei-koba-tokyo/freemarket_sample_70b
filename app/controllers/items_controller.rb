@@ -147,7 +147,7 @@ class ItemsController < ApplicationController
 
   
   def afterbuy
-    @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @items = Item.select { |item| item.user_id != current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
