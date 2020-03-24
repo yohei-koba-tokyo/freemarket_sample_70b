@@ -102,3 +102,10 @@
   .footer__logo
     = link_to image_tag("logo-white.png", width: '140px', height: '40.55px', alt: "サンプル画像"), root_path
     %p ©︎ FURIMA
+
+
+
+= link_to new_item_path do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    = image_tag "icon_camera.png"
