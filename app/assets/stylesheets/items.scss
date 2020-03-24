@@ -874,9 +874,10 @@ body {
         }
       }
       .buy-btn{
-        height: 200px;
-        width: 100%;
-        padding: 50px 250px;
+        .no_card{
+        margin-top: 70px;
+        margin-left: 160px;
+        }
       }
     }
   }
@@ -887,6 +888,17 @@ body {
   font-size: 20px !important;
 }
 
+button#buy__btn {
+  background-color: red;
+  width: 250px;
+  height: 60px;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-left: 220px;
+  margin-top: 50px;
+}
 
 .bottom{
   display: flex;
@@ -909,6 +921,8 @@ body {
     }
   }
 }
+
+
 
 .search-result {
   .search-main {
@@ -998,5 +1012,28 @@ body {
         }
       }
     }
+  }
+}
+
+
+.purchase-footer{
+  background-color: whitesmoke;
+  width: 456px;
+  height: 100%;
+  margin: 0px auto;
+  padding: 60px 40px 1px 40px;
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  &__logo {
+    width: 180px;
+    height: 65px;
+    margin: 30px auto;
   }
 }
