@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   def create
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
-      
       if item.save
         redirect_to @current_user
       else

@@ -3,6 +3,9 @@
     = link_to image_tag("logo.png", size: "50x50", alt: "サンプル画像"), root_path
 
 
+- if @error0 != nil
+  = 出品できませんでした（画像未選択）。
+  
 .item-new
   .item-wrapper
     .sellingitem
