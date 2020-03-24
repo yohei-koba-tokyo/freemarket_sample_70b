@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destroy]
+  before_action :set_parent
+
   def index
   end
 
@@ -193,12 +195,11 @@ class ItemsController < ApplicationController
 
   def unsold
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
-    @items = Item.select { |item| item.user_id == current_user.id }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
     @parents = Category.where(ancestry: nil)
   end
 
-  
 
   def soldout
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
@@ -210,22 +211,21 @@ class ItemsController < ApplicationController
   def subshow
     @parents = Category.where(ancestry: nil)
     @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
-
   end
 
   
   def afterbuy
-    @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @items = Item.select { |item| item.user_id != current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
 
 
   def search
+    @parents = Category.where(ancestry: nil)
     @search_params = params[:keyword]
     @items = Item.search(@search_params).order("created_at DESC")
     @count = @items.count
-    @items
   end
   
   private
@@ -282,6 +282,10 @@ class ItemsController < ApplicationController
 
   def set_credit
     @credit = Credit.find_by(user_id: current_user.id)
+  end
+
+  def set_parent
+    @parents = Category.where(ancestry: nil)
   end
 
 end

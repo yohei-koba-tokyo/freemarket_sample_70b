@@ -473,15 +473,13 @@
           height: 50px;
           background-color: #ea352d;
           color: white;
-          text-align: center;
-         
         }
       }
     }
   }
 
   .footer{
-    background-color: rgb(245, 245, 245);
+    background-color: black;
 
     .user-footer {
       width: 456px;
@@ -521,6 +519,18 @@ p.redicon {
   font-weight: 600;
 }
 
+
+
+#error_explanation {
+  width: 0px;
+  height: 0px;
+  h2 {
+    color: whitesmoke;
+  }
+  ul {
+    color: whitesmoke;
+  }
+}
 
 p.grayicon {
   border-radius: 2px;
