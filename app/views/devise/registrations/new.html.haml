@@ -127,7 +127,6 @@
             .apartment
               .apartment__title
                 %p 　マンション名
-                %p.grayicon 任意
               .apartment__input
                 = f.fields_for :address do |i| 
                   = i.text_field :room_number, placeholder:" 例）アジアビル" 
@@ -136,7 +135,6 @@
           .phone
             .phone__title
               %p 　電話番号
-              %p.grayicon 任意
             .phone__number
               = f.fields_for :address do |i| 
                 = i.text_field :phone, placeholder:" 例）08012345678"
