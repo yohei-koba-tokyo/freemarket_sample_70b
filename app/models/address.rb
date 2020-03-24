@@ -7,11 +7,18 @@ class Address < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
 
   validates :postcode, presence: true
+  validates :postcode, format: { with: /\A\d{7}\z/ }
+
   validates :prefecture, presence: true
   validates :municipality, presence: true
   validates :address, presence: true
 
-  validates :postcode, format: { with: /\A\d{7}\z/ }
+  # validates :phone, absence: true
+  # validates :phone, :numericality => { :allow_blank => true }
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
-  validates :phone, format: { with: VALID_PHONE_REGEX }
+  # validates :phone, presence: true, format: { with: VALID_PHONE_REGEX }, numericality: true
+
+
+
+  # validates :phone, length: {minimum: 11, maximum:11},presence: true
 end

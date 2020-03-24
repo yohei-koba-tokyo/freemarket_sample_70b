@@ -104,23 +104,25 @@
             %p 郵便番号
             .postcode__number
               = f.fields_for :address do |i| 
-                = i.text_field :postcode
+                = i.text_field :postcode, placeholder:" 例）1234567" 
                 
           .addresses
             .prefecture
-              %p 　都道府県
-              = f.fields_for :address do |i| 
-                = i.text_field :prefecture
-
+              .prefecture__title
+                %p 　都道府県
+              .prefecture__input
+                = f.fields_for :address do |i|
+                  = i.select :prefecture, @prefectures, include_blank: "選択してください"
+                
             .municipality
               %p 　市町村
               = f.fields_for :address do |i| 
-                = i.text_field :municipality
+                = i.text_field :municipality, placeholder:" 例）渋谷区" 
 
             .address
               %p 　番地
               = f.fields_for :address do |i| 
-                = i.text_field :address
+                = i.text_field :address, placeholder:" 例）神南1-18-2" 
 
             .apartment
               .apartment__title
@@ -128,7 +130,7 @@
                 %p.grayicon 任意
               .apartment__input
                 = f.fields_for :address do |i| 
-                  = i.text_field :room_number
+                  = i.text_field :room_number, placeholder:" 例）アジアビル" 
                 
 
           .phone
@@ -137,7 +139,7 @@
               %p.grayicon 任意
             .phone__number
               = f.fields_for :address do |i| 
-                = i.text_field :phone
+                = i.text_field :phone, placeholder:" 例）08012345678"
 
 
       .button
