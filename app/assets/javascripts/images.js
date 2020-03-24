@@ -2,6 +2,7 @@
 $(function() {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
+    console.log(index)
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[itemimages_attributes][${index}][image]"
@@ -10,6 +11,16 @@ $(function() {
                   </div>`;
     return html;
   }
+  // const buildFileField2 = (index)=> {
+    
+  //   const html2 = `<div data-index="${index}" class="js-file_group">
+  //                   <input class="js-file" type="file"
+  //                   name="item[itemimages_attributes][${index}][image]"
+  //                   id="item_images_attributes_${index}_image">
+  //                   <div class="js-remove" id="js-remove${index}">削除</div>
+  //                 </div>`;
+  //   return html2;
+  // }
 
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
@@ -40,7 +51,6 @@ $(function() {
       // fileIndexの先頭の数字を使ってinputを作る
       $('#buttons').append(buildFileField(fileIndex[0]));
       
-      
       if (fileIndex[0] == 1 ) {
         $('#item_images_attributes_0_image').hide();
         $('#js-remove0').show();
@@ -53,6 +63,7 @@ $(function() {
       } else if (fileIndex[0] == 4 ){
         $('#item_images_attributes_3_image').hide();
         $('#item_images_attributes_4_image').hide();
+        // ↑追加ボタン削除
         $('#js-remove3').show();
       }
       
@@ -67,7 +78,6 @@ $(function() {
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
-    console.log(this);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(this).parent().remove();
