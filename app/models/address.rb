@@ -13,6 +13,4 @@ class Address < ApplicationRecord
   validates :municipality, presence: true
   validates :address, presence: true
 
-  
-  # validates :phone, length: {minimum: 11, maximum:11},presence: true
 end
