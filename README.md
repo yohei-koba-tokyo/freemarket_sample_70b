@@ -56,7 +56,7 @@ Things you may want to cover:
 |municipality|string|null: false|
 |address|string|null: false|
 |room_number|string||
-|phone|integer|null: false|
+|phone|integer||
 |user_id|integer|null: false, foreign_key: true|    /  references
 ### Association
 - belongs_to :user
@@ -120,10 +120,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|ancestory|string|※親子関係|
+|ancestory|gem|※親子関係|
 ### Association
 - has_many :items
-- has_ancestry
 <!-- ancestryはジェムの追加をあわせて行う（エラーが出る為） -->
 
 
