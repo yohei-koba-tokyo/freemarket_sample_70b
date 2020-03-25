@@ -1,0 +1,61 @@
+.wrapper
+  .header
+    = render "shared/user-header"
+    
+  .body
+
+    %h1 登録住所変更
+    = form_with(model: @address, local: true, url: "/users/#{current_user.id}/addresses/#{current_user.address.id}") do |f|
+      .input-personal
+        .infomation
+          .title
+            %p 住所
+            %p.redicon 必須
+          .postcode
+            %p 郵便番号
+            .postcode__number
+              = f.text_field :postcode
+                
+          .addresses
+            .prefecture
+              %p 　都道府県
+              = f.text_field :prefecture
+
+            .municipality
+              %p 　市町村
+              = f.text_field :municipality
+
+            .address
+              %p 　番地
+              = f.text_field :address
+
+            .apartment
+              .apartment__title
+                %p 　マンション名
+                %p.grayicon 任意
+              .apartment__input
+                = f.text_field :room_number
+                
+
+          .phone
+            .phone__title
+              %p 　電話番号
+              %p.grayicon 任意
+            .phone__number
+              = f.text_field :phone
+
+
+      .button
+        .contents
+          .contents__message
+          .contents__registration
+            = f.submit '登録する', class: 'contents__registration' 
+
+  .purchase-footer
+    .purchase-footer__link
+      = link_to "プライバシーポリシー"
+      = link_to "FURIMA 利用規約"
+      = link_to "特定商取引に関する表記"
+    .purchase-footer__logo
+      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
+
