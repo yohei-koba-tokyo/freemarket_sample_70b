@@ -116,14 +116,42 @@ class ItemsController < ApplicationController
     if (item_params["price"].to_i < 300 || item_params["price"].to_i > 9999999) && item_params["price"] != ""
       error_price_length = "販売価格は、300円〜9,999,999円で入力してください。"
     end
-    if  item_params["itemimages_attributes"] == nil
-      error_image = "画像がアップロードされていません。"
+
+    
+    if item_params[:itemimages_attributes]["0"] == nil
+      index0 = 9
+    elsif
+      index0 = item_params[:itemimages_attributes]["0"]["_destroy"].to_i
+    end
+    if item_params[:itemimages_attributes]["1"] == nil
+      index1 = 9
+    elsif
+      index1 = item_params[:itemimages_attributes]["1"]["_destroy"].to_i
+    end
+    if item_params[:itemimages_attributes]["2"] == nil
+      index2 = 9
+    elsif
+      index2 = item_params[:itemimages_attributes]["2"]["_destroy"].to_i
+    end
+    if item_params[:itemimages_attributes]["3"] == nil
+      index3 = 9
+    elsif
+      index3 = item_params[:itemimages_attributes]["3"]["_destroy"].to_i
+    end
+    if item_params[:itemimages_attributes]["4"] == nil
+      index4 = 9
+    elsif
+      index4 = item_params[:itemimages_attributes]["4"]["_destroy"].to_i
     end
 
-    if @item.update(item_params)
-      redirect_to @current_user, notice:'出品内容が更新されました。'
+    if (index0 != 9 && index0 == 0) || (index1 != 9 && index1 == 0) || (index2 != 9 && index2 == 0) || (index3 != 9 && index3 == 0) || (index4 != 9 && index4 == 0)
+      if @item.update(item_params)
+        redirect_to @current_user, notice:'出品内容が更新されました。'
+      else
+        redirect_to edit_item_path, notice:"出品内容の更新に失敗しました。#{error_image}#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
+      end
     else
-      redirect_to edit_item_path, notice:"出品内容の更新に失敗しました。#{error_image}#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
+      redirect_to edit_item_path, notice:"出品内容の更新に失敗しました。画像がアップロードされていません。#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
     end
   end
 
