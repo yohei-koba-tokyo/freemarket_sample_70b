@@ -37,6 +37,32 @@
               .apartment__input
                 = f.text_field :room_number
                 
+          .input-names2
+            .names
+              .name1
+                .title
+                  %p 送付先お名前（全角）
+                .character-name
+                  .first
+                    .first--input
+                      .user_first_name
+                        =f.text_field :sendname_first, placeholder:" 例）振間" 
+                  .last
+                    .last--input
+                      .user_last_name
+                        =f.text_field :sendname_last, placeholder:" 例）太郎" 
+              .name2
+                .title
+                  %p  送付先お名前かな（全角）
+                .kana-name
+                  .first
+                    .first--input
+                      .user_first_name_kana                
+                        =f.text_field :sendname_first_kana, placeholder:" 例）ふりま" 
+                  .last
+                    .last--input 
+                      .user_last_name_kana
+                        =f.text_field :sendname_last_kana, placeholder:" 例）たろう" 
 
           .phone
             .phone__title

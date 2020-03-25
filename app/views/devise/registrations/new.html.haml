@@ -25,7 +25,6 @@
             .box1
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
-
         .mailaddress
           .field
             .title
@@ -175,6 +174,44 @@
                 = f.fields_for :address do |i| 
                   = i.text_field :room_number, placeholder:" 例）アジアビル" 
                 
+          .input-names2
+            .names
+              .name1
+                .title
+                  %p 　送付先お名前（全角）
+                  - if resource.errors.full_messages.include?("Address sendname firstを入力してください") || resource.errors.full_messages.include?("Address sendname lastを入力してください")
+                    %span= "　入力必須!"
+                  - if resource.errors.full_messages.include?("Address sendname firstは不正な値です") || resource.errors.full_messages.include?("Address sendname lastは不正な値です")
+                    %span= "　入力不正!"
+                .character-name
+                  .first
+                    .first--input
+                      .user_first_name
+                        = f.fields_for :address do |i|               
+                          =i.text_field :sendname_first, placeholder:" 例）振間" 
+                  .last
+                    .last--input
+                      .user_last_name
+                        = f.fields_for :address do |i|               
+                          =i.text_field :sendname_last, placeholder:" 例）太郎" 
+              .name2
+                .title
+                  %p  　送付先お名前かな（全角）
+                  - if resource.errors.full_messages.include?("Address sendname first kanaを入力してください") || resource.errors.full_messages.include?("Address sendname last kanaを入力してください")
+                    %span= "　入力必須!"
+                  - if resource.errors.full_messages.include?("Address sendname first kanaは不正な値です") || resource.errors.full_messages.include?("Address sendname last kanaは不正な値です")
+                    %span= "　入力不正!"
+                .kana-name
+                  .first
+                    .first--input
+                      .user_first_name_kana
+                        = f.fields_for :address do |i|               
+                          =i.text_field :sendname_first_kana, placeholder:" 例）ふりま" 
+                  .last
+                    .last--input 
+                      .user_last_name_kana
+                        = f.fields_for :address do |i|               
+                          =i.text_field :sendname_last_kana, placeholder:" 例）たろう" 
 
           .phone
             .phone__title
