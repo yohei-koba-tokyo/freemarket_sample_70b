@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
                                                                             :municipality,
                                                                             :address,
                                                                             :room_number,
-                                                                            :phone]])
+                                                                            :phone,
+                                                                            :sendname_first,
+                                                                            :sendname_last,
+                                                                            :sendname_first_kana,
+                                                                            :sendname_last_kana]])
   end
 
 

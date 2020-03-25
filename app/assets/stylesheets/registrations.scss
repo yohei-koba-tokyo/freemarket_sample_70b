@@ -442,6 +442,110 @@
             }
           }
         }
+        .input-names2{
+          margin: 0 auto;
+          justify-content: center;
+          background-color: white;
+    
+          .names{
+            margin: 0 auto;
+            justify-content: center;
+            width: 400px;
+    
+            .name1{
+              .title{
+                display: flex;
+                padding: 5px 0;
+                span {
+                  color: red;
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+              }
+              .character-name{
+                justify-content: space-between;
+                display: flex;
+                margin: 0 24px;
+                .first{
+                  width: 165.5px;
+                  height: 48px;
+                  .first--input{
+                    width: 165.5px;
+                    height: 48px;
+                    .user_first_name input{
+                      padding: 10px 16px 8px;
+                      width: 165.5px;
+                      height: 48px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc
+                    }
+                  }
+                }
+                .last{
+                  width: 165.5px;
+                  height: 48px;
+                  .last--input{
+                    width: 165.5px;
+                    height: 48px;
+                    .user_last_name input{
+                      padding: 10px 16px 8px;
+                      width: 165.5px;
+                      height: 48px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc
+                    }
+                  }
+                }
+              }
+            }
+            .name2{
+              .title{
+                display: flex;
+                padding: 5px 0;
+                span {
+                  color: red;
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+              }
+              .kana-name{
+                justify-content: space-between;
+                display: flex;
+                margin: 0 24px;
+                .first{
+                  width: 165.5px;
+                  height: 48px;
+                  .first--input{
+                    width: 165.5px;
+                    height: 48px;
+                    .user_first_name_kana input{
+                      padding: 10px 16px 8px;
+                      width: 165.5px;
+                      height: 48px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc
+                    }
+                  }
+                }
+                .last{
+                  width: 165.5px;
+                  height: 48px;
+                  .last--input{
+                    width: 165.5px;
+                    height: 48px;
+                    .user_last_name_kana input{
+                      padding: 10px 16px 8px;
+                      width: 165.5px;
+                      height: 48px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         .phone{
           &__title{
             display: flex;
