@@ -35,36 +35,6 @@
           text-decoration: none;
         }
       }
-      // .sns-api {
-      //   background-color: white;
-      //   text-align: center;
-      //   margin: auto;
-      //   border-top: solid 1px #eee;
-      //   padding: 32px 64px;
-      //   text-decoration: none;
-      //   &__facebook-btn a{
-      //     width: 326px;
-      //     height: 48px;
-      //     display: block;
-      //     line-height: 40px;
-      //     background-color: #385185;
-      //     margin-top: 8px;
-      //     color: white;
-      //     border: solid 1px #385185;
-      //     text-decoration: none;
-      //   }
-      //   &__google-btn a{
-      //     width: 326px;
-      //     height: 48px;
-      //     display: block;
-      //     line-height: 40px;
-      //     background-color: white;
-      //     margin-top: 16px;
-      //     border: solid 1px #979797;
-      //     color: black;
-      //     text-decoration: none;
-      //   }
-      // }
       .new-user {
         border-top: solid 1px #eee;
         background-color: white;
@@ -123,7 +93,6 @@
       display: flex;
       justify-content: space-between;
       font-size: 12px;
-      // padding: 0 30px;
       a {
         text-decoration: none;
         color: black;
@@ -135,7 +104,6 @@
       margin: 30px auto;
     }
   }
-
 }
 
 .wrapper {

@@ -45,7 +45,7 @@
                 %br
                 = image_tag "credit-cards/#{@credit_src}", width: '26', height: '20', alt: @credit_brand
             - if @credit_information.present? 
-              = link_to "　変更する", credits_path, class:"user-info-change"
+              = link_to "変更する", credits_path, class:"user-info-change"
       .main-adress
         .place
           .place__title
@@ -54,9 +54,15 @@
             = @address.prefecture
       .buy-btn
         - if @credit_information.blank?
-          %p.no_card ※購入前に、クレジットカードの登録をお願いします
+          .no_card
+            ※購入前に、クレジットカードの登録をお願いします
         - else 
           = form_tag(action: :pay, method: :post) do
             %button{type:"submit", id:"buy__btn"} 購入する(確定)
-  .footer
-    = render "shared/user-footer"
+  .purchase-footer
+    .purchase-footer__link
+      = link_to "プライバシーポリシー"
+      = link_to "FURIMA 利用規約"
+      = link_to "特定商取引に関する表記"
+    .purchase-footer__logo
+      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path

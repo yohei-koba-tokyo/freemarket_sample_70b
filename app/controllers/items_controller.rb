@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay, :edit, :update, :destroy]
+  before_action :set_parent
+
   def index
   end
 
@@ -23,16 +25,49 @@ class ItemsController < ApplicationController
   end
 
   def create
+    if item_params["name"] == ""
+      error_name = "「商品名」が未入力"
+    end
+    if item_params["explanation"] == ""
+      error_explanation = "「商品の説明」が未入力"
+    end
+    if item_params["category_id"] == ""
+      error_category = "「カテゴリー」が未入力"
+    end
+    if item_params["condition"] == ""
+      error_condition = "「商品の状態」が未入力"
+    end
+    if item_params["postage"] == ""
+      error_postage = "「配送料の負担」が未入力"
+    end
+    if item_params["area"] == ""
+      error_area = "「配送元の地域」が未入力"
+    end
+    if item_params["day"] == ""
+      error_day = "「配送までの日数」が未入力"
+    end
+    if item_params["price"] == ""
+      error_price = "「販売価格」が未入力"
+    end
+    if item_params["name"].length > 40
+      error_name_length = "商品名は40文字以内で入力してください。"
+    end
+    if item_params["explanation"].length > 1000
+      error_explanation_length = "商品説明は1000文字以内で入力してください。"
+    end
+    if (item_params["price"].to_i < 300 || item_params["price"].to_i > 9999999) && item_params["price"] != ""
+      error_price_length = "販売価格は、300円〜9,999,999円で入力してください。"
+    end
+    
     if  item_params["itemimages_attributes"] != nil
       item = Item.new(item_params)
-      
       if item.save
-        redirect_to @current_user
+        redirect_to @current_user, notice:'出品に成功しました'
       else
-        redirect_to action: 'new'
+        redirect_to new_item_path, notice:"出品に失敗しました。#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
       end
     else
-      redirect_to action: 'new'
+      redirect_to new_item_path, notice:"出品に失敗しました。画像がアップロードされていません。#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
     end
   end
 
@@ -48,10 +83,47 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if item_params["name"] == ""
+      error_name = "「商品名」が未入力"
+    end
+    if item_params["explanation"] == ""
+      error_explanation = "「商品の説明」が未入力"
+    end
+    if item_params["category_id"] == nil
+      error_category = "「カテゴリー」が未入力"
+    end
+    if item_params["condition"] == ""
+      error_condition = "「商品の状態」が未入力"
+    end
+    if item_params["postage"] == ""
+      error_postage = "「配送料の負担」が未入力"
+    end
+    if item_params["area"] == ""
+      error_area = "「配送元の地域」が未入力"
+    end
+    if item_params["day"] == ""
+      error_day = "「配送までの日数」が未入力"
+    end
+    if item_params["price"] == ""
+      error_price = "「販売価格」が未入力"
+    end
+    if item_params["name"].length > 40
+      error_name_length = "商品名は40文字以内で入力してください。"
+    end
+    if item_params["explanation"].length > 1000
+      error_explanation_length = "商品説明は1000文字以内で入力してください。"
+    end
+    if (item_params["price"].to_i < 300 || item_params["price"].to_i > 9999999) && item_params["price"] != ""
+      error_price_length = "販売価格は、300円〜9,999,999円で入力してください。"
+    end
+    if  item_params["itemimages_attributes"] == nil
+      error_image = "画像がアップロードされていません。"
+    end
+
     if @item.update(item_params)
-      redirect_to @current_user
+      redirect_to @current_user, notice:'出品内容が更新されました。'
     else
-      redirect_to action: 'edit'
+      redirect_to edit_item_path, notice:"出品内容の更新に失敗しました。#{error_image}#{error_name_length}#{error_explanation_length}#{error_price_length}#{error_name}#{error_explanation}#{error_category}#{error_condition}#{error_postage}#{error_area}#{error_day}#{error_price}"
     end
   end
 
@@ -122,15 +194,12 @@ class ItemsController < ApplicationController
   end
 
   def unsold
-
-
     @unsolditems = Item.select { |item| item.user_id == current_user.id && item.status == 1 && Item.all.order(created_at: "DESC") .page(params[:page]).per(5) } 
-    @items = Item.select { |item| item.user_id == current_user.id }
+    @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 1 }
     @parents = Category.where(ancestry: nil)
   end
 
-  
 
   def soldout
     @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
@@ -142,22 +211,21 @@ class ItemsController < ApplicationController
   def subshow
     @parents = Category.where(ancestry: nil)
     @items = Item.select { |item| item.status == 1 && item.category_id == params[:format]}
-
   end
 
   
   def afterbuy
-    @items = Item.select { |item| item.user_id == current_user.id && item.status == 0 }
+    @items = Item.includes(:itemimages).select { |item| item.user_id != current_user.id && item.status == 0 }
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
 
 
   def search
+    @parents = Category.where(ancestry: nil)
     @search_params = params[:keyword]
-    @items = Item.search(@search_params).order("created_at DESC")
+    @items = Item.includes([:itemimages]).search(@search_params).order("created_at DESC")
     @count = @items.count
-    @items
   end
   
   private
@@ -192,6 +260,7 @@ class ItemsController < ApplicationController
     
   end
 
+
   def prefectures
     prefectures = [['北海道','北海道'],['青森県','青森県'],['岩手県','岩手県'],
     ['宮城県','宮城県'],['秋田県','秋田県'],['山形県','山形県'],['福島県','福島県'],
@@ -213,6 +282,10 @@ class ItemsController < ApplicationController
 
   def set_credit
     @credit = Credit.find_by(user_id: current_user.id)
+  end
+
+  def set_parent
+    @parents = Category.where(ancestry: nil)
   end
 
 end

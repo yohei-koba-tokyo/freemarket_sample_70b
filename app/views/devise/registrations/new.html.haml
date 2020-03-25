@@ -4,15 +4,25 @@
     
 
   .body
+    - if resource.errors.any?
+      #error_explanation
+        %h2
+          = I18n.t("errors.messages.not_saved",                 |
+            count: resource.errors.count,                       |
+            resource: resource.class.model_name.human.downcase) |
+
     %h1 会員情報入力
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .input-person
         .nickname
           .field
             .title
               %p ニックネーム
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Nicknameを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Nicknameは6文字以内で入力してください")
+                %span= "　6文字以内!"
             .box
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
@@ -22,6 +32,10 @@
             .title
               = f.label :メールアドレス
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Eメールを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Eメールは不正な値です")
+                %span= "　入力不正!"
             .box
               %br/
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
@@ -32,6 +46,13 @@
               .title
                 = f.label :パスワード
                 %p.redicon 必須
+                - if resource.errors.full_messages.include?("パスワードを入力してください")
+                  %span= "　入力必須!"
+                - if resource.errors.full_messages.include?("パスワードは7文字以上で入力してください")
+                  %span= "　７文字以上!"
+                - if resource.errors.full_messages.include?("パスワードは不正な値です")
+                  %span= "　入力不正!"
+
                 - if @minimum_password_length
                   %em
               .box
@@ -63,6 +84,10 @@
             .title
               %p お名前（全角）
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Last nameを入力してください") || resource.errors.full_messages.include?("First nameを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Last nameは不正な値です") || resource.errors.full_messages.include?("First nameは不正な値です")
+                %span= "　入力不正!"
             .character-name
               .first
                 .first--input
@@ -76,6 +101,10 @@
             .title
               %p  お名前かな（全角）
               %p.redicon 必須
+              - if resource.errors.full_messages.include?("Last name kanaを入力してください") || resource.errors.full_messages.include?("First name kanaを入力してください")
+                %span= "　入力必須!"
+              - if resource.errors.full_messages.include?("Last name kanaは不正な値です") || resource.errors.full_messages.include?("First name kanaは不正な値です")
+                %span= "　入力不正!"
             .kana-name
               .first
                 .first--input
@@ -90,6 +119,8 @@
         .title
           %p 生年月日
           %p.redicon 必須
+          - if resource.errors.full_messages.include?("Birthdayを入力してください")
+            %span= "　入力必須!"
         .selects
           =f.date_field :birthday
         .message
@@ -102,6 +133,10 @@
             %p.redicon 必須
           .postcode
             %p 郵便番号
+            - if resource.errors.full_messages.include?("Address postcodeを入力してください")
+              %span= "　入力必須!"
+            - if resource.errors.full_messages.include?("Address postcodeは不正な値です")
+              %span= "　入力不正!"
             .postcode__number
               = f.fields_for :address do |i| 
                 = i.text_field :postcode, placeholder:" 例）1234567" 
@@ -110,19 +145,27 @@
             .prefecture
               .prefecture__title
                 %p 　都道府県
+                - if resource.errors.full_messages.include?("Address prefectureを入力してください")
+                  %span= "　入力必須!"
               .prefecture__input
                 = f.fields_for :address do |i|
                   = i.select :prefecture, [['北海道','北海道'],['青森県','青森県'],['岩手県','岩手県'],['宮城県','宮城県'],['秋田県','秋田県'],['山形県','山形県'],['福島県','福島県'],['茨城県','茨城県'],['栃木県','栃木県'],['群馬県','群馬県'],['埼玉県','埼玉県'],['千葉県','千葉県'],['東京都','東京都'],['神奈川県','神奈川県'],['新潟県','新潟県'],['富山県','富山県'],['石川県','石川県'],['福井県','福井県'],['山梨県','山梨県'],['長野県','長野県'],['岐阜県','岐阜県'],['静岡県','静岡県'],['愛知県','愛知県'],['三重県','三重県'],['滋賀県','滋賀県'],['京都府','京都府'],['大阪府','大阪府'],['兵庫県','兵庫県'],['奈良県','奈良県'],['和歌山県','和歌山県'],['鳥取県','鳥取県'],['島根県','島根県'],['岡山県','岡山県'],['広島県','広島県'],['山口県','山口県'],['徳島県','徳島県'],['香川県','香川県'],['愛媛県','愛媛県'],['高知県','高知県'],['福岡県','福岡県'],['佐賀県','佐賀県'],['長崎県','長崎県'],['熊本県','熊本県'],['大分県','大分県'],['宮崎県','宮崎県'],['鹿児島県','鹿児島県'],['沖縄県','沖縄県']], include_blank: "選択してください"
-                
+              
             .municipality
               %p 　市町村
+              - if resource.errors.full_messages.include?("Address municipalityを入力してください")
+                %span= "　入力必須!"
               = f.fields_for :address do |i| 
                 = i.text_field :municipality, placeholder:" 例）渋谷区" 
 
+
             .address
               %p 　番地
+              - if resource.errors.full_messages.include?("Address addressを入力してください")
+                %span= "　入力必須!"
               = f.fields_for :address do |i| 
                 = i.text_field :address, placeholder:" 例）神南1-18-2" 
+
 
             .apartment
               .apartment__title
@@ -135,6 +178,8 @@
           .phone
             .phone__title
               %p 　電話番号
+              - if resource.errors.full_messages.include?("Address phoneは不正な値です")
+                %span= "　入力不正!"
             .phone__number
               = f.fields_for :address do |i| 
                 = i.text_field :phone, placeholder:" 例）08012345678"
@@ -147,6 +192,11 @@
           .contents__registration
             = f.submit '登録する', class: 'contents__registration' 
 
-    .footer
-      = render "shared/user-footer"
+  .purchase-footer
+    .purchase-footer__link
+      = link_to "プライバシーポリシー"
+      = link_to "FURIMA 利用規約"
+      = link_to "特定商取引に関する表記"
+    .purchase-footer__logo
+      = link_to image_tag("logo.png", size: "200x50", alt: "サンプル画像"), root_path
 
