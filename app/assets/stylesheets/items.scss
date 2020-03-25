@@ -54,22 +54,69 @@ p.item-p {
     padding: 50px 40px 50px 40px;
     .sellingitem {
       form {
-        .images {
-          .pictures {
-            padding-bottom: 40px;
-            border-bottom: 1px solid #f5f5f5;
-            display: flex;
-            justify-content: space-between;
-            .upload-place {
-              font-size: 80px;
-              color: rgb(110, 231, 221);
-              .hidden {
-                display: none;
+        .images
+          #image-box {
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f5f5f5;
+            .image-box-wrapper {
+              
+              #previews {
+                display: flex;
+                justify-content: space-around;
+                background-color: rgb(215, 243, 241);
+                border: dashed 2px gray;
+                padding: 18px;
+                height: 160px;
+                img {
+                  width: 25%;
+                  height: 125px;
+                  padding: 0 2px 0 2px;
+                }
+              }
+              #buttons {
+                text-align: center;
+                margin-top: 20px;
+                .js-file_group {
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                  border-radius: 10px;
+                  box-shadow: 0px 5px rgb(215, 243, 241);
+                  height: 40px;
+                  line-height: 40px;
+                  color: white;
+                  font-weight: bold;
+                }
+                .js-file_group:hover {
+                  cursor: pointer;
+                }
+                .js-file_group:active {
+                  position: relative;
+                  top: 5px;
+                  box-shadow: none;
+                }
+
+
+              
+                .label {
+                  background-color: yellow;
+                  .js-file {
+                    display: none;
+                  }
+                }
+              }
+              
+            }
+            .add-image {
+              text-align: center;
+              margin-top: 15px;
+              .label {
+                .fas {
+                  font-size: 80px;
+                }
               }
             }
-            
           }
-        }
+
         .name {
           margin-top: 50px;
           margin-bottom: 50px;
@@ -467,7 +514,6 @@ body {
             }
             .slick-list.draggable{
               padding: 0px 0px !important;
-              background-color: palegoldenrod;
               .slick-track{
                 transform: none !important;
               }
@@ -747,7 +793,6 @@ body {
           &__photo{
             height: 100px;
             width: 100px;
-            background-color: powderblue;
           }
           .name-and-price{
             margin: 5px 20px;
@@ -825,9 +870,10 @@ body {
         }
       }
       .buy-btn{
-        height: 200px;
-        width: 100%;
-        padding: 50px 250px;
+        .no_card{
+        margin-top: 70px;
+        margin-left: 160px;
+        }
       }
     }
   }
@@ -838,6 +884,17 @@ body {
   font-size: 20px !important;
 }
 
+button#buy__btn {
+  background-color: red;
+  width: 250px;
+  height: 60px;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-left: 220px;
+  margin-top: 50px;
+}
 
 .bottom{
   display: flex;
@@ -860,6 +917,8 @@ body {
     }
   }
 }
+
+
 
 .search-result {
   .search-main {
@@ -949,5 +1008,28 @@ body {
         }
       }
     }
+  }
+}
+
+
+.purchase-footer{
+  background-color: whitesmoke;
+  width: 456px;
+  height: 100%;
+  margin: 0px auto;
+  padding: 60px 40px 1px 40px;
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  &__logo {
+    width: 180px;
+    height: 65px;
+    margin: 30px auto;
   }
 }

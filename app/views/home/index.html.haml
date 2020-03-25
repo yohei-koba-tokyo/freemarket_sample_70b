@@ -141,7 +141,13 @@
   = render "shared/footer"
 
 
-= link_to new_item_path do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = image_tag "icon_camera.png"
+- if user_signed_in?
+  = link_to new_item_path do
+    .purchaseBtn
+      %span.purchaseBtn__text 出品する
+      = image_tag "icon_camera.png"
+- else
+  = link_to new_user_session_path do
+    .purchaseBtn
+      %span.purchaseBtn__text 出品する
+      = image_tag "icon_camera.png"

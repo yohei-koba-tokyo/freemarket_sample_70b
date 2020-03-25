@@ -4,7 +4,6 @@
 
   .header{
     background-color: rgb(245, 245, 245);
-
     .user-header {
       height: 128px;
       margin: 0 auto;
@@ -37,6 +36,11 @@
       font-weight: bold;
     }
 
+    #error_explanation {
+      text-align: center;
+      background-color: pink;
+    }
+
     .input-person{
       margin: 0 auto;
       background-color: white;
@@ -51,6 +55,11 @@
           .title{
             display: flex;
             padding-top: 10px;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .box{
             height: 60px;
@@ -76,6 +85,11 @@
           width: 100%;
           .title{
             display: flex;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .box{
             height: 60px;
@@ -99,6 +113,11 @@
         .field{
           .title{
             display: flex;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .box{
             height: 60px;
@@ -182,6 +201,11 @@
           .title{
             display: flex;
             padding: 5px 0;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .character-name{
             justify-content: space-between;
@@ -223,6 +247,11 @@
           .title{
             display: flex;
             padding: 5px 0;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .kana-name{
             justify-content: space-between;
@@ -277,7 +306,11 @@
         margin: 0 auto;
         width: 400px;
         padding: 5px 0;
-
+        span {
+          color: red;
+          font-weight: bold;
+          font-size: 14px;
+        }
       }
       .selects{
         margin-left: 175px;
@@ -285,7 +318,7 @@
         height: 50px;
       input{
         padding: 10px 16px 8px;
-        width: 165.5px;
+        width: 187px;
         height: 48px;
         border-radius: 4px;
         border: 1px solid #ccc
@@ -314,15 +347,21 @@
         .title{
           display: flex;
           padding: 5px 0;
+          
         }
         .postcode{
           margin: 0 24px;
+          span {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+          }
           .postcode__number{
             padding: 5px 0;
           }
           .postcode__number input{
             padding: 10px 16px 8px;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             display: flex;
             border-radius: 4px;
@@ -330,20 +369,33 @@
           }
         }
         .addresses{
-          .prefecture input{
-            padding: 10px 16px 8px;
-            margin: 3px 24px;
-            display: flex;
-            width: 165.5px;
-            height: 48px;
-            border-radius: 4px;
-            border: 1px solid #ccc
+
+          .prefecture{
+            .prefecture__input{
+              margin: 3px 24px;
+              display: flex;
+              height: 48px;
+              border-radius: 4px;
+              select{
+                width: 187px;
+                background-color: white;
+                border: 1px solid #ccc;
+              }
+            }
+
+          span {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+          }
+            
+
           }
           .municipality input{
             padding: 10px 16px 8px;
             margin: 3px 24px;
             display: flex;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             border-radius: 4px;
             border: 1px solid #ccc
@@ -352,7 +404,7 @@
             padding: 10px 16px 8px;
             margin: 3px 24px;
             display: flex;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             border-radius: 4px;
             border: 1px solid #ccc
@@ -368,7 +420,7 @@
               display: flex;
               margin: 0 24px;
               display: flex;
-              width: 165.5px;
+              width: 187px;
               height: 48px;
               border-radius: 4px;
               border: 1px solid #ccc
@@ -379,6 +431,11 @@
           &__title{
             display: flex;
             padding: 3px 0;
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           &__number{
             display: flex;
@@ -386,7 +443,7 @@
             input{
               padding: 10px 16px 8px;
               display: flex;
-              width: 165.5px;
+              width: 187px;
               height: 48px;
               border-radius: 4px;
               border: 1px solid #ccc
@@ -427,7 +484,7 @@
   }
 
   .footer{
-    background-color: #272727;
+    background-color: black;
 
     .user-footer {
       width: 456px;
@@ -468,7 +525,8 @@ p.redicon {
 }
 
 
-#error_explanation {
+
+ #error_explanation {
   width: 0px;
   height: 0px;
   h2 {
@@ -477,17 +535,5 @@ p.redicon {
   ul {
     color: whitesmoke;
   }
-}
-p.grayicon {
-  border-radius: 2px;
-  background-color: #CECACA;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 8px;
-  padding-right: 2px;
-  padding-left: 2px;
-  color: white;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
+
 }
