@@ -10,7 +10,7 @@
             .title
               %p ニックネーム
               %p.redicon 必須
-            .box
+            .box1
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
 
@@ -19,7 +19,7 @@
             .title
               = f.label :メールアドレス
               %p.redicon 必須
-            .box
+            .box1
               %br/
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
 
@@ -31,7 +31,7 @@
                 %p.redicon 必須
                 - if @minimum_password_length
                   %em
-              .box
+              .box1
                 %br/
                 = f.password_field :password, autocomplete: "new-password", placeholder:" 7文字以上の半角英数字"
 
@@ -43,7 +43,7 @@
             .title
               = f.label :パスワード確認
               %p.redicon 必須
-            .box
+            .box1
               %br/
               = f.password_field :password_confirmation, autocomplete: "new-password"
 

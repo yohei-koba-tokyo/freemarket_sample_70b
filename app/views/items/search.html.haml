@@ -5,9 +5,8 @@
   .search-main
     .result-box
       - if @search_params.empty?
-        .title
-        = render "item-search"
-        = paginate(@items)
+        .niltitle
+          キーワードを入力して、再度検索をしてください
       - if @search_params.present? && @count == 0
         .title
           .head
