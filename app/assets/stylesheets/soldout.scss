@@ -73,8 +73,12 @@
           display: flex;
           color: black;
           .productList--image{
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 120px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
           }
           .productList--body{
             padding-left: 30px;
