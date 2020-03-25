@@ -60,7 +60,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # 以下砂賀実装
   gem 'rubocop', require: false
-  gem 'bullet'
 end
 
 group :test do
