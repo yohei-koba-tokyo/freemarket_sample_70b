@@ -22,7 +22,7 @@
                 %span= "　入力必須!"
               - if resource.errors.full_messages.include?("Nicknameは6文字以内で入力してください")
                 %span= "　6文字以内!"
-            .box
+            .box1
               %br/
               = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:" 6文字以下の任意"
 
@@ -37,7 +37,7 @@
                 %span= "　入力不正!"
               - if resource.errors.full_messages.include?("Eメールはすでに存在します")
                 %span= "　すでに存在します。"
-            .box
+            .box1
               %br/
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
 
@@ -56,7 +56,7 @@
 
                 - if @minimum_password_length
                   %em
-              .box
+              .box1
                 %br/
                 = f.password_field :password, autocomplete: "new-password", placeholder:" 7文字以上の半角英数字"
 
@@ -68,7 +68,7 @@
             .title
               = f.label :パスワード確認
               %p.redicon 必須
-            .box
+            .box1
               %br/
               = f.password_field :password_confirmation, autocomplete: "new-password"
 
