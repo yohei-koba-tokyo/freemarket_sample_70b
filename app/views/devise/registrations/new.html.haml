@@ -112,7 +112,7 @@
                 %p 　都道府県
               .prefecture__input
                 = f.fields_for :address do |i|
-                  = i.select :prefecture, @prefectures, include_blank: "選択してください"
+                  = i.select :prefecture, ["a","b"], include_blank: "選択してください"
                 
             .municipality
               %p 　市町村
