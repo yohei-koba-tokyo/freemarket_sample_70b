@@ -15,11 +15,6 @@
               .users-info__name
                 = current_user.nickname
             .sub-info
-              .assessment
-                .assessment__title
-                  評価
-                .assessment__num
-                  未実装
               .exhibit
                 .exhibit__title
                   出品数
@@ -31,28 +26,34 @@
           .soldout-titles
             =link_to "売却済み", soldout_items_path  
         .list
-          .productLists
-            - @items.each do |value|
-              .productList
-                = link_to item_path(value) do
-                  .productList--image
-                    - value.itemimages.each_with_index do |v|
-                      =image_tag v.image.url
-                      -break if i = 0
-                  .productList--body
-                    %h3.name
-                      =value.name
-                    .detail
-                      %ul
-                        =value.price
-                        円(税込) 
-                        %i.fa.fa-star.LikeIcon 0
-                    .status
-                      .created-at
-                        出品日時：
-                        = value.created_at.to_s(:japanese)
-                      .soldout-icon
-                        売却済み
+          -if @soldoutitems.empty?
+            .icon
+              = image_tag "logo.png"
+            .soldout-text
+              売却済みの商品がありません
+          -else
+            .productLists
+              - @items.each do |value|
+                .productList
+                  = link_to item_path(value) do
+                    .productList--image
+                      - value.itemimages.each_with_index do |v|
+                        =image_tag v.image.url
+                        -break if i = 0
+                    .productList--body
+                      %h3.name
+                        =value.name
+                      .detail
+                        %ul
+                          =value.price
+                          円(税込) 
+                          %i.fa.fa-star.LikeIcon 0
+                      .status
+                        .created-at
+                          出品日時：
+                          = value.created_at.to_s(:japanese)
+                        .soldout-icon
+                          売却済み
 
 .mypage-footer
   %ul.contents
