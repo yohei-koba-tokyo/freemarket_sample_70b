@@ -57,6 +57,10 @@ Things you may want to cover:
 |address|string|null: false|
 |room_number|string||
 |phone|integer||
+|sendname_last|string|null: false|
+|sendname_first|string|null: false|
+|sendname_last_kana|string|null: false|
+|sendname_first_kana|string|null: false|
 |user_id|integer|null: false, foreign_key: true|    /  references
 ### Association
 - belongs_to :user
