@@ -380,6 +380,7 @@
                 width: 187px;
                 background-color: white;
                 border: 1px solid #ccc;
+                height: 100%;
               }
             }
 
@@ -400,6 +401,13 @@
             border-radius: 4px;
             border: 1px solid #ccc
           }
+          .municipality {
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
+          }
           .address input{
             padding: 10px 16px 8px;
             margin: 3px 24px;
@@ -408,6 +416,13 @@
             height: 48px;
             border-radius: 4px;
             border: 1px solid #ccc
+          }
+          .address {
+            span {
+              color: red;
+              font-weight: bold;
+              font-size: 14px;
+            }
           }
           .apartment{
             &__title{
@@ -524,16 +539,3 @@ p.redicon {
   font-weight: 600;
 }
 
-
-
- #error_explanation {
-  width: 0px;
-  height: 0px;
-  h2 {
-    color: whitesmoke;
-  }
-  ul {
-    color: whitesmoke;
-  }
-
-}

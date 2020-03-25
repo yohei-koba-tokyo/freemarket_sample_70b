@@ -10,7 +10,6 @@
           = I18n.t("errors.messages.not_saved",                 |
             count: resource.errors.count,                       |
             resource: resource.class.model_name.human.downcase) |
-
     %h1 会員情報入力
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       .input-person
@@ -36,6 +35,8 @@
                 %span= "　入力必須!"
               - if resource.errors.full_messages.include?("Eメールは不正な値です")
                 %span= "　入力不正!"
+              - if resource.errors.full_messages.include?("Eメールはすでに存在します")
+                %span= "　すでに存在します。"
             .box
               %br/
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) free@market.jp"
