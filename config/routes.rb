@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :solditems
   resources :comments
   resources :likes
-  # resources :users
   resources :users do
     resources :addresses
   end
