@@ -5,6 +5,7 @@
   .show
     .show-main
       .main-title
+        .main-title__box
         .main-title__title
           = @item.name
       .main-details
@@ -95,20 +96,7 @@
       .comment
         %b 
         = @item.explanation
-      .space
-      .show-chat
-        .chat-attention
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        .chat-main
-          
-        .chat-form
-          %b 
-            = simple_format(h(""))
+  .box
 
-        .chat-btn
-          コメントする
-
-        .chat-box
-    
 .footer
   = render "shared/footer"
