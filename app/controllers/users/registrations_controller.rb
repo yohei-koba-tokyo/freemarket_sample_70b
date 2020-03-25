@@ -9,11 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
     @user = User.new
     @address = @user.build_address
-    @prefectures =prefectures
+    @prefectures = prefectures
   end
 
   # POST /resource
   def create
+
     super
 
   end
