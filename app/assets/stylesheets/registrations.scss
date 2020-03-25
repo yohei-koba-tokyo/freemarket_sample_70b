@@ -4,7 +4,6 @@
 
   .header{
     background-color: rgb(245, 245, 245);
-
     .user-header {
       height: 128px;
       margin: 0 auto;
@@ -319,7 +318,7 @@
         height: 50px;
       input{
         padding: 10px 16px 8px;
-        width: 165.5px;
+        width: 187px;
         height: 48px;
         border-radius: 4px;
         border: 1px solid #ccc
@@ -362,7 +361,7 @@
           }
           .postcode__number input{
             padding: 10px 16px 8px;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             display: flex;
             border-radius: 4px;
@@ -370,27 +369,33 @@
           }
         }
         .addresses{
+
+          .prefecture{
+            .prefecture__input{
+              margin: 3px 24px;
+              display: flex;
+              height: 48px;
+              border-radius: 4px;
+              select{
+                width: 187px;
+                background-color: white;
+                border: 1px solid #ccc;
+              }
+            }
+
           span {
             color: red;
             font-weight: bold;
             font-size: 14px;
           }
-          .prefecture input{
-            padding: 10px 16px 8px;
-            margin: 3px 24px;
-            display: flex;
-            width: 165.5px;
-            height: 48px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
             
-            
+
           }
           .municipality input{
             padding: 10px 16px 8px;
             margin: 3px 24px;
             display: flex;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             border-radius: 4px;
             border: 1px solid #ccc
@@ -399,7 +404,7 @@
             padding: 10px 16px 8px;
             margin: 3px 24px;
             display: flex;
-            width: 165.5px;
+            width: 187px;
             height: 48px;
             border-radius: 4px;
             border: 1px solid #ccc
@@ -415,7 +420,7 @@
               display: flex;
               margin: 0 24px;
               display: flex;
-              width: 165.5px;
+              width: 187px;
               height: 48px;
               border-radius: 4px;
               border: 1px solid #ccc
@@ -438,7 +443,7 @@
             input{
               padding: 10px 16px 8px;
               display: flex;
-              width: 165.5px;
+              width: 187px;
               height: 48px;
               border-radius: 4px;
               border: 1px solid #ccc
@@ -519,16 +524,16 @@ p.redicon {
   font-weight: 600;
 }
 
-p.grayicon {
-  border-radius: 2px;
-  background-color: #CECACA;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 8px;
-  padding-right: 2px;
-  padding-left: 2px;
-  color: white;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
+
+
+ #error_explanation {
+  width: 0px;
+  height: 0px;
+  h2 {
+    color: whitesmoke;
+  }
+  ul {
+    color: whitesmoke;
+  }
+
 }

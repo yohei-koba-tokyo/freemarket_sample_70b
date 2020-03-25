@@ -14,11 +14,6 @@
               .users-info__name
                 = current_user.nickname
             .sub-info
-              .assessment
-                .assessment__title
-                  評価
-                .assessment__num
-                  未実装
               .exhibit
                 .exhibit__title
                   出品数
@@ -28,29 +23,34 @@
           .after-buy
             購入履歴
         .list
-          .productLists
-            - @items.each do |value|
-              .productList
-                = link_to item_path(value) do
-                  .productList--image
-                    - value.itemimages.each_with_index do |v|
-                      =image_tag v.image.url
-                      -break if i = 0
-                  .productList--body
-                    %h3.name
-                      =value.name
-                    .detail
-                      %ul
-                        =value.price
-                        円(税込) 
-                        %i.fa.fa-star.LikeIcon 0
-                    .status
-                      .created-at
-                        出品日時：
-                        = value.created_at.to_s(:japanese)
-                      .afterbuy-icon
-                        購入済み
-            -# = paginate(@items)
+          -if @items.empty?
+            .icon
+              = image_tag "logo.png"
+            .afterbuy-text
+              購入履歴がありません
+          -else
+            .productLists
+              - @items.each do |value|
+                .productList
+                  = link_to item_path(value) do
+                    .productList--image
+                      - value.itemimages.each_with_index do |v|
+                        =image_tag v.image.url
+                        -break if i = 0
+                    .productList--body
+                      %h3.name
+                        =value.name
+                      .detail
+                        %ul
+                          =value.price
+                          円(税込) 
+                          %i.fa.fa-star.LikeIcon 0
+                      .status
+                        .updated-at
+                          購入日時：
+                          = value.updated_at.to_s(:japanese)
+                        .afterbuy-icon
+                          購入済み
 
 
 .mypage-footer

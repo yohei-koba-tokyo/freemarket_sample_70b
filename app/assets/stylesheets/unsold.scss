@@ -41,6 +41,15 @@
       height: 400px;
       background-color: white;
       overflow: scroll;
+      .icon {
+        width: 200px;
+        margin: auto;
+        line-height: 200px;
+      }
+      .unsold-text {
+        margin-left: 238px;
+        padding-top: 15px;
+      }
       li {
         height: 80px;
         background-color: white;
@@ -74,6 +83,9 @@
             .status{
               // display: flex;
               .created-at{
+                font-size: smaller;
+              }
+              .updated-at{
                 font-size: smaller;
               }
               .afterbuy-icon{
