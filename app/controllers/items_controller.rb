@@ -145,7 +145,14 @@ class ItemsController < ApplicationController
 
   
   def afterbuy
-    @items = Item.select { |item| item.id == solditem.item_id && solditem.user_id == current_user.id }
+    items = Solditem.where(user_id: current_user.id)
+
+    item_ids = []
+    items.each do |i|
+      item_ids << i.item_id
+    end
+
+    @items = Item.where(id: item_ids)
     @itemsnum = Item.select { |item| item.user_id == current_user.id }
     @parents = Category.where(ancestry: nil)
   end
