@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'home#index'
   resources :items do
-    resources :itemimages
-    resources :categories
+    resources :categories, only: [:index]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -19,7 +18,6 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
-  # resources :solditems
   resources :users do
     resources :addresses, only: [:index, :edit, :update]
   end
