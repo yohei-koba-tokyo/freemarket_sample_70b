@@ -24,5 +24,4 @@
         %li 
           =link_to "本人情報編集", "/users/#{current_user.id}/edit"
         %li
-          =link_to "登録住所変更", "/users/#{current_user.id}/addresses/#{@user_address_id}/edit"
-       
+          =link_to "登録住所変更", "/users/#{current_user.id}/addresses/#{current_user.address.id}/edit"
