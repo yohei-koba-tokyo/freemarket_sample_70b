@@ -204,18 +204,21 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    card = Credit.find_by(user_id: current_user.id)
-    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
-    Payjp::Charge.create(
-      amount: @item.price,
-      customer: card.customer_id,
-      currency: 'jpy'
-    )
-    @item.update( status: 0)
-    solditem = Solditem.new( item_id: params[:id], user_id: current_user.id )
-    solditem.save
-
-    redirect_to done_items_path(@item)
+    if @item.status == 1
+      card = Credit.find_by(user_id: current_user.id)
+      Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: card.customer_id,
+        currency: 'jpy'
+      )
+      @item.update( status: 0)
+      solditem = Solditem.new( item_id: params[:id], user_id: current_user.id )
+      solditem.save
+      redirect_to done_items_path(@item)
+    else
+      redirect_to item_path(@item), notice: "申し訳ありません！たった今、売り切れてしまいました"
+    end
   end
 
   def done
