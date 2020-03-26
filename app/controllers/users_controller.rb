@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @user_address_id = current_user.address.id
   end
 
-  def destroy
-  end
-
   def edit
   end
 

@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
-  resources :users, only: [:show, :destroy, :edit, :update] do
-    resources :addresses, only: [:index, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :addresses, only: [:edit, :update]
   end
   resources :credits, only: [:new, :index, :destroy, :create]
 end
