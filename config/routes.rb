@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'home#index'
-
   resources :items do
-
-    
     resources :itemimages
     resources :categories
     collection do
@@ -21,13 +18,10 @@ Rails.application.routes.draw do
     member do
       post 'pay'
     end
-      
   end
-  resources :solditems
-  resources :comments
-  resources :likes
+  # resources :solditems
   resources :users do
-    resources :addresses
+    resources :addresses, only: [:index, :edit, :update]
   end
-  resources :credits
+  resources :credits, only: [:new, :index, :destroy, :create]
 end
