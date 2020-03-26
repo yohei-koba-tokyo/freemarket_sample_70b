@@ -24,24 +24,16 @@ class ApplicationController < ActionController::Base
                                                                             :sendname_last_kana]])
   end
 
-
-
-  # 中島作成（全コントローラー実行前に呼び出される処理）
   def delete_session_item_id
-    # セッションに商品IDが設定されていた場合、セッションから商品IDを削除する
     session.delete(:item_id) if session[:item_id]
   end
-
-
   private
   def production?
     Rails.env.production?
   end
-
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
-      # username == Rails.application.credentials[:BASIC_AUTH_USER] && password == Rails.application.credentials[:BASIC_AUTH_PASSWORD]
     end
   end
 end

@@ -1,6 +1,4 @@
 class AddressesController < ApplicationController
-  def index
-  end
 
   def edit
     @address = Address.find_by(id:params[:id])

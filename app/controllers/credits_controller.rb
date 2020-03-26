@@ -6,13 +6,11 @@ class CreditsController < ApplicationController
   before_action :set_parents
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    # credit = Credit.where(user_id: current_user.id).first
     redirect_to action: "index" if current_user.credit.present?
   end
 
   def index #CardのデータをPayjpに送って情報を取り出す
     if @credit.present?
-      # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
       Payjp.api_key =Rails.application.credentials[:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(@credit.customer_id)
       @credit_information = customer.cards.retrieve(@credit.card_id)
@@ -36,7 +34,6 @@ class CreditsController < ApplicationController
   end
 
   def destroy #PayjpとCardのデータベースを削除
-    # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
     Payjp.api_key =Rails.application.credentials[:PAYJP_SECRET_KEY]
     customer = Payjp::Customer.retrieve(@credit.customer_id)
     customer.delete
@@ -46,10 +43,8 @@ class CreditsController < ApplicationController
       redirect_to action: "index", alert: "削除できませんでした"
     end
   end
- # indexアクションはここでは省略
 
   def create #Payjpとcreditのデータベースを作成
-    # Payjp.api_key =ENV['PAYJP_SECRET_KEY']
     Payjp.api_key =Rails.application.credentials[:PAYJP_SECRET_KEY]
     # テスト用の秘密鍵を入れてあります
     if params['payjp-token'].blank?
@@ -60,7 +55,7 @@ class CreditsController < ApplicationController
         description: 'test', # 無くてもOK。PAY.JPの顧客情報に表示する概要です。
         email: current_user.email,
         card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-        metadata: {user_id: current_user.id} # 無くてもOK。
+        metadata: {user_id: current_user.id}
       )
       @credit = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @credit.save

@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'home#index'
-
   resources :items do
-
-    
-    resources :itemimages
-    resources :categories
+    resources :categories, only: [:index]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -21,13 +17,9 @@ Rails.application.routes.draw do
     member do
       post 'pay'
     end
-      
   end
-  resources :solditems
-  resources :comments
-  resources :likes
-  resources :users do
-    resources :addresses
+  resources :users, only: [:show, :edit, :update] do
+    resources :addresses, only: [:edit, :update]
   end
-  resources :credits
+  resources :credits, only: [:new, :index, :destroy, :create]
 end
