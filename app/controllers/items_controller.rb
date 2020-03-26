@@ -211,11 +211,14 @@ class ItemsController < ApplicationController
       customer: card.customer_id,
       currency: 'jpy'
     )
-    @item.update( status: 0)
-    solditem = Solditem.new( item_id: params[:id], user_id: current_user.id )
-    solditem.save
-
-    redirect_to done_items_path(@item)
+    if @item.status == 1
+      @item.update( status: 0)
+      solditem = Solditem.new( item_id: params[:id], user_id: current_user.id )
+      solditem.save
+      redirect_to done_items_path(@item)
+    else
+      redirect_to item_path(@item), notice: "申し訳ありません！たった今、売り切れてしまいました"
+    end
   end
 
   def done
